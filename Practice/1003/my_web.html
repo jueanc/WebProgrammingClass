@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juan's Personal Webpage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar（在當頁加 active） -->
+  <ul class="theme">
+    <li><a class="active" href="my_web.html">Home</a></li>
+    <li><a href="News.html">News</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+    <li><a href="Schedule.html">Schedule</a></li>
+    <li><a href="About.html">About</a></li>
+  </ul>
+
+  <div class="profile">
+    <!-- 左側個人卡片 -->
+    <aside class="left">
+      <!-- 圖片路徑依你的實際資料夾調整：Photo 與本檔同層就用 Photo/... -->
+      <img src="/Photo/MemeMan.png" alt="Portrait of Juan" />
+      <div class="name">Juan</div>
+
+      <p class="meta"><b>Email</b>: <a href="mailto:t111590041@ntut.org.tw">t111590041@ntut.org.tw</a></p>
+      <p class="meta" id="MLB">
+        <b>Web</b>:
+        <a href="https://mlb.com" target="_blank" rel="noopener noreferrer">mlb.com</a>
+      </p>
+    </aside>
+
+    <!-- 右側內容 -->
+    <main class="right">
+      <h1 id="intro">Personal Introduction</h1>
+      <p>
+        Hola ¿Cómo estás? <br />
+        This is a simple profile page created with <span style="color:Tomato;">basic HTML</span>.
+      </p>
+
+      <h2>Recent Publications</h2>
+
+      <h2 id="C3">About me</h2>
+      <p>
+        Hi, I'm a <strong>NTUT</strong> student, and I'm majoring in
+        <em><ins>computer science</ins></em>.
+      </p>
+
+      <h2 id="C4" style="font-weight: bold;">My Hobbies</h2>
+      <ul>
+        <li>Baseball (favorite player: <mark>Darvish Yu</mark>)</li>
+        <li>Independent music (favorite band: <mark>Fire EX.</mark>)</li>
+      </ul>
+        <img src="/Photo/FireEX1.jpg" alt="Photo of FireEX" title="Photo of FireEX"  width="300">
+
+      <hr />
+
+      <h2 id="C5" style="font-weight: bold;">Favorite Link</h2>
+      <p>
+        <a href="https://zh.wikipedia.org/zh-tw/%E9%81%94%E6%AF%94%E4%BF%AE%E6%9C%89" target="_blank" rel="noopener noreferrer">Who is Darvish?</a><br />
+        <a href="https://zh.wikipedia.org/zh-tw/%E6%BB%85%E7%81%AB%E5%99%A8%E6%A8%82%E5%9C%98" target="_blank" rel="noopener noreferrer">About Fire EX.</a><br />
+        <a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">Visit W3Schools.com!</a>
+      </p>
+
+      <hr />
+      <h2 style="font-weight: bold;">Thanks 4 visiting!</h2>
+    </main>
+  </div>
+
+</body>
+</html>

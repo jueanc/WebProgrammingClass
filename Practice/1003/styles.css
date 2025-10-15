@@ -1,0 +1,90 @@
+/* ====== Base / Reset ====== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #111;
+  line-height: 1.6;
+}
+a { color: darkblue; text-decoration: none; }
+a:hover { color: tomato; text-decoration: underline; }
+strong { color: #fff; background: darkred; padding: 0 .25em; border-radius: 3px; }
+em { background: yellow; }
+mark { color: rgb(29, 8, 221); background: rgb(0, 255, 149); }
+hr { border: none; border-top: 1px solid #e5e5e5; margin: 18px 0; }
+
+/* ====== Navbar ====== */
+.theme {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(20, 158, 1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.theme li a {
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  padding: 13px 18px;
+  color: #fff;
+  transition: 0.25s;
+  cursor: pointer;
+  font-weight: 600;
+}
+.theme li a:hover { background-color: green; }
+.theme li a.active {
+  background-color: #000;
+  text-decoration: underline wavy red;
+}
+
+/* ====== Layout ====== */
+.profile {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+}
+.left {
+  width: 240px;            /* 固定側欄寬度 */
+  min-width: 240px;
+  text-align: center;
+  background: floralwhite;
+  overflow-wrap: break-word;
+  padding: 16px 12px;
+  border-right: 1px solid #eee;
+}
+.right { flex: 1; min-width: 0; }
+
+/* ====== Left card ====== */
+.left img {
+  width: 70%;
+  height: auto;
+  margin: 13px auto;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+.left .name {
+  color: cadetblue;
+  font-size: 30px;
+  margin: 6px 0 10px;
+  font-weight: 700;
+}
+.left .meta { line-height: 1.5; }
+
+/* ====== Right content ====== */
+.right h1 {
+  color: cadetblue;
+  font-size: 40px;
+  margin: 0.4em 0 0.2em;
+}
+.right h2 { margin: 1.1em 0 0.3em; }
+.right p, .right li { line-height: 1.7; }
+
+/* ====== Utility ====== */
+.hide-text { text-indent: -9999px; overflow: hidden; display: inline-block; }

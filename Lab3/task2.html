@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 - Image Map</title>
+  <style>
+    body {
+      background-color: #f2f6fc;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+    }
+
+    area {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Task 2: Image Map Example</h2>
+
+  <img src="/Photo/Soto.png" width="300" height="300" usemap="#faceMap" alt="Soto Photo">
+
+  <map name="faceMap">
+    <area shape="poly"
+          coords="115,90, 185,90, 210,135, 210,190, 150,210, 100,185, 100,135"
+          href="https://www.mlb.com/player/juan-soto-665742" 
+          alt="Face region"
+          title="Click my face to open a page">
+  </map>
+</body>
+</html>

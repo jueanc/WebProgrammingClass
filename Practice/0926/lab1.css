@@ -1,0 +1,56 @@
+img {
+    width: 300px;
+    border-radius: 15px;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+    line-height: 1.6;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  strong {
+    color: white;
+    background-color: darkred;
+  }
+
+  em {
+    color: black;
+    background-color: yellow;
+  }
+
+  mark {
+    color: rgb(29, 8, 221);
+    background-color: rgb(0, 255, 149);
+  }
+
+  h2 {
+    font-family: Verdana, sans-serif;
+  }
+
+  a:link{
+    color: tomato;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: red;
+    background-color: yellow;
+    text-decoration: underline;
+    font-size: 200%;
+  }
+
+  a:active{
+    color: tomato;
+    background-color: aqua;
+    text-decoration: underline;
+  }  
+  
+  a:visited{
+    color: purple;
+    text-decoration: none;
+    font-size: 200%;
+  }

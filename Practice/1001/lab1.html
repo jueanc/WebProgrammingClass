@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Lab1</title>
+  <style>
+    img {
+     width: 500px; border-radius: 5px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 20px;
+      line-height: 1.6;
+      color: #000;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    strong {
+      color: white;
+      background-color: darkred;
+    }
+
+    em {
+      color: black;
+      background-color: yellow;
+    }
+
+    mark {
+      color: rgb(29, 8, 221);
+      background-color: rgb(0, 255, 149);
+    }
+
+    h2 {
+      font-family: Verdana, sans-serif;
+    }
+
+    a {
+      color: darkblue;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: tomato;
+      text-decoration: underline;
+    }
+
+    ul.navbar{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      background-color:rgb(20, 158, 1);
+    }
+
+    ul.naver li{
+      flex : 1;
+    }
+
+    ul.navbar li a {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+      color: white;
+      border-bottom: 2px wavy white;
+      transition: 0.3s;
+    }
+
+    ul.navbar li a:hover {
+      background-color: green; 
+    }
+
+    ul.navbar li a.active {
+      background-color: black;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <ul class="navbar">
+    <li><a class="active" href="#C1">Juan's Personal Web</a></li>
+    <li><a href="#C2">My photo</a></li>
+    <li><a href="#C3">About me</a></li>
+    <li><a href="#C4">My hobbies</a></li>
+  </ul>
+
+  <h1 id="C1">Juan's Personal Web</h1>
+  <p>Hola ¿Cómo estás? <br>
+    This is a simple profile page created with <span style="color:Tomato;">basic HTML</span>.
+  </p>
+
+  <hr>
+  <h2 id="C2">My photo</h2>
+  <img src="/Photo/MemeMan.png" alt="Photo of Juan" title="Photo of Juan" style="width: 300px; border-radius: 30px;"  >
+
+  <hr>
+  <h2 id="C3">About me</h2>
+  <p>Hi, I'm a <strong>NTUT</strong> student, and I'm majoring in <em><ins>computer science and imformation</ins></em>.</p>
+
+
+  <hr>
+  <h2 id="C4">My hobbies</h2>
+  <ul>
+    <li>Baseball (favorite player: <mark>Darvish Yu</mark>)</li>
+    <li>Independent music (favorite band: <mark>Fire EX.</mark>)</li>
+  </ul>
+  <img src="/Photo/FireEX1.jpg" alt="Photo of FireEX" title="Photo of FireEX" >
+
+  <hr>
+  <h2 id="C5">Favorite Link</h2>
+  <a href="https://zh.wikipedia.org/zh-tw/%E9%81%94%E6%AF%94%E4%BF%AE%E6%9C%89" target="_blank">Who is Darvish?</a><br>
+  <a href="https://zh.wikipedia.org/zh-tw/%E6%BB%85%E7%81%AB%E5%99%A8%E6%A8%82%E5%9C%98" target="_blank">About Fire EX.</a><br>
+  <a href="https://www.w3schools.com/" target="_blank">Visit W3Schools.com!</a>
+
+  <hr>
+  <footer>
+    <p>Thanks 4 visiting! </p>
+  </footer>
+
+
+</body>
+</html>
