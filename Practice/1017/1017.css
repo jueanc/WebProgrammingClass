@@ -1,34 +1,42 @@
-img {
-    width: 300px;
-    border-radius: 0px;
+  .original img{
+    width:300px;
+    border:2px solid #121212;
+    display:block;
   }
-  
 
-.original img {
-    filter: none;
-    border: 2px solid #121212;
-}
-  
-.oldPic img {
-    filter:  blur(20) sepia(0.6) contrast(0.9) brightness(1.1) saturate(0.8);
-    border: 2px solid #121212;
-}
+  .oldPic{
+    position:relative;
+    display:inline-block;
+    border:2px solid #121212;
+    overflow:hidden;
+  }
 
-.oldPic:hover {
-    filter: blur(8px);
-}
-.oldPic.text{
-    color: #035874;
-    font-size: 20px;
-    position: relative;
-    top: 90%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-    transition: 1.9s ease;
-}
+  .oldPic img{
+    width:300px;
+    filter: blur(0px) sepia(0.6) contrast(0.9) brightness(1.1) saturate(0.8);
+    transition: filter 3s linear, transform 6s ease;
+  }
+
+  .oldPic:hover img{
+    filter: blur(8px) sepia(0.6) contrast(0.9) brightness(1.1) saturate(0.8);
+    transform: scale(1.03);
+  }
+
+
+
+  .oldPic .text{
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    color:#035874;
+    font-size:20px;
+    opacity:0;
+    transition:.8s ease;
+    pointer-events:none; /* 讓滑鼠事件穿透，不影響 hover */
+  }
+
+  .oldPic:hover .text{ opacity:1; }
+
 
 
 
@@ -65,7 +73,12 @@ img {
   
   
 
-  .task2 { width: 70%; }
+  .task2 { 
+    width: 70%; 
+      margin: auto;
+  border-collapse: collapse;
+    text-align: center;
+  }
   .task2 th {
     background: #535353;
     color: #fff;
@@ -81,17 +94,40 @@ img {
   .task2 tr:nth-child(n+2):nth-child(odd)  td { background: #666565; }
 
 
-  .task3 { width: 70%; }
-  .task3 th {
-    background: #535353;
-    color: #fff;
-    font-weight: 600;
-  }
-  .task3 td:first-child {
-    background: rgb(70, 69, 69);
-    color: #fff;
-    font-weight: 600;
-  }
-  /* 柔和斑馬紋（從資料列開始） */
-  .task3 tr:nth-child(n+2):nth-child(even) td { background: #b1b1b1; }
-  .task3 tr:nth-child(n+2):nth-child(odd)  td { background: #666565; }
+  
+.task3 {
+  width: 70%;
+  margin: auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.task3 th, .task3 td {
+  border: 1px solid #333;
+  padding: 25px;
+}
+
+/* 表頭樣式 */
+.task3 th {
+  background: #641c1c;
+  color: #fff;
+  font-weight: 800;
+}
+
+/* 第一欄 */
+.task3 td:first-child, .task3 th:first-child {
+  background: rgb(102, 0, 0);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 奇偶行底色 */
+.task3 tr:nth-child(n+2):nth-child(even) th,
+.task3 tr:nth-child(n+2):nth-child(even) td {
+  background: #b1b1b1;
+}
+
+.task3 tr:nth-child(n+2):nth-child(odd) th,
+.task3 tr:nth-child(n+2):nth-child(odd) td {
+  background: #666565;
+}
