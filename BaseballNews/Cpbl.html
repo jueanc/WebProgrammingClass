@@ -11,13 +11,13 @@
   <meta property="og:site_name" content="SportNow" />
   <meta property="og:title" content="【重磅消息】江坤宇加盟洛杉磯道奇　攜手大谷翔平打造「亞洲邪惡帝國」" />
   <meta property="og:description" content="道奇完成買斷，台灣金手套游擊手江坤宇確定叩關大聯盟。" />
-  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:image" content="../Photo/cute.jpg" />
   <meta property="og:locale" content="zh_TW" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="【重磅消息】江坤宇加盟洛杉磯道奇" />
   <meta name="twitter:description" content="道奇完成買斷，台灣金手套游擊手江坤宇確定叩關大聯盟。" />
-  <meta name="twitter:image" content="images/cover.jpg" />
+  <meta name="twitter:image" content="../Photo/cute.jpg" />
   <style>
     :root{
       --dodger:#005A9C; /* Dodger Blue */
@@ -88,7 +88,9 @@
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .card{background:var(--card);border:1px solid #eef1f6;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
     .card img{width:100%;aspect-ratio:3/2;object-fit:cover}
-    .card a{display:block;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600}
+    .card{background:var(--card);border:1px solid #eef1f6;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:block;text-decoration:none;color:inherit;transition:transform .15s ease, box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(11,18,32,.12)}
+    .card .title{display:block;padding:10px 12px;font-weight:600}
     footer{color:#94a0b8;font-size:12px;text-align:center;margin:30px 0}
     @media (max-width:820px){.cards{grid-template-columns:1fr 1fr}}
     @media (max-width:560px){.cards{grid-template-columns:1fr}}
@@ -103,7 +105,7 @@
   <main class="container">
     <div class="headline">
       <span class="kicker">MLB／Breaking</span>
-      <h1>【重磅消息】中職最強游擊手江坤宇正式加盟洛杉磯道奇　攜手大谷翔平打造「亞洲邪惡帝國」🔥</h1>
+      <h1>【重磅消息】中職最強游擊手江坤宇正式加盟洛杉磯道奇　攜手大谷翔平打造「亞洲邪惡帝國」</h1>
       <div class="sub">Dodgers finalize buyout with CTBC Brothers; Taiwanese SS to don Dodger Blue.</div>
     </div>
 
@@ -116,8 +118,7 @@
     </div>
 
     <figure class="hero">
-      <!-- TODO: 換成你的主圖路徑，例如 images/jiang.jpg -->
-      <img src="Photo/cute.jpg" alt="江坤宇披上道奇藍戰袍想像圖" />
+      <img src="../Photo/cute.jpg" alt="江坤宇披上道奇藍戰袍想像圖" />
       <figcaption class="caption">世界12強棒球賽複賽對美國隊，中華隊江坤宇清壘安打貢獻3分打點。</figcaption>
     </figure>
 
@@ -136,7 +137,7 @@
         <div class="infobox">
           <h4>簽約重點</h4>
           <ul>
-            <li>合約型態：買斷C P B L 合約，轉戰MLB（示意文字，可自由更改）。</li>
+            <li>合約型態：買斷 CPBL 合約，轉戰MLB（示意文字，可自由更改）。</li>
             <li>預計報到：明年春訓。</li>
             <li>定位展望：中線防區深度＋守備升級。</li>
           </ul>
@@ -162,18 +163,10 @@
     <section class="related">
       <h3>你可能也想看</h3>
       <div class="cards">
-        <div class="card">
-          <img src="images/rel1.jpg" alt="道奇春訓示意圖">
-          <a href="#">道奇春訓名單預測：中線競爭白熱化</a>
-        </div>
-        <div class="card">
-          <img src="images/rel2.jpg" alt="WBC經典賽回顧">
-          <a href="#">WBC回顧：江坤宇關鍵守備 Top 5 精華</a>
-        </div>
-        <div class="card">
-          <img src="images/rel3.jpg" alt="亞洲球星拼圖">
-          <a href="#">大谷、山本、佐佐木、金慧成：道奇的亞洲拼圖</a>
-        </div>
+        <a href="mlb.html" class="card">
+          <img src="../Photo/bojung.jpg" alt="洋基隊王柏融新聞封面">
+          <span class="title">【震撼消息】洋基隊有意買斷王柏融合約！「洋基大王」有望首度登上美職殿堂</span>
+        </a>
       </div>
     </section>
 
@@ -223,7 +216,7 @@
     "dateModified": "2025-10-18",
     "author": {"@type":"Organization","name":"SportNow 編輯部"},
     "publisher": {"@type":"Organization","name":"SportNow","logo":{"@type":"ImageObject","url":"images/logo.png"}},
-    "image": ["images/cover.jpg"]
+    "image": ["../Photo/cute.jpg"]
   }
   </script>
 </body>
