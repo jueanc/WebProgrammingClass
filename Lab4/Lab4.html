@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Control</title>
+  <link rel="stylesheet" href="Lab4.css">
+
+</head>
+<body>
+  <h1>Score</h1>
+
+  <table id="scoreTable">
+    <tr>
+      <th>Math</th>
+      <th>English</th>
+      <th>Programming</th>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>60</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>86</td>
+      <td>98</td>
+    </tr>
+  </table>
+
+  <h3>Change The Table Width</h3>
+  <button onclick="changeWidth('200px')">200px</button>
+  <button onclick="changeWidth('500px')">500px</button>
+
+  <h3>Change The Border and the Spacing Width</h3>
+  <button onclick="changeBorder(1)">1px</button>
+  <button onclick="changeBorder(10)">10px</button>
+  <button onclick="changeBorder(20)">20px</button>
+
+  <h3>Change The Table Color</h3>
+  <button style="background-color:#c4f0c4;" onclick="changeColor('#c4f0c4')">   #c4f0c4  </button>
+  <button style="background-color:#c4e3f0;" onclick="changeColor('#c4e3f0')">   #c4e3f0  </button>
+  <button style="background-color:#d6c4f0;" onclick="changeColor('#d6c4f0')">   #d6c4f0  </button>
+  <button style="background-color:#f0d4b4;" onclick="changeColor('#f0d4b4')">   #f0d4b4  </button>
+
+  <br><br>
+  <button onclick="resetTable()">Reset</button>
+
+  <script>
+    const table = document.getElementById('scoreTable');
+    const defaultStyle = {
+      width: table.style.width,
+      borderSpacing: '2px',
+      backgroundColor: '#ffffcc',
+      border: '2px solid #555'
+    };
+
+    function changeWidth(w) {
+      table.style.width = w;
+    }
+
+    function changeBorder(size) {
+      table.style.borderSpacing = size + 'px';
+    table.style.border = size + 'px solid #555';
+      table, th, td .style.border = size + 'px solid #555';
+
+    }
+
+    function changeColor(color) {
+      table.style.backgroundColor = color;
+    }
+
+    function resetTable() {
+      table.style.width = defaultStyle.width;
+      table.style.borderSpacing = defaultStyle.borderSpacing;
+      table.style.backgroundColor = defaultStyle.backgroundColor;
+      table.style.border = defaultStyle.border;
+    }
+  </script>
+
+
+<h1>Polaroid-Style Image Switcher</h1>
+
+<div class="polaroid-wrap">
+  <div class="polaroid">
+    <img id="polaImg" src="../Photo/PaulBear.png" alt="Picture of Today" width="300">
+    <div class="caption" id="polaCap">Pictures of Today</div>
+  </div>
+
+  <div class="pola-controls">
+    <button class="pbtn" id="prevBtn" aria-label="Previous">◀ Prev</button>
+    <button class="pbtn" id="nextBtn" aria-label="Next">Next ▶</button>
+  </div>
+
+  <div class="thumbs">
+    <button class="chip" data-idx="0" title="Photo 1"></button>
+    <button class="chip" data-idx="1" title="Photo 2"></button>
+    <button class="chip" data-idx="2" title="Photo 3"></button>
+    <button class="chip" data-idx="3" title="Photo 4"></button>
+  </div>
+</div>
+
+<script>
+
+    const images = [
+      { src: '../Photo/PaulBear.png'},
+      { src: '../Photo/PaulBasket.png'},
+      { src: '../Photo/PaulOhtani.png'},
+      { src: '../Photo/PaulHiphop.png'}
+    ];
+  
+    let idx = 0;
+    const imgEl = document.getElementById('polaImg');
+    const capEl = document.getElementById('polaCap');
+  
+    function render(i){
+      idx = (i + images.length) % images.length;
+      imgEl.src = images[idx].src;
+      imgEl.alt = images[idx].cap;
+      capEl.textContent = images[idx].cap;
+    }
+  
+    document.getElementById('prevBtn').onclick = () => render(idx - 1);
+    document.getElementById('nextBtn').onclick = () => render(idx + 1);
+  
+    document.querySelectorAll('.chip').forEach(ch => {
+      ch.addEventListener('click', e => {
+        const to = parseInt(e.currentTarget.dataset.idx, 10) || 0;
+        render(to);
+      });
+    });
+  
+    render(0);
+  </script>
+  
+
+</body>
+</html>

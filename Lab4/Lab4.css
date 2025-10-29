@@ -1,0 +1,69 @@
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+    background-color: #ffffcc;
+    text-align: center;
+    width: 300px;
+    border: 2px solid #555;
+  }
+th {
+    background-color: teal;
+    color: white;
+    padding: 10px;
+  }
+td {
+    padding: 8px;
+  }
+button, input[type="color"] {
+    margin: 4px;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+
+
+
+
+
+  /* —— Polaroid —— */
+.polaroid-wrap{
+    display:flex; flex-direction:column; align-items:center; gap:12px;
+    margin: 24px 0;
+  }
+  .polaroid{
+    width: min(90vw, 320px);
+    background:#fff;
+    padding:16px 16px 36px; 
+    border: 16px#333 ;          
+    border-radius: 6px;
+  }
+  .polaroid img{
+    width:100%; height:auto; display:block; border-radius:4px;
+  }
+  .caption{
+    margin-top:10px; text-align:center; font-weight:600; letter-spacing:.3px;
+    color:#333;
+  }
+  .pola-controls{ display:flex; gap:8px; justify-content:center; }
+  .pbtn{
+    border:none; padding:8px 14px; border-radius:10px; cursor:pointer;
+    transition: transform .08s ease, filter .15s ease, opacity .15s ease;
+    background: #00ccff;
+  }
+  .pbtn:hover{ filter:brightness(0.95); }
+  .pbtn:active{ transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.15); }
+  
+  .thumbs{ display:flex; gap:10px; justify-content:center; }
+  .chip{
+    width:28px; height:22px; border:none; border-radius:6px; cursor:pointer;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
+  }
+  .chip:nth-child(1){ background:#c4e3f0; }
+  .chip:nth-child(2){ background:#d6c4f0; }
+  .chip:nth-child(3){ background:#f0d4b4; }
+
+  body{ display:flex; flex-direction:column; align-items:flex-start; margin:20px; }
+  h1{ margin:18px 0 8px; }
+  
+  

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>九九乘法表開關</title>
+<style>
+  body {
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC,"PingFang TC","Microsoft JhengHei",sans-serif;
+    text-align: center;
+
+  }
+  table {
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  td {
+    border: 1px solid #333;
+    padding: 6px 10px;
+    background: #fff;
+  }
+  button {
+    padding: 8px 16px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<button id="toggleTable">顯示九九乘法表</button>
+<div id="tableContainer"></div>
+
+<script>
+  const btn = document.getElementById("toggleTable");
+  const container = document.getElementById("tableContainer");
+  let isShown = false; // 狀態記錄：目前是否顯示中
+
+  btn.addEventListener("click", () => {
+    if (!isShown) {
+      // 生成九九乘法表
+      let html = "<table>";
+      for (let i = 1; i <= 9; i++) {
+        html += "<tr>";
+        for (let j = 2; j <= 9; j++) {
+          html += `<td>${j} × ${i} = ${j * i}</td>`;
+        }
+        html += "</tr>";
+      }
+      html += "</table>";
+      container.innerHTML = html;
+      btn.textContent = "關閉九九乘法表";
+      isShown = true;
+    } else {
+      // 關閉表格
+      container.innerHTML = "";
+      btn.textContent = "顯示九九乘法表";
+      isShown = false;
+    }
+  });
+</script>
+
+</body>
+</html>

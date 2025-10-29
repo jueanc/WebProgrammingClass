@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Random Paul Generator</title>
+<style>
+  body{
+    font-family: system-ui,-apple-system, Segoe UI, Roboto, Noto Sans TC,"PingFang TC","Microsoft JhengHei",sans-serif;
+    background: linear-gradient(180deg,#f4f7fb 0%,#ac4f4f 100%);
+    text-align:center;
+    padding-top:40px;
+  }
+  img{
+
+    height: 500px;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.3);
+  }
+  button{
+    margin-top:20px;
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    background:#333;
+    color:white;
+    cursor:pointer;
+    transition:0.2s;
+  }
+  button:hover{
+    background:#555;
+  }
+</style>
+</head>
+<body>
+
+  <img id="paul" src="../Photo/Paul.png" alt="Paul">
+  <br>
+  <button id="randomBtn">🎲 隨機換角色</button>
+
+  <script>
+    const paulImg = document.getElementById('paul');
+    const btn = document.getElementById('randomBtn');
+
+    // 把所有角色放進陣列
+    const characters = [
+      "../Photo/Paul.png",
+      "../Photo/PaulHipHop.png",
+      "../Photo/PaulOhtani.png",
+      "../../Photo/PaulSuit.png"   // 可以自己再加更多
+    ];
+
+    btn.addEventListener('click', () => {
+      let randomIndex = Math.floor(Math.random() * characters.length);
+      // 確保不重複（如果想避免點下去又出現同張）
+      while (characters[randomIndex] === paulImg.src.split('/').pop()) {
+        randomIndex = Math.floor(Math.random() * characters.length);
+      }
+      paulImg.src = characters[randomIndex];
+    });
+  </script>
+
+</body>
+</html>
