@@ -1,0 +1,273 @@
+/* ====== Base / Reset ====== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #111;
+  line-height: 1.6;
+}
+a { color: darkblue; text-decoration: none; }
+a:hover { color: tomato; text-decoration: underline; }
+strong { color: #fff; background: darkred; padding: 0 .25em; border-radius: 3px; }
+em { background: yellow; }
+mark { color: #000; background: rgba(126, 126, 126, 0.589); }
+hr { border: none; border-top: 1px solid #e5e5e5; margin: 18px 0; }
+
+/* ====== Navbar ====== */
+/* 白底 + 黑字 + hover 底線 + active 字色 */
+.theme {
+  list-style: none;
+  margin: 0;
+  padding: 8px 12px;
+  display: flex;
+  gap: 28px;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06); /* 最新的陰影 */
+}
+
+.theme li { position: relative; }
+
+.theme li a {
+  display: block;
+  padding: 14px 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1111117e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* hover：出現底線 */
+.theme li a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: #111;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.theme li a:hover::after { transform: scaleX(1); }
+
+/* active：字體改顏色 */
+.theme li a.active,
+.theme li a[aria-current="page"] { color: #080808; }
+.theme li a.active::after,
+.theme li a[aria-current="page"]::after {
+  transform: scaleX(1);
+  background: #080808af;
+}
+
+/* focus 狀態可見 */
+.theme li a:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+
+/* ====== Layout ====== */
+.profile { display: flex; align-items: flex-start; justify-content: flex-start; gap: 30px; padding: 20px; }
+.left {
+  width: 240px;
+  min-width: 240px;
+  min-height: 800px;
+  text-align: center;
+  background: rgb(228, 226, 226);
+  overflow-wrap: break-word;
+  padding: 16px 12px;
+  border-right: 1px solid #eee;
+}
+.right {
+  flex: 1;
+  min-width: 0;
+  max-width: 960px;
+}
+
+/* ====== Left card ====== */
+.left img {
+  width: 70%;
+  height: auto;
+  margin: 13px auto;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+.left .name {
+  color: rgb(2, 92, 95);
+  font-size: 30px;
+  margin: 6px 0 10px;
+  font-weight: 700;
+}
+.left .meta { line-height: 1.5; }
+
+/* ====== Right content ====== */
+.right h1 {
+  color: rgb(21, 14, 61);
+  font-size: 30px;
+  line-height: 1.25;
+  margin: 24px 0 8px;
+}
+.right h2 {
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 24px 0 8px;
+}
+.right p, .right li { line-height: 1.7; margin: 12px 0; }
+.right > section { margin: 24px 0; }
+.thanks { margin: 28px 0 12px; }
+
+/* ====== Tables ====== */
+table {
+  border-collapse: separate;
+  border-spacing: 2px;
+  background-color: #fcfcf0;
+  text-align: center;
+  border: 2px solid #555;
+}
+th {
+  background-color: teal;
+  color: white;
+  padding: 10px;
+}
+td { padding: 8px; }
+table, th, td { border: 1px solid black; }
+button, input[type="color"] { margin: 4px; }
+
+/* ====== Music section ====== */
+#music ul { list-style: none; padding: 0; }
+#music li {
+  margin: 6px 0;
+  padding-left: 10px;
+  border-left: 4px solid teal;
+}
+#music a { color: darkslateblue; font-weight: 600; }
+#music a:hover { color: rgb(59, 16, 9); }
+
+/* ====== Hobbies：兩欄卡片 ====== */
+.hobby-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.hobby-list li {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 12px;
+}
+.hobby-list figure { margin: 8px 0 0; }
+.hobby-list img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.hobby-list figcaption {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ===== Hover image swap with grayscale ===== */
+.darvish-img {
+  position: relative;
+  display: inline-block;
+}
+
+.darvish-img img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border-radius: 8px;
+  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+}
+
+/* 第二張（覆蓋圖）先隱藏 */
+.darvish-img .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+    transform: scale(1.05);
+}
+
+/* 滑鼠移入：第二張淡入；第一張變黑白＋微放大 */
+.darvish-img:hover .overlay {
+  opacity: 1;
+}
+.darvish-img:hover .main {
+  filter: grayscale(100%);
+  transform: scale(1.05);
+}
+
+/* ===== Hover grayscale + zoom (for FireEX) ===== */
+.FireEX-img img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border-radius: 8px;
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.FireEX-img:hover img {
+  transform: scale(1.05);
+}
+/* ===== Header + Logo ===== */
+header {
+  display: flex;
+  align-items: center;
+  gap: 24px;                 /* logo 與導覽列的間距 */
+  padding: 8px 16px;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+  cursor: default;
+}
+
+.logo img {
+  display: block;
+  width: 80px;
+  height: auto;
+}
+
+
+
+
+
+
+/* ====== RWD：780px 以下直排 ====== */
+@media (max-width: 780px) {
+  .profile {
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+  }
+  .left {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+    text-align: left;
+    border-right: 0;
+  }
+  .left img { width: 120px; margin: 8px 0; }
+  .right { max-width: 100%; }
+  .right h1 { font-size: 34px; }
+  .right h2 { font-size: 22px; }
+  .theme { flex-wrap: wrap; gap: 16px; }
+}

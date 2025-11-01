@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan's Personal Webpage · Schedule</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<header>
+  <h1 class="logo">&lt;J/&gt;</h1>
+  <nav aria-label="Primary">
+    <ul class="theme">
+      <li><a href="my_web.html">Home</a></li>
+      <li><a href="News.html">News</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a class="active" aria-current="page" href="Table.html">Table</a></li>
+      <li><a href="Canvas.html">Gallery</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <div class="profile">
+    <aside class="left">
+      <img src="../Photo/MemeMan.png" alt="Portrait of Juan" />
+      <div class="name">Juan</div>
+      <p class="meta"><b>Email</b>: <a href="mailto:t111590041@ntut.org.tw">t111590041@ntut.org.tw</a></p>
+      <p class="meta"><b>Web</b>: <a href="https://mlb.com" target="_blank" rel="noopener noreferrer">mlb.com</a></p>
+    </aside>
+
+    <main class="right">
+      <table id="scoreTable" border="1" style="border-collapse: separate; border-spacing: 2px; background-color: #fcfcf0; border: 2px solid #555;">
+        <tr>
+          <th>Math</th>
+          <th>English</th>
+          <th>Programming</th>
+        </tr>
+        <tr>
+          <td>90</td>
+          <td>60</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>80</td>
+          <td>86</td>
+          <td>98</td>
+        </tr>
+      </table>
+
+      <h2>Change The Table Width</h2>
+      <button onclick="changeWidth('300px')">300px</button>
+      <button onclick="changeWidth('500px')">500px</button>
+
+      <h2>Change The Border and Spacing Width</h2>
+      <button onclick="changeBorder(5)">5px</button>
+      <button onclick="changeBorder(10)">10px</button>
+      <button onclick="changeBorder(20)">20px</button>
+
+      <h2>Change The Table Color</h2>
+      <button style="background-color:#c4f0c4;" onclick="changeColor('#c4f0c4')">#c4f0c4</button>
+      <button style="background-color:#c4e3f0;" onclick="changeColor('#c4e3f0')">#c4e3f0</button>
+      <button style="background-color:#d6c4f0;" onclick="changeColor('#d6c4f0')">#d6c4f0</button>
+      <button style="background-color:#f0d4b4;" onclick="changeColor('#f0d4b4')">#f0d4b4</button>
+
+      <br><br>
+      <button onclick="resetTable()">Reset</button>
+
+      <script>
+        const table = document.getElementById('scoreTable');
+        const defaultStyle = {
+          width: table.style.width,
+          borderSpacing: '2px',
+          backgroundColor: '#fcfcf0',
+          border: '2px solid #555'
+        };
+
+        function changeWidth(w) {
+          table.style.width = w;
+        }
+
+        function changeBorder(size) {
+          // ✅ 只改外框和間距
+          table.style.border = size + 'px solid #555';
+          table.style.borderSpacing = size + 'px';
+        }
+
+        function changeColor(color) {
+          table.style.backgroundColor = color;
+        }
+
+        function resetTable() {
+          table.style.width = defaultStyle.width;
+          table.style.borderSpacing = defaultStyle.borderSpacing;
+          table.style.backgroundColor = defaultStyle.backgroundColor;
+          table.style.border = defaultStyle.border;
+        }
+      </script>
+
+      <hr>
+
+      <button id="toggleTable">顯示九九乘法表</button>
+      <div id="tableContainer"></div>
+
+      <script>
+        const btn = document.getElementById("toggleTable");
+        const container = document.getElementById("tableContainer");
+        let isShown = false;
+
+        btn.addEventListener("click", () => {
+          if (!isShown) {
+            let html = "<table border='1' style='margin-top:10px;'>";
+            for (let i = 1; i <= 9; i++) {
+              html += "<tr>";
+              for (let j = 2; j <= 9; j++) {
+                html += `<td>${j} × ${i} = ${j * i}</td>`;
+              }
+              html += "</tr>";
+            }
+            html += "</table>";
+            container.innerHTML = html;
+            btn.textContent = "關閉九九乘法表";
+            isShown = true;
+          } else {
+            container.innerHTML = "";
+            btn.textContent = "顯示九九乘法表";
+            isShown = false;
+          }
+        });
+      </script>
+    </main>
+  </div>
+</body>
+</html>
