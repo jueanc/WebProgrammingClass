@@ -14,10 +14,10 @@
     <ul class="theme">
       <li><a href="my_web.html">Home</a></li>
       <li><a href="News.html">News</a></li>
-      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="Notes.html">Notes</a></li>
       <li><a href="About.html">About</a></li>
       <li><a class="active" aria-current="page" href="Table.html">Table</a></li>
-      <li><a href="Canvas.html">Gallery</a></li>
+      <li><a href="Gallery.html">Gallery</a></li>
     </ul>
   </nav>
 </header>
@@ -46,6 +46,9 @@
     </aside>
 
     <main class="right">
+
+      <h1>Customizable Table ‧ 自定義表格</h1>
+
       <table id="scoreTable" border="1" style="border-collapse: separate; border-spacing: 2px; background-color: #fcfcf0; border: 2px solid #555;">
         <tr>
           <th>Math</th>
@@ -114,36 +117,73 @@
       </script>
 
       <hr>
+<h1>Multiplication Table ‧ 九九乘法表</h1>
+<button id="toggleTable">Show Multiplication Table</button>
+<div id="tableContainer"></div>
 
-      <button id="toggleTable">顯示九九乘法表</button>
-      <div id="tableContainer"></div>
+<script>
+  const btn = document.getElementById("toggleTable");
+  const container = document.getElementById("tableContainer");
+  let isShown = false;
 
-      <script>
-        const btn = document.getElementById("toggleTable");
-        const container = document.getElementById("tableContainer");
-        let isShown = false;
+  btn.addEventListener("click", () => {
+    if (!isShown) {
+      let html = "<table border='1' style='margin-top:10px;'>";
+      html += "<caption>2–9 Multiplication Table</caption>";
+      for (let i = 1; i <= 9; i++) {
+        html += "<tr>";
+        for (let j = 2; j <= 9; j++) {
+          html += `<td>${j} × ${i} = ${j * i}</td>`;
+        }
+        html += "</tr>";
+      }
+      html += "</table>";
+      container.innerHTML = html;
+      btn.textContent = "Hide Multiplication Table";
+      isShown = true;
+    } else {
+      container.innerHTML = "";
+      btn.textContent = "Show Multiplication Table";
+      isShown = false;
+    }
+  });
+</script>
 
-        btn.addEventListener("click", () => {
-          if (!isShown) {
-            let html = "<table border='1' style='margin-top:10px;'>";
-            for (let i = 1; i <= 9; i++) {
-              html += "<tr>";
-              for (let j = 2; j <= 9; j++) {
-                html += `<td>${j} × ${i} = ${j * i}</td>`;
-              }
-              html += "</tr>";
-            }
-            html += "</table>";
-            container.innerHTML = html;
-            btn.textContent = "關閉九九乘法表";
-            isShown = true;
-          } else {
-            container.innerHTML = "";
-            btn.textContent = "顯示九九乘法表";
-            isShown = false;
-          }
-        });
-      </script>
+<hr>
+      <h1>Seating Chart ‧ 座位表</h1>
+<div class="task3">
+  <table>
+    <tr>
+      <th colspan="6" class="ttl" style="background-color: #3b0707;">Table title</th>
+    </tr>
+    <tr>
+      <th>1</th><th>2</th><th>3</th>
+      <th>4</th><th>5</th><th>6</th>
+    </tr>
+    <tr>
+      <th colspan="3">7</th>
+      <th colspan="3">8</th>
+    </tr>
+    <tr>
+      <th rowspan="2"  style="background-color: rgb(43,65,57); ">9</th>
+      <th>10</th>
+      <th rowspan="2" style="background-color: rgb(43,65,57); ">11</th>
+      <th>12</th>
+      <th rowspan="2" style="background-color: rgb(43,65,57); ">13</th>
+      <th>14</th>
+    </tr>
+    <tr>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+    </tr>
+    <tr>
+      <th>18</th><th>19</th><th>20</th>
+      <th>21</th><th>22</th><th>23</th>
+    </tr>
+  </table>
+</div>
+
     </main>
   </div>
 </body>

@@ -23,10 +23,10 @@
     <ul class="theme">
       <li><a href="my_web.html">Home</a></li>
       <li><a href="News.html">News</a></li>
-      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="Notes.html">Notes</a></li>
       <li><a href="About.html">About</a></li>
       <li><a href="Table.html">Table</a></li>
-      <li><a class="active" aria-current="page" href="Canvas.html">Gallery</a></li>
+      <li><a class="active" aria-current="page" href="Gallery.html">Gallery</a></li>
     </ul>
   </nav>
 </header>
@@ -55,11 +55,31 @@
     </aside>
 
     <main class="right">
-      <h1>Canvas</h1>
+      <h1>Day and Night</h1>
       <button id="toggle">切換白天</button>
 
       <canvas id="myCanvas4" width="800" height="500">Your browser does not support the HTML canvas tag.</canvas>
 
+      <h1>Polaroid-Style Image Switcher</h1>
+
+      <section class="polaroid-wrap" aria-label="Polaroid image switcher">
+        <div class="polaroid">
+          <img id="polaImg" src="../Photo/PaulBear.png" alt="Pictures of Today" width="300" height="auto" />
+          <div class="caption" id="polaCap" aria-live="polite">Pictures of Today</div>
+        </div>
+
+        <div class="pola-controls">
+          <button class="pbtn" id="prevBtn" type="button" aria-label="Previous">◀ Prev</button>
+          <button class="pbtn" id="nextBtn" type="button" aria-label="Next">Next ▶</button>
+        </div>
+
+        <div class="thumbs" role="tablist" aria-label="Thumbnails">
+          <button class="chip" role="tab" data-idx="0" title="Photo 1" aria-selected="true"></button>
+          <button class="chip" role="tab" data-idx="1" title="Photo 2"></button>
+          <button class="chip" role="tab" data-idx="2" title="Photo 3"></button>
+          <button class="chip" role="tab" data-idx="3" title="Photo 4"></button>
+        </div>
+      </section>
       <script>
         // ====== 基本設定（HiDPI）======
         const canvas = document.getElementById("myCanvas4");
@@ -243,6 +263,52 @@
         });
       </script>
 
+<script>
+  // —— Polaroid switcher —— //
+  (() => {
+    const images = [
+      { src: '../Photo/PaulBear.png',   cap: 'Bear is commimg' },
+      { src: '../Photo/PaulBasket.png', cap: 'Courtside Vibes' },
+      { src: '../Photo/PaulOhtani.png', cap: 'Two-way Magic' },
+      { src: '../Photo/PaulHiphop.png', cap: 'Hip-hop Night' }
+    ];
+
+    let idx = 0;
+    const imgEl = document.getElementById('polaImg');
+    const capEl = document.getElementById('polaCap');
+    const chips = Array.from(document.querySelectorAll('.thumbs .chip'));
+
+    function render(i){
+      idx = (i + images.length) % images.length;
+      const cur = images[idx];
+      imgEl.src = cur.src;
+      imgEl.alt = cur.cap;
+      capEl.textContent = cur.cap;
+
+      chips.forEach((c, k) => {
+        const on = k === idx;
+        c.classList.toggle('active', on);
+        c.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => render(idx - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => render(idx + 1));
+
+    chips.forEach(ch => ch.addEventListener('click', e => {
+      const to = parseInt(e.currentTarget.dataset.idx, 10) || 0;
+      render(to);
+    }));
+
+    // 鍵盤左右鍵支援
+    document.querySelector('.polaroid-wrap').addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  render(idx - 1);
+      if (e.key === 'ArrowRight') render(idx + 1);
+    });
+
+    render(0);
+  })();
+</script>
 
 
     </main>
