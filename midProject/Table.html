@@ -49,7 +49,7 @@
 
       <h1>Customizable Table ‧ 自定義表格</h1>
 
-      <table id="scoreTable" border="1" style="border-collapse: separate; border-spacing: 2px; background-color: #fcfcf0; border: 2px solid #555;">
+      <table id="scoreTable" width =300 style="border-collapse: separate; border-spacing: 1px; background-color: #fcfcf0; border: 2px solid #555;">
         <tr>
           <th>Math</th>
           <th>English</th>
@@ -68,19 +68,20 @@
       </table>
 
       <h2>Change The Table Width</h2>
-      <button onclick="changeWidth('300px')">300px</button>
-      <button onclick="changeWidth('500px')">500px</button>
+      <button onclick="changeWidth('280px')">280px</button>
+      <button onclick="changeWidth('350px')">350px</button>
+      <button onclick="changeWidth('550px')">550px</button>
 
       <h2>Change The Border and Spacing Width</h2>
       <button onclick="changeBorder(5)">5px</button>
       <button onclick="changeBorder(10)">10px</button>
-      <button onclick="changeBorder(20)">20px</button>
+      <button onclick="changeBorder(15)">15px</button>
 
       <h2>Change The Table Color</h2>
-      <button style="background-color:#c4f0c4;" onclick="changeColor('#c4f0c4')">#c4f0c4</button>
-      <button style="background-color:#c4e3f0;" onclick="changeColor('#c4e3f0')">#c4e3f0</button>
-      <button style="background-color:#d6c4f0;" onclick="changeColor('#d6c4f0')">#d6c4f0</button>
-      <button style="background-color:#f0d4b4;" onclick="changeColor('#f0d4b4')">#f0d4b4</button>
+      <button style="background-color:#c5d3c570;" onclick="changeColor('#c5d3c570')">c5d3c570</button>
+      <button style="background-color:#bdd7e2;" onclick="changeColor('#bdd7e2')">#bdd7e2</button>
+      <button style="background-color:#e5d9f5;" onclick="changeColor('#e5d9f5')">#e5d9f5</button>
+      <button style="background-color:#f0e2d2;" onclick="changeColor('#f0e2d2')">#f0e2d2</button>
 
       <br><br>
       <button onclick="resetTable()">Reset</button>
@@ -99,7 +100,6 @@
         }
 
         function changeBorder(size) {
-          // ✅ 只改外框和間距
           table.style.border = size + 'px solid #555';
           table.style.borderSpacing = size + 'px';
         }
@@ -154,32 +154,34 @@
 <div class="task3">
   <table>
     <tr>
-      <th colspan="6" class="ttl" style="background-color: #3b0707;">Table title</th>
+      <th colspan="7" class="ttl" style="background-color: #571818;">Whiteboard</th>
     </tr>
     <tr>
       <th>1</th><th>2</th><th>3</th>
-      <th>4</th><th>5</th><th>6</th>
+      <th>4</th><th>5</th><th>6</th><th>7</th>
     </tr>
     <tr>
-      <th colspan="3">7</th>
       <th colspan="3">8</th>
+      <th>9</th>
+      <th colspan="3">10</th>
     </tr>
     <tr>
-      <th rowspan="2"  style="background-color: rgb(43,65,57); ">9</th>
-      <th>10</th>
-      <th rowspan="2" style="background-color: rgb(43,65,57); ">11</th>
+      <th rowspan="2"  style="background-color: rgb(83, 105, 97); ">11</th>
       <th>12</th>
-      <th rowspan="2" style="background-color: rgb(43,65,57); ">13</th>
+      <th rowspan="2" style="background-color: rgb(83, 105, 97); ">13</th>
       <th>14</th>
-    </tr>
-    <tr>
-      <th>15</th>
+      <th rowspan="2" style="background-color: rgb(83, 105, 97); ">15</th>
       <th>16</th>
-      <th>17</th>
+      <th rowspan="2" style="background-color: rgb(83, 105, 97); ">17</th>
     </tr>
     <tr>
-      <th>18</th><th>19</th><th>20</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+    </tr>
+    <tr>
       <th>21</th><th>22</th><th>23</th>
+      <th>24</th><th>25</th><th>26</th><th>27</th>
     </tr>
   </table>
 </div>

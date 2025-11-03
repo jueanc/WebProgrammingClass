@@ -327,24 +327,26 @@ header {
 .task3 { margin-top: 20px; }
 
 .task3 table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse !important;  /* 覆蓋原本的 separate */
   border-spacing: 0 !important;
   table-layout: fixed;
   background: #a53030;
-  border: 2px solid #000000;
+  border: 2px solid #5e5454;
+  font-family: "Poppins", "Noto Sans TC", sans-serif; /* ★ 加這行 */
 }
 
 .task3 th, .task3 td {
-  border: 1px solid #686262;
+  border: 1px solid #474444;
   padding: 5px;
   text-align: center;
   word-wrap: break-word;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .task3 th.ttl {
   background: #f2f2f2;
   font-weight: 800;
   font-size: 18px;
+  
 }
