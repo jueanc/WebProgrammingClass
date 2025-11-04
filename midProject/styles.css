@@ -302,13 +302,13 @@ button, input[type="color"]{ margin:4px; }
 }
 .resource-page .card:hover{ box-shadow:0 4px 12px rgba(0,0,0,.08); }
 .resource-page h2{
-  font-size:24px; color:#313647; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
+  font-size:24px; color:#637586; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
 }
 .resource-page .links a{
-  display:block; padding:6px 0; color:#435663; font-weight:500; text-decoration:none; transition:color .15s ease;               /* 主文字中灰 */
+  display:block; padding:6px 0; color:rgba(71, 61, 139, 0.651); font-weight:550; text-decoration:none; transition:color .15s ease;               /* 主文字中灰 */
   font-size: 15px;
 }
-.resource-page .links a:hover{ color:#A3B087; }
+.resource-page .links a:hover{ color:#461414; }
 .resource-page .links a:active{ color:#FFF8D4; }
 
 /* ========== 9) Gallery Canvas (moved from inline) ========== */
