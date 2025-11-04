@@ -1,453 +1,317 @@
-/* ====== Base / Reset ====== */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body {
+/* =========================================
+   Juan Site Styles — Cleaned & Organized
+   Sections:
+   1) CSS Variables & Base
+   2) Layout (header / nav / profile)
+   3) Typography
+   4) Components (cards / lists / buttons)
+   5) Tables (global + task3)
+   6) Hobbies & Image Effects
+   7) Polaroid Switcher
+   8) Page Scoped (journey-page / resource-page)
+   9) Gallery Canvas (moved from inline)
+   10) Utilities & Responsive
+========================================= */
+
+/* ========== 1) CSS Variables & Base ========== */
+:root{
+  /* colors */
+  --bg: #f9f9f9;
+  --text: #111;
+  --muted: #666;
+  --brand: #a53030;
+  --brand-600:#571818;
+  --line: #eaeaea;
+  --card-bg:#fff;
+  --card-shadow: 0 2px 8px rgba(0,0,0,.08);
+  --link: darkblue;
+  --link-hover: tomato;
+
+  /* sidebar */
+  --side-bg: #e4e2e2;
+
+  /* nav */
+  --nav-text:#1111117e;
+  --nav-active:#080808;
+  --nav-underline:#080808af;
+
+  /* music */
+  --music-bar: teal;
+  --music-link: darkslateblue;
+  --music-hover:#3b1009;
+
+  /* table */
+  --table-bg:#fdfdf1;
+  --table-border:#555;
+  --table-cell:#8d8d8d;
+  --table-th:#93a3a3;
+
+  /* radius & spacing */
+  --r-sm:6px; --r-md:8px; --r-lg:10px;
+  --space-1:6px; --space-2:10px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:28px;
+}
+
+/* Base / Reset */
+* { box-sizing:border-box; }
+html, body { margin:0; padding:0; }
+body{
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  color: #111;
-  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  line-height:1.6;
 }
-a { color: darkblue; text-decoration: none; }
-a:hover { color: tomato; text-decoration: underline; }
-strong { color: #fff; background: darkred; padding: 0 .25em; border-radius: 3px; }
-em { background: yellow; }
-mark { color: #000; background: rgba(126, 126, 126, 0.589); }
-hr { border: none; border-top: 1px solid #e5e5e5; margin: 18px 0; }
+a{ color:var(--link); text-decoration:none; }
+a:hover{ color:var(--link-hover); }
+strong{ color:#fff; background:darkred; padding:0 .25em; border-radius:3px; }
+em{ background:yellow; }
+mark{ color:#000; background:rgba(126,126,126,.589); }
+hr{ border:none; border-top:1px solid #e5e5e5; margin:18px 0; }
 
-/* ====== Navbar ====== */
-/* 白底 + 黑字 + hover 底線 + active 字色 */
-.theme {
-  list-style: none;
-  margin: 0;
-  padding: 0px 15px;
-  display: flex;
-  gap: 28px;
-  justify-content: flex-start;
-  align-items: center;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+/* ========== 2) Layout (header / nav / profile) ========== */
+header{
+  display:flex; align-items:center; gap:24px;
+  padding:8px 16px; background:#fff;
+  /* 想要乾淨頂部就保留下面這行；若不想要灰線可移除 */
+  border-bottom:1px solid var(--line);
+  position:sticky; top:0; z-index:10;
 }
+.logo{ font-size:28px; font-weight:800; color:#111; margin:0; cursor:default; }
+.logo img{ display:block; width:80px; height:auto; }
 
-.theme li { position: relative; }
-
-.theme li a {
-  display: block;
-  padding: 14px 4px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #1111117e;
-  text-decoration: none;
-  transition: color 0.2s ease;
+/* Navbar */
+.theme{
+  list-style:none; margin:0; padding:0 15px;
+  display:flex; gap:28px; justify-content:flex-start; align-items:center;
+  background:#fff; position:sticky; top:0; z-index:10; /* 保持你的既有行為 */
 }
-
-/* hover：出現底線 */
-.theme li a::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -1px;
-  height: 2px;
-  background: #111;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
+.theme li{ position:relative; }
+.theme li a{
+  display:block; padding:14px 4px;
+  font-size:16px; font-weight:600;
+  color: var(--nav-text);
+  transition: color .2s ease;
 }
-.theme li a:hover::after { transform: scaleX(1); }
-
-/* active：字體改顏色 */
+.theme li a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px;
+  background:#111; transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+}
+.theme li a:hover::after{ transform:scaleX(1); }
 .theme li a.active,
-.theme li a[aria-current="page"] { color: #080808; }
+.theme li a[aria-current="page"]{ color: var(--nav-active); }
 .theme li a.active::after,
-.theme li a[aria-current="page"]::after {
-  transform: scaleX(1);
-  background: #080808af;
+.theme li a[aria-current="page"]::after{ transform:scaleX(1); background: var(--nav-underline); }
+.theme li a:focus-visible{ outline:2px solid #111; outline-offset:3px; }
+
+/* Profile two-column */
+.profile{
+  display:flex; justify-content:flex-start; align-items:stretch;
+  gap:30px; padding:20px;
+}
+.left{
+  width:240px; min-width:240px; min-height:800px;
+  text-align:center; background:var(--side-bg);
+  overflow-wrap:break-word; padding:16px 12px; border-right:1px solid #eee;
+}
+.left img{
+  width:70%; height:auto; margin:13px auto; display:block;
+  border-radius:50%; object-fit:cover; aspect-ratio:1/1;
+}
+.left .name{ color:rgb(2,92,95); font-size:30px; margin:6px 0 10px; font-weight:700; }
+.left .meta{ line-height:1.5; }
+
+.right{ flex:1; min-width:0; max-width:960px; }
+.right > section{ margin:24px 0; }
+
+/* ========== 3) Typography ========== */
+.right h1{
+  color:rgb(12,6,51); font-size:25px; line-height:1.25;
+  margin:30px 0 8px;
+}
+.right h2{
+  color:rgb(5, 39, 90); font-size:18px; line-height:1.2; margin:26px 0 8px;
+}
+.right p, .right li{ line-height:1.7; margin:12px 0; }
+
+/* ========== 4) Components (cards / lists / buttons) ========== */
+.card{
+  background:var(--card-bg);
+  border-radius:var(--r-lg);
+  padding:28px 50px;
+  box-shadow: var(--card-shadow);
+}
+.list{ list-style:none; padding:0; margin:0; }
+.button{
+  border:none; padding:8px 14px; border-radius:10px; cursor:pointer;
+  transition: transform .08s ease, filter .15s ease, opacity .15s ease;
+}
+.button:hover{ filter:brightness(.92); }
+.button:active{ transform:translateY(2px); }
+
+/* Music section */
+#music ul{ list-style:none; padding:0; }
+#music li{ margin:6px 0; padding-left:10px; border-left:4px solid var(--music-bar); }
+#music a{ color: var(--music-link); font-weight:600; }
+#music a:hover{ color: var(--music-hover); }
+
+/* ========== 5) Tables (global + task3) ========== */
+table{
+  border-collapse:separate; border-spacing:2px;
+  background-color: var(--table-bg);
+  text-align:center; border:2px solid var(--table-border);
+}
+th{
+  background-color: var(--table-th);
+  color:#fff; padding:10px;
+}
+td{ padding:8px; }
+table, th, td{ border:1px solid var(--table-cell); }
+button, input[type="color"]{ margin:4px; }
+
+/* Task3 專用（座位表） */
+.task3{ margin-top:20px; }
+.task3 table{
+  width:70%;
+  border-collapse:collapse !important; border-spacing:0 !important;
+  table-layout:fixed; background:#a53030; border:2px solid #5e5454;
+  font-family:"Poppins","Noto Sans TC",sans-serif;
+}
+.task3 th, .task3 td{
+  border:1px solid #474444; padding:5px; text-align:center; word-wrap:break-word; font-size:15px;
+}
+.task3 th.ttl{
+  background:#f2f2f2; font-weight:800; font-size:18px;
 }
 
-/* focus 狀態可見 */
-.theme li a:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+/* ========== 6) Hobbies & Image Effects ========== */
+.hobby-list{
+  list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px;
+}
+.hobby-list li{ background:#f5f5f5; border-radius:10px; padding:12px; }
+.hobby-list figure{ margin:8px 0 0; }
+.hobby-list img{ width:100%; height:auto; object-fit:cover; border-radius:8px; }
+.hobby-list figcaption{ margin-top:6px; font-weight:600; font-size:14px; }
 
-/* ====== Layout ====== */
-.profile {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;  /* ✨ 這行讓左右欄等高 */
-  gap: 30px;
-  padding: 20px;
+/* Darvish hover-swap */
+.darvish-img{ position:relative; display:inline-block; }
+.darvish-img img{
+  display:block; width:100%; height:280px; border-radius:8px;
+  transition: opacity .4s ease, filter .4s ease, transform .4s ease;
 }
+.darvish-img .overlay{ position:absolute; top:0; left:0; opacity:0; transform:scale(1.05); }
+.darvish-img:hover .overlay{ opacity:1; }
+.darvish-img:hover .main{ filter:grayscale(100%); transform:scale(1.05); }
 
-.left {
-  width: 240px;
-  min-width: 240px;
-  min-height: 800px; 
-  text-align: center;
-  background: rgb(228, 226, 226);
-  overflow-wrap: break-word;
-  padding: 16px 12px;
-  border-right: 1px solid #eee;
+/* FireEX hover */
+.FireEX-img img{
+  display:block; width:100%; height:280px; border-radius:8px;
+  transition: filter .4s ease, transform .4s ease;
 }
+.FireEX-img:hover img{ transform:scale(1.05); }
 
-.right {
-  flex: 1;
-  min-width: 0;
-  max-width: 960px;
-}
-
-/* ====== Left card ====== */
-.left img {
-  width: 70%;
-  height: auto;
-  margin: 13px auto;
-  display: block;
-  border-radius: 50%;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-}
-.left .name {
-  color: rgb(2, 92, 95);
-  font-size: 30px;
-  margin: 6px 0 10px;
-  font-weight: 700;
-}
-.left .meta { line-height: 1.5; }
-
-/* ====== Right content ====== */
-.right h1 {
-  color: rgb(12, 6, 51);
-  font-size: 20px;
-  line-height: 1.25;
-  margin: 30px 0 8px;
-}
-.right h2 {
-  color: rgba(5, 2, 24, 0.658);
-  font-size: 18px;
-  line-height: 1.2;
-  margin: 26px 0 8px;
-}
-.right p, .right li { line-height: 1.7; margin: 12px 0; }
-.right > section { margin: 24px 0; }
-
-/* ====== Tables ====== */
-table {
-  border-collapse: separate;
-  border-spacing: 2px;
-  background-color: #fdfdf1;
-  text-align: center;
-  border: 2px solid #555;
-}
-th {
-  background-color: rgb(147, 163, 163);
-  color: white;
-  padding: 10px;
-}
-td { padding: 8px; }
-table, th, td { border: 1px solid rgb(141, 141, 141); }
-button, input[type="color"] { margin: 4px; }
-
-/* ====== Music section ====== */
-#music ul { list-style: none; padding: 0; }
-#music li {
-  margin: 6px 0;
-  padding-left: 10px;
-  border-left: 4px solid teal;
-}
-#music a { color: darkslateblue; font-weight: 600; }
-#music a:hover { color: rgb(59, 16, 9); }
-
-/* ====== Hobbies：兩欄卡片 ====== */
-.hobby-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-.hobby-list li {
-  background: #f5f5f5;
-  border-radius: 10px;
-  padding: 12px;
-}
-.hobby-list figure { margin: 8px 0 0; }
-.hobby-list img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.hobby-list figcaption {
-  margin-top: 6px;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-/* ===== Hover image swap with grayscale ===== */
-.darvish-img {
-  position: relative;
-  display: inline-block;
-}
-
-.darvish-img img {
-  display: block;
-  width: 100%;
-  height: 280px;
-  border-radius: 8px;
-  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
-}
-
-/* 第二張（覆蓋圖）先隱藏 */
-.darvish-img .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-    transform: scale(1.05);
-}
-
-/* 滑鼠移入：第二張淡入；第一張變黑白＋微放大 */
-.darvish-img:hover .overlay {
-  opacity: 1;
-}
-.darvish-img:hover .main {
-  filter: grayscale(100%);
-  transform: scale(1.05);
-}
-
-/* ===== Hover grayscale + zoom (for FireEX) ===== */
-.FireEX-img img {
-  display: block;
-  width: 100%;
-  height: 280px;
-  border-radius: 8px;
-  transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-.FireEX-img:hover img {
-  transform: scale(1.05);
-}
-/* ===== Header + Logo ===== */
-header {
-  display: flex;
-  align-items: center;
-  gap: 24px;                 /* logo 與導覽列的間距 */
-  padding: 8px 16px;
-  background: #fff;
-  border-bottom: 1px solid #eaeaea;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: 800;
-  color: #111;
-  margin: 0;
-  cursor: default;
-}
-
-.logo img {
-  display: block;
-  width: 80px;
-  height: auto;
-}
-
-
-
-/* —— Polaroid —— */
+/* ========== 7) Polaroid Switcher ========== */
 .polaroid-wrap{
-  display:flex; flex-direction:column; align-items:center; gap:12px;
-  margin: 24px 0;
+  display:flex; flex-direction:column; align-items:center; gap:12px; margin:24px 0;
 }
 .polaroid{
-  width: min(90vw, 320px);
-  background:#fff;
-  padding:16px 16px 36px;                 /* 底緣加厚像拍立得 */
-  border: 1px solid #b1b1b1;                 /* 原本少了樣式，補上 solid */
-  border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
-  transform: rotate(-0.6deg);
+  width:min(90vw, 320px); background:#fff;
+  padding:16px 16px 36px; border:1px solid #f0eded; border-radius:6px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
+  transform:rotate(-0.6deg);
 }
 .polaroid img{ width:100%; height:auto; display:block; border-radius:4px; }
-.caption{
-  margin-top:10px; text-align:center; font-weight:600; letter-spacing:.3px;
-  color:#333;
-}
+.caption{ margin-top:10px; text-align:center; font-weight:600; letter-spacing:.3px; color:#333; }
 
-/* 控制區與按鈕（名稱空間避免影響其他 button） */
 .pola-controls{ display:flex; gap:8px; justify-content:center; }
 .pbtn{
   border:none; padding:8px 14px; border-radius:10px; cursor:pointer;
   transition: transform .08s ease, filter .15s ease, opacity .15s ease;
-  background: #e7cccc; color:#0f0e0e; font-weight:700;
+  background:#c5c5c3a6; color:#0f0e0e; font-weight:700;
 }
-.pbtn:hover{ filter:brightness(0.8); }
-.pbtn:active{ transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.15); }
+.pbtn:hover{ filter:brightness(.8); }
+.pbtn:active{ transform:translateY(2px); box-shadow:0 1px 0 rgba(143,83,83,.15); }
 
-/* 縮圖 chips */
+/* chips */
 .thumbs{ display:flex; gap:10px; justify-content:center; }
 .chip{
   width:28px; height:22px; border:none; border-radius:6px; cursor:pointer;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
   transition: transform .1s ease, box-shadow .2s ease, outline-color .2s ease;
-  outline: 2px solid transparent;
+  outline:2px solid transparent;
 }
-.chip:nth-child(1){ background:#c4e3f0; }
-.chip:nth-child(2){ background:#d6c4f0; }
-.chip:nth-child(3){ background:#f0d4b4; }
-.chip:nth-child(4){ background:#cde6d0; }
+.chip:nth-child(1){ background:#e7ebec; }
+.chip:nth-child(2){ background:#c0ad98; }
+.chip:nth-child(3){ background:#c2c7da; }
+.chip:nth-child(4){ background:#c6e5ee; }
+.chip:hover{ transform:translateY(-1px); }
+.chip.active{ box-shadow: inset 0 0 0 3px #3d0303; }
 
-.chip:hover{ transform: translateY(-1px); }
-.chip.active{ box-shadow: inset 0 0 0 2px #111; outline-color:#111; }
-
-
-
-/* ====== RWD：780px 以下直排 ====== */
-@media (max-width: 780px) {
-  .profile {
-    flex-direction: column;
-    gap: 16px;
-    padding: 12px;
-  }
-  .left {
-    width: 100%;
-    min-width: 0;
-    min-height: auto;
-    text-align: left;
-    border-right: 0;
-  }
-  .left img { width: 120px; margin: 8px 0; }
-  .right { max-width: 100%; }
-  .right h1 { font-size: 34px; }
-  .right h2 { font-size: 22px; }
-  .theme { flex-wrap: wrap; gap: 16px; }
+/* ========== 8) Page Scoped ========== */
+/* Highlights: Journey timeline */
+.journey-page p{
+  color:#666; font-size:14px; letter-spacing:1px; text-transform:uppercase; margin-bottom:25px;
 }
-
-/* Task3 專用樣式，避免被全域 table 覆蓋 */
-.task3 { margin-top: 20px; }
-
-.task3 table {
-  width: 70%;
-  border-collapse: collapse !important;  /* 覆蓋原本的 separate */
-  border-spacing: 0 !important;
-  table-layout: fixed;
-  background: #a53030;
-  border: 2px solid #5e5454;
-  font-family: "Poppins", "Noto Sans TC", sans-serif; /* ★ 加這行 */
+.journey-page .timeline-section ul{
+  list-style:none; margin:0; padding-left:25px; border-left:2px solid var(--brand);
 }
-
-.task3 th, .task3 td {
-  border: 1px solid #474444;
-  padding: 5px;
-  text-align: center;
-  word-wrap: break-word;
-  font-size: 15px;
+.journey-page .timeline-section li{
+  margin:20px 0; position:relative; line-height:1.6; color:#333;
 }
-
-.task3 th.ttl {
-  background: #f2f2f2;
-  font-weight: 800;
-  font-size: 18px;
-  
+.journey-page .timeline-section li::before{
+  content:""; position:absolute; left:-10px; top:6px; width:10px; height:10px;
+  background:var(--brand); border-radius:50%;
 }
+.journey-page .timeline-section li b{ color:var(--brand); font-weight:600; margin-right:6px; }
+.journey-page .timeline-section li:hover{ transform:scale(1.02); transition:.2s ease; color:#000; }
 
-/* ===== Journey Page Scoped Styles ===== */
-
-
-
-.journey-page p {
-  color: #666;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 25px;
+.journey-page .card{
+  background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0;
+  box-shadow: var(--card-shadow);
+  font-family:"Segoe UI", Arial, sans-serif;
 }
-
-/* Timeline 列表本體 */
-.journey-page .timeline-section ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 25px;
-  border-left: 2px solid #a53030;
+.journey-page .card h2{
+  font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
 }
+.journey-page .list{ list-style:none; padding:0; margin:0; }
+.journey-page .list li{ padding:10px 0; line-height:1.6; }
+.journey-page .list li:last-child{ border-bottom:none; }
+.journey-page .list li b{ color:var(--brand); font-weight:600; margin-right:6px; }
+.journey-page .list li:hover{ color:#000; transform:translateX(3px); transition:all .2s ease; }
 
-/* 每一個事件 */
-.journey-page .timeline-section li {
-  margin: 20px 0;
-  position: relative;
-  line-height: 1.6;
-  color: #333;
+/* Notes: Resource “Apple-like” */
+.resource-page{
+  font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  color:#1d1d1f; background-color:var(--bg);
 }
-
-.journey-page .timeline-section li::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  background: #a53030;
-  border-radius: 50%;
+.resource-page .card{
+  background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow: var(--card-shadow);
 }
-
-.journey-page .timeline-section li b {
-  color: #a53030;
-  font-weight: 600;
-  margin-right: 6px;
+.resource-page .card:hover{ box-shadow:0 4px 12px rgba(0,0,0,.08); }
+.resource-page h2{
+  font-size:24px; color:#313647; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
 }
-
-.journey-page .timeline-section li:hover {
-  transform: scale(1.02);
-  transition: 0.2s ease;
-  color: #000;
+.resource-page .links a{
+  display:block; padding:6px 0; color:#435663; font-weight:500; text-decoration:none; transition:color .15s ease;
 }
+.resource-page .links a:hover{ color:#A3B087; }
+.resource-page .links a:active{ color:#FFF8D4; }
 
-/* 通用卡片樣式（Skills / Awards） */
-.journey-page .card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 28px 50px;
-  margin: 25px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  font-family: "Segoe UI", Arial, sans-serif;
+/* ========== 9) Gallery Canvas (moved from inline) ========== */
+#myCanvas4{
+  border:1px solid #d3d3d3; width:800px; height:500px; display:block;
 }
-
-.journey-page .card h2 {
-  font-size: 24px;
-  color: #a53030;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #e2e2e2;
-  padding-bottom: 5px;
+button#toggle{
+  margin:12px 0; padding:8px 14px; border:none; border-radius:6px; cursor:pointer;
+  background:#8596b6bd; color:#fff; font-weight:600;
 }
+button#toggle:hover{ background:#767c83; }
 
-/* 清單格式（Skills / Awards 共用） */
-.journey-page .list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ========== 10) Utilities & Responsive ========== */
+.u-hidden{ display:none !important; }
+
+@media (max-width: 980px){
+  .profile{ flex-direction:column; }
+  .left{ width:100%; min-width:unset; min-height:unset; border-right:none; border-bottom:1px solid #eee; }
+  .right{ max-width:none; }
+  #myCanvas4{ width:100%; height:auto; }
 }
-
-.journey-page .list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  line-height: 1.6;
-}
-
-.journey-page .list li:last-child {
-  border-bottom: none;
-}
-
-.journey-page .list li b {
-  color: #a53030;
-  font-weight: 600;
-  margin-right: 6px;
-}
-
-.journey-page .list li:hover {
-  color: #000;
-  transform: translateX(3px);
-  transition: all 0.2s ease;
-}
-
-
-
