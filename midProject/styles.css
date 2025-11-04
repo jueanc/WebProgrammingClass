@@ -350,3 +350,104 @@ header {
   font-size: 18px;
   
 }
+
+/* ===== Journey Page Scoped Styles ===== */
+
+
+
+.journey-page p {
+  color: #666;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+/* Timeline 列表本體 */
+.journey-page .timeline-section ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 25px;
+  border-left: 2px solid #a53030;
+}
+
+/* 每一個事件 */
+.journey-page .timeline-section li {
+  margin: 20px 0;
+  position: relative;
+  line-height: 1.6;
+  color: #333;
+}
+
+.journey-page .timeline-section li::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background: #a53030;
+  border-radius: 50%;
+}
+
+.journey-page .timeline-section li b {
+  color: #a53030;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.journey-page .timeline-section li:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease;
+  color: #000;
+}
+
+/* 通用卡片樣式（Skills / Awards） */
+.journey-page .card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 50px;
+  margin: 25px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.journey-page .card h2 {
+  font-size: 24px;
+  color: #a53030;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 5px;
+}
+
+/* 清單格式（Skills / Awards 共用） */
+.journey-page .list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.journey-page .list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  line-height: 1.6;
+}
+
+.journey-page .list li:last-child {
+  border-bottom: none;
+}
+
+.journey-page .list li b {
+  color: #a53030;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.journey-page .list li:hover {
+  color: #000;
+  transform: translateX(3px);
+  transition: all 0.2s ease;
+}
+
+
+
