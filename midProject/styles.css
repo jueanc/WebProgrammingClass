@@ -342,12 +342,20 @@ button#toggle:hover{ background:#767c83; }
 /* 讓主內容永遠在影片之上 */
 .page-content{ position:relative; z-index:1; }
 
-/* 全螢幕背景影片（預設隱形） */
-.bgvid{
-  position:fixed; inset:0; z-index:-1;
-  width:100vw; height:100vh; object-fit:cover;
-  pointer-events:none;
-  opacity:0; transition:opacity .25s ease;
+.bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 135%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;          /* 保持比例並填滿畫面 */
+  pointer-events: none;
+  opacity: 0;                 /* 預設隱藏 */
+  transition: opacity .25s ease;
 }
 /* 顯示時：半透明 */
 .bgvid.is-on{ opacity:.2; }
