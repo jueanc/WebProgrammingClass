@@ -25,8 +25,8 @@
   --line:#eaeaea;
   --card-bg:#fff;
   --card-shadow:0 2px 8px rgba(0,0,0,.08);
-  --link:darkblue;
-  --link-hover:tomato;
+  --link:rgb(5, 5, 107);
+  --link-hover:rgb(28, 109, 112);
 
   /* sidebar */
   --side-bg:#e4e2e2;
@@ -110,14 +110,14 @@ header{
 }
 .left{
   width:240px; min-width:240px; min-height:800px;
-  padding:16px 12px; text-align:center;
+  padding:16px 12px; text-align:center; border-radius: 0%;
   background:var(--side-bg); border-right:1px solid #eee; overflow-wrap:break-word;
 }
 .left img{
   display:block; width:70%; height:auto; margin:13px auto;
   border-radius:50%; object-fit:cover; aspect-ratio:1/1;
 }
-.left .name{ margin:6px 0 10px; color:rgb(2,92,95); font-size:30px; font-weight:700; }
+.left .name{ margin:6px 0 10px; color:rgb(2,92,95); font-size:28px; font-weight:700; }
 .left .meta{ line-height:1.5; }
 .right{ flex:1; min-width:0; max-width:960px; }
 .right > section{ margin:24px 0; }
@@ -257,7 +257,7 @@ button,input[type="color"]{ margin:4px; }
 /* 共用按鈕樣式 + Polaroid 專用色 */
 .pbtn{ composes: button; } /* 若不支援 composes，可直接把 .button 的宣告複製到 .pbtn */
 .pbtn{
-  background:#c5c5c3a6; color:#0f0e0e; font-weight:700;
+  background:#c5c5c3a6; color:#0f0e0e; font-weight:700; border-radius: 10%;
 }
 .pbtn:hover{ filter:brightness(.8); }
 .pbtn:active{ transform:translateY(2px); box-shadow:0 1px 0 rgba(143,83,83,.15); }
@@ -275,7 +275,7 @@ button,input[type="color"]{ margin:4px; }
 .chip:nth-child(3){ background:#c2c7da; }
 .chip:nth-child(4){ background:#c6e5ee; }
 .chip:hover{ transform:translateY(-1px); }
-.chip.active{ box-shadow:inset 0 0 0 3px #3d0303; }
+.chip.active{ box-shadow:inset 0 0 0 2px #948b8b; }
 
 /* ========== 8) Page Scoped ========== */
 /* Highlights: Journey timeline */
@@ -286,7 +286,7 @@ button,input[type="color"]{ margin:4px; }
   list-style:none; margin:0; padding-left:25px; border-left:2px solid var(--brand);
 }
 .journey-page .timeline-section li{
-  position:relative; margin:20px 0; line-height:1.6; color:#333;
+  position:relative; margin:20px 0; line-height:1.6; color:#333; width: fit-content;
 }
 .journey-page .timeline-section li::before{
   content:""; position:absolute; left:-10px; top:6px; width:10px; height:10px;
@@ -304,7 +304,7 @@ button,input[type="color"]{ margin:4px; }
   font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
 }
 .journey-page .list{ list-style:none; margin:0; padding:0; }
-.journey-page .list li{ padding:10px 0; line-height:1.6; }
+.journey-page .list li{ padding:10px 0; line-height:1.6; width: fit-content; }
 .journey-page .list li:last-child{ border-bottom:none; }
 .journey-page .list li b{ color:var(--brand); font-weight:600; margin-right:6px; }
 .journey-page .list li:hover{ color:#000; transform:translateX(3px); transition:all .2s ease; }
@@ -322,8 +322,8 @@ button,input[type="color"]{ margin:4px; }
   font-size:24px; color:#637586; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
 }
 .resource-page .links a{
-  display:block; padding:6px 0; font-size:15px; font-weight:550;
-  color:rgba(71,61,139,.651); text-decoration:none; transition:color .15s ease;
+  display:block;   width: fit-content; padding:6px 0; font-size:15px; font-weight:550; 
+  color:rgba(13, 8, 49, 0.651); text-decoration:none; transition:color .15s ease;
 }
 .resource-page .links a:hover{ color:#461414; }
 .resource-page .links a:active{ color:#FFF8D4; }
@@ -344,7 +344,7 @@ button#toggle:hover{ background:#767c83; }
 
 /* 全螢幕背景影片（預設隱形） */
 .bgvid{
-  position:fixed; inset:0; z-index:0;
+  position:fixed; inset:0; z-index:-1;
   width:100vw; height:100vh; object-fit:cover;
   pointer-events:none;
   opacity:0; transition:opacity .25s ease;
