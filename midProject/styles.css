@@ -54,11 +54,18 @@
 /* Base / Reset */
 * { box-sizing:border-box; }
 html, body { margin:0; padding:0; }
-body{
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height:1.6;
+body {
+  font-family: 
+    "Inter",            /* 現代英文 */
+    "Noto Sans TC",     /* 台灣常用的中文無襯線字 */
+    "PingFang TC",      /* macOS 中文預設字體 */
+    "Helvetica Neue",
+    "Segoe UI",
+    sans-serif;
+  font-weight: 400;      /* 微粗體，讓中英字協調 */
+  font-size: 16px;
+  color: #222222;
+  line-height: 1.75;
 }
 a{ color:var(--link); text-decoration:none; }
 a:hover{ color:var(--link-hover); }
@@ -124,14 +131,21 @@ header{
 
 /* ========== 3) Typography ========== */
 .right h1{
-  color:rgb(12,6,51); font-size:25px; line-height:1.25;
+  color: #1d1d1f;  font-size:25px; line-height:1.25;
   margin:30px 0 8px;
 }
 .right h2{
-  color:rgb(5, 39, 90); font-size:18px; line-height:1.2; margin:26px 0 8px;
+    color: #2f3640;   font-size:18px; line-height:1.2; margin:26px 0 8px;
 }
-.right p, .right li{ line-height:1.7; margin:12px 0; }
 
+.right p,
+.right li {
+  color: #333333da;                /* 主文字中灰 */
+  font-size: 16px;
+  line-height: 1.75;          /* 閱讀間距舒適 */
+  margin: 10px 0;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+}
 /* ========== 4) Components (cards / lists / buttons) ========== */
 .card{
   background:var(--card-bg);
@@ -150,7 +164,7 @@ header{
 /* Music section */
 #music ul{ list-style:none; padding:0; }
 #music li{ margin:6px 0; padding-left:10px; border-left:4px solid var(--music-bar); }
-#music a{ color: var(--music-link); font-weight:600; }
+#music a{ color: var(--music-link); font-weight:750; }
 #music a:hover{ color: var(--music-hover); }
 
 /* ========== 5) Tables (global + task3) ========== */
@@ -281,7 +295,7 @@ button, input[type="color"]{ margin:4px; }
 /* Notes: Resource “Apple-like” */
 .resource-page{
   font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-  color:#1d1d1f; background-color:var(--bg);
+  color:#1d1d1f; 
 }
 .resource-page .card{
   background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow: var(--card-shadow);
@@ -291,7 +305,8 @@ button, input[type="color"]{ margin:4px; }
   font-size:24px; color:#313647; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
 }
 .resource-page .links a{
-  display:block; padding:6px 0; color:#435663; font-weight:500; text-decoration:none; transition:color .15s ease;
+  display:block; padding:6px 0; color:#435663; font-weight:500; text-decoration:none; transition:color .15s ease;               /* 主文字中灰 */
+  font-size: 15px;
 }
 .resource-page .links a:hover{ color:#A3B087; }
 .resource-page .links a:active{ color:#FFF8D4; }
@@ -314,4 +329,24 @@ button#toggle:hover{ background:#767c83; }
   .left{ width:100%; min-width:unset; min-height:unset; border-right:none; border-bottom:1px solid #eee; }
   .right{ max-width:none; }
   #myCanvas4{ width:100%; height:auto; }
+}
+
+
+.slow-msg {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(240, 240, 240, 0.7); /* 淡灰半透明背景 */
+  color: #1d1d1f;                       /* Apple 預設文字色 */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 20px auto;
+  width: fit-content;                    /* 根據文字寬度自適應 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slow-msg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
