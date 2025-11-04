@@ -168,7 +168,7 @@ th{
 }
 td{ padding:8px; }
 table,th,td{ border:1px solid #555; }
-button,input[type="color"]{ margin:4px; }
+button,input[type="color"]{ margin:4px;}
 
 /* Table page upgrades */
 .btn-group{ display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 20px; }
@@ -180,7 +180,7 @@ button,input[type="color"]{ margin:4px; }
 }
 .colorpick{
   display:inline-flex; align-items:center; gap:6px; padding:6px 8px;
-  border:.5px solid #e6e6e6; border-radius:3px; background:#fff;
+  border:.5px solid #e6e6e6; border-radius:5px; background:#fff;
 }
 .colorpick input[type="color"]{ width:36px; height:28px; padding:0; border:none; background:transparent; }
 
