@@ -6,8 +6,12 @@
     <title>Juan's Personal Webpage · Resource</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<video id="rr-bg" class="bgvid"
+       src="../Photo/RickRoll.mp4"
+       muted playsinline loop preload="metadata" aria-hidden="true"></video>
 
+<body>
+<div class="page-content">
   <header>
     <h1 class="logo">&lt;J/&gt;</h1>
     <nav aria-label="Primary">
@@ -65,12 +69,43 @@
         <section class="card">
           <h2>Youtube</h2>
           <div class="links">
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Neogiyoup</a>
+            <a class="rr-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Neogiyoup</a>
             <a href="https://youtu.be/VdsGms6JDUY" target="_blank">Multimedia Project2 Test Video</a>
 
           </div>
         </section>
+
+        <script>
+        (function(){
+          const links = document.querySelectorAll('.rr-link');   // 想要觸發的連結都給 rr-link
+          const bg = document.getElementById('rr-bg');
+          if(!bg || !links.length) return;
+
+          function show(){
+            bg.classList.add('is-on');
+            // 某些瀏覽器需要 muted + playsinline 才能自動播放
+            bg.play?.().catch(()=>{ /* 靜靜忽略 */ });
+          }
+          function hide(){
+            bg.classList.remove('is-on');
+            bg.pause?.();
+            bg.currentTime = 0; // 想每次從頭播
+          }
+
+          links.forEach(a=>{
+            a.addEventListener('mouseenter', show);
+            a.addEventListener('mouseleave', hide);
+            // 也可加 keyboard focus 的無障礙體驗
+            a.addEventListener('focus', show);
+            a.addEventListener('blur', hide);
+          });
+        })();
+      </script>
+
       </main>
+
+</div>
+
 
 
 

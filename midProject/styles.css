@@ -391,3 +391,19 @@ button#toggle:hover{ background:#767c83; }
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
+
+/* 讓主內容永遠在影片之上 */
+.page-content { position: relative; z-index: 1; }
+
+/* 全螢幕背景影片（預設隱形） */
+.bgvid{
+  position: fixed; inset: 0;
+  width: 100vw;        /* 滿整個視窗寬 */
+  object-fit: cover;
+  pointer-events: none;   /* 不擋到點擊 */
+  opacity: 0;             /* 預設看不見 */
+  transition: opacity .25s ease;
+  z-index: 0;
+}
+/* 顯示時：半透明 */
+.bgvid.is-on{ opacity: .2; }  /* 想更淡就調小一點 */
