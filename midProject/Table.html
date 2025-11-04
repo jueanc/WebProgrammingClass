@@ -48,11 +48,11 @@
 
       <h1>Customizable Table ‧ 自定義表格</h1>
 
-      <table id="scoreTable" width =300 style="border-collapse: separate; border-spacing: 1px; background-color: #fcfcf0; border: 2px solid #555;">
+      <table id="scoreTable" width =300 >
         <tr>
           <th>Math</th>
-          <th>English</th>
-          <th>Programming</th>
+          <th>Engl</th>
+          <th>Natu</th>
         </tr>
         <tr>
           <td>90</td>
@@ -89,9 +89,9 @@
         const table = document.getElementById('scoreTable');
         const defaultStyle = {
           width: table.style.width,
-          borderSpacing: '2px',
+          borderSpacing: '1px',
           backgroundColor: '#fcfcf0',
-          border: '2px solid #555'
+          border: '1px solid #000'
         };
 
         function changeWidth(w) {
@@ -99,7 +99,7 @@
         }
 
         function changeBorder(size) {
-          table.style.border = size + 'px solid #555';
+          table.style.border = size + 'px solid #B6AE9F';
           table.style.borderSpacing = size + 'px';
         }
 

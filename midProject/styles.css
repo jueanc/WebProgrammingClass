@@ -169,16 +169,16 @@ header{
 
 /* ========== 5) Tables (global + task3) ========== */
 table{
-  border-collapse:separate; border-spacing:2px;
+  border-collapse:separate; border-spacing:1px;
   background-color: var(--table-bg);
-  text-align:center; border:2px solid var(--table-border);
+  text-align:center; border:1px solid var(--table-border);
 }
 th{
   background-color: var(--table-th);
   color:#fff; padding:10px;
 }
 td{ padding:8px; }
-table, th, td{ border:1px solid var(--table-cell); }
+table, th, td{ border:1px solid #555; }
 button, input[type="color"]{ margin:4px; }
 
 /* Task3 專用（座位表） */
