@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Juan's Personal Webpage · Gallery</title>
 <link rel="stylesheet" href="styles.css" />
-<style>
-</style>
 </head>
 
 <body>
@@ -63,7 +61,7 @@
         <div class="polaroid">
           <img id="polaImg" src="../Photo/PaulBear.png" alt="Pictures of Today" width="300" height="auto" />
           <div class="caption" id="polaCap" aria-live="polite">Pictures of Today</div>
-          <div class="caption" id="polaCounter">Image 1 of 5</div>
+          <div class="caption" id="polaCounter" style="color: rgba(90, 92, 92, 0.644); font-size: 12px;">Image 1 of 5</div>
         </div>
 
         <div class="pola-controls">
@@ -267,12 +265,12 @@
   // —— Polaroid switcher —— //
   (() => {
     const images = [
-      { src: '../Photo/PaulBear.png',   cap: 'Bear is commimg' },
-      { src: '../Photo/PaulBasket.png', cap: 'Courtside Vibes' },
-      { src: '../Photo/PaulOhtani.png', cap: 'Two-way Magic' },
-      { src: '../Photo/PaulHipHop.png', cap: 'Hip-hop Night' },
-      { src: '../Photo/PaulSoldier.png', cap: 'Battle Ready' },
-      { src: '../Photo/PaulKoLiang.png', cap: 'I am still alive' }
+        { src: '../Photo/PaulBear.png',    cap: 'Bear Coming' },
+        { src: '../Photo/PaulBasket.png',  cap: 'Courtside Vibes' },
+        { src: '../Photo/PaulOhtani.png',  cap: 'Two-Way Magic' },
+        { src: '../Photo/PaulHipHop.png',  cap: 'Hip-Hop Night' },
+        { src: '../Photo/PaulSoldier.png', cap: 'Battle Ready' },
+        { src: '../Photo/PaulKoLiang.png', cap: 'Still Alive' }
     ];
 
     let idx = 0;
