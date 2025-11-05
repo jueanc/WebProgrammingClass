@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juan's Dream Space · Description</title>
+  <!-- 依你目前結構，CSS 在根目錄 -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <h1 class="logo">&lt;J/&gt;</h1>
+    <nav aria-label="Primary">
+      <ul class="theme">
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="Highlights.html">Highlights</a></li>
+        <li><a href="Resource.html">Resource</a></li>
+        <li><a href="Table.html">Table</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a class="active" aria-current="page" href="Description.html">Description</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="profile">
+    <!-- Sidebar / Profile（沿用你的左欄樣式與回首頁互動） -->
+    <aside class="left">
+      <img
+        id="meme"
+        src="../Photo/MemeManProfile.png"
+        alt="Portrait of Juan"
+        width="200" height="200"
+        usemap="#profilemap"
+      />
+      <map name="profilemap">
+        <area
+          id="faceArea"
+          shape="poly"
+          coords="10,187,24,181,49,169,59,150,62,134,56,118,48,116,43,108,41,94,40,78,34,58,45,33,58,16,74,6,88,4,103,9,117,8,128,11,140,21,156,45,159,68,153,84,151,97,149,113,143,118,140,136,132,146,132,154,137,168,169,182,196,199,0,198,0,192,-1,190"
+          href="#" alt="Back to Home" title="Back to Home"
+        />
+      </map>
+
+      <div class="name">Juan</div>
+      <p class="meta"><b>Mail</b>: <a href="mailto:jueanc@gmail.com">jueanc@gmail.com</a></p>
+      <p class="meta" id="MLB">
+        <b>Web</b>:
+        <a href="https://mlb.com" target="_blank" rel="noopener noreferrer">mlb.com</a>
+      </p>
+    </aside>
+
+    <!-- Main -->
+    <main class="right card">
+      <h1>Midterm Project Description</h1>
+
+      <h2>Website Overview</h2>
+      <ul class="list">
+        <li><b>Home (Index.html)</b> — Personal intro + background video hover (Fire EX. / Darvish)</li>
+        <li><b>Highlights.html</b> — Journey timeline, skills & awards</li>
+        <li><b>Resource.html</b> — External links，RickRoll 背景影片 hover</li>
+        <li><b>Table.html</b> — Table Styler + 2–9 Multiplication + Seating chart</li>
+        <li><b>Gallery.html</b> — Canvas Day/Night + Polaroid switcher + Hover overlay</li>
+      </ul>
+<hr>
+      <h2>Lab Mapping</h2>
+      <ul class="list">
+        <li><b>Lab 2</b> — Multi-page, consistent navbar, 2-column layout</li>
+        <li><b>Lab 3</b> — Image Map（左欄頭像）、Hover Overlay（Soto 圖）</li>
+        <li><b>Lab 4</b> — Table Styler（寬度 / 邊距 / 色彩 / Reset / 平均）、九九乘法表</li>
+        <li><b>Bonus</b> — Canvas creative artwork（漸層天空、星星/雲、建築、標題文字）</li>
+      </ul>
+<hr>
+      <h2>JavaScript Files</h2>
+      <ul class="list">
+        <li><code>js/GoHome.js</code> — 點擊側邊頭像：閃眼→返回 Home</li>
+        <li><code>js/bgVideo.js</code> — Home 背景影片 hover 播放</li>
+        <li><code>js/rickroll.js</code> — Resource 背景影片 hover 播放</li>
+        <li><code>js/table.js</code> — 表格樣式控制、平均值、2–9 乘法表</li>
+        <li><code>js/gallery.js</code> — Canvas 日夜動畫 + Polaroid 圖片切換</li>
+      </ul>
+<hr>
+      <h2>Requirement Checklist</h2>
+      <ul class="list">
+        <li>5 頁以上、多頁一致導覽與主題</li>
+        <li>2 欄版面（左側個人資訊＋右側主內容）</li>
+        <li>Image Map（頭像）、Hover Overlay（Soto 圖）</li>
+        <li>JS 全為外部檔案，頁面按需載入</li>
+        <li>Table Styler + Multiplication + Canvas（Bonus）</li>
+      </ul>
+<hr>
+      <h2>Notes</h2>
+      <ul class="list">
+        <li>圖片路徑：<code>../Photo/</code></li>
+        <li>部署建議：GitHub Pages 或 Netlify，首頁檔名 <code>Index.html</code></li>
+      </ul>
+    </main>
+  </div>
+
+  <script src="js/GoHome.js" defer></script>
+</body>
+</html>

@@ -391,7 +391,7 @@ button#toggle:hover{ background:#767c83; }
   min-width: 135% !important;
 }
 /* 顯示時：半透明 */
-.bgvid.is-on{ opacity:.2; }
+.bgvid.is-on{ opacity:.5; }
 
 /* ========== 11) Utilities & Responsive ========== */
 .u-hidden{ display:none !important; }
