@@ -275,6 +275,7 @@ button,input[type="color"]{ margin:4px;}
 .chip:nth-child(3){ background:#c2c7da; }
 .chip:nth-child(4){ background:#c6e5ee; }
 .chip:nth-child(5){ background:#7fb990; }
+.chip:nth-child(6){ background:#f0ccee; }
 .chip:hover{ transform:translateY(-1px); }
 .chip.active{ box-shadow:inset 0 0 0 2px #948b8b; }
 
