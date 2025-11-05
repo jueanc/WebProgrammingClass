@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<video id="fireex-bg" class="bgvid"
+         src="../Photo/FireEX.mp4"
+         muted playsinline loop preload="metadata" aria-hidden="true"></video>
+<video id="darvish-bg" class="bgvid"
+       src="../Photo/Darvish.mp4"
+       muted playsinline loop preload="metadata" aria-hidden="true"></video>
 
   <header>
     <h1 class="logo">&lt;J/&gt;</h1>
@@ -137,6 +143,52 @@
       </section>
 
     </main>
+    <script>
+  (function () {
+    const host = document.querySelector('.FireEX-img');   // 那張 FireEX 圖片的 <figure>
+    const bg = document.getElementById('fireex-bg');      // 背景影片
+    if (!host || !bg) return;
+
+    function show() {
+      bg.classList.add('is-on');       // 讓影片淡入（styles.css 已經寫好 .bgvid/.is-on）
+      bg.play?.().catch(() => {});
+    }
+    function hide() {
+      bg.classList.remove('is-on');    // 讓影片淡出
+      bg.pause?.();
+      bg.currentTime = 0;              // 每次從頭播（要保留進度就拿掉這行）
+    }
+
+    // 滑鼠 + 鍵盤可及性
+    host.addEventListener('mouseenter', show);
+    host.addEventListener('mouseleave', hide);
+    host.addEventListener('focusin', show);
+    host.addEventListener('focusout', hide);
+  })();
+</script>
+<script>
+(function () {
+  const host = document.querySelector('.darvish-img'); // Darvish 那張圖
+  const bg = document.getElementById('darvish-bg');    // 對應背景影片
+  if (!host || !bg) return;
+
+  function show() {
+    bg.classList.add('is-on');
+    bg.play?.().catch(() => {});
+  }
+  function hide() {
+    bg.classList.remove('is-on');
+    bg.pause?.();
+    bg.currentTime = 0;
+  }
+
+  host.addEventListener('mouseenter', show);
+  host.addEventListener('mouseleave', hide);
+  host.addEventListener('focusin', show);
+  host.addEventListener('focusout', hide);
+})();
+</script>
+
   </div>
 
 </body>
