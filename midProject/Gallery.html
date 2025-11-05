@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Juan's Personal Webpage · Gallery</title>
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juan's Personal Webpage · Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- Navbar -->
-<header>
-  <h1 class="logo">&lt;J/&gt;</h1>
-  <nav aria-label="Primary">
-    <ul class="theme">
-      <li><a href="my_web.html">Home</a></li>
-      <li><a href="Highlights.html">Highlights</a></li>
-      <li><a href="Resource.html">Resource</a></li>
-      <li><a href="Table.html">Table</a></li>
-      <li><a class="active" aria-current="page" href="Gallery.html">Gallery</a></li>
-    </ul>
-  </nav>
-</header>
-
+  <!-- ===== Navbar ===== -->
+  <header>
+    <h1 class="logo">&lt;J/&gt;</h1>
+    <nav aria-label="Primary">
+      <ul class="theme">
+        <li><a href="my_web.html">Home</a></li>
+        <li><a href="Highlights.html">Highlights</a></li>
+        <li><a href="Resource.html">Resource</a></li>
+        <li><a href="Table.html">Table</a></li>
+        <li><a class="active" aria-current="page" href="Gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <div class="profile">
+    <!-- ===== Sidebar / Profile ===== -->
     <aside class="left">
       <img
+        id="meme"
         src="../Photo/MemeManProfile.png"
         alt="Portrait of Juan"
         width="200"
         height="200"
-        loading="lazy"
-        decoding="async"
+        usemap="#profilemap"
       />
+
+      <map name="profilemap">
+        <area
+          id="faceArea"
+          shape="poly"
+          coords="10,187,24,181,49,169,59,150,62,134,56,118,48,116,43,108,41,94,40,78,34,58,45,33,58,16,74,6,88,4,103,9,117,8,128,11,140,21,156,45,159,68,153,84,151,97,149,113,143,118,140,136,132,146,132,154,137,168,169,182,196,199,0,198,0,192,-1,190"
+          href="#"
+          alt="Back to Home"
+          title="Back to Home"
+        />
+      </map>
+
       <div class="name">Juan</div>
 
       <p class="meta">
         <b>Mail</b>:
-        <a href="mailto:jueanc@gmail.com">jueanc</a>
+        <a href="mailto:jueanc@gmail.com">jueanc@gmail.com</a>
       </p>
       <p class="meta" id="MLB">
         <b>Web</b>:
@@ -45,23 +57,27 @@
       </p>
     </aside>
 
+    <!-- ===== Main Content ===== -->
     <main class="right">
-
-
+      <!-- Day / Night Canvas -->
       <h1>Day and Night</h1>
-      <button id="toggle">切換白天</button>
+      <button id="toggle" type="button" aria-pressed="false">切換白天</button>
 
-      <canvas id="myCanvas4" width="800" height="500">Your browser does not support the HTML canvas tag.</canvas>
+      <canvas id="myCanvas4" width="800" height="500">
+        Your browser does not support the HTML canvas tag.
+      </canvas>
 
-
-
+      <!-- Polaroid Switcher -->
       <h1>Polaroid-Style Image Switcher</h1>
       <p class="slow-msg">The web's kinda slow 😅 pls wait a sec! <br>圖片載入要一段時間請稍等一下!</p>
-      <section class="polaroid-wrap" aria-label="Polaroid image switcher">
+
+      <section class="polaroid-wrap" aria-label="Polaroid image switcher" tabindex="0">
         <div class="polaroid">
-          <img id="polaImg" src="../Photo/PaulBear.png" alt="Pictures of Today" width="300" height="auto" />
-          <div class="caption" id="polaCap" aria-live="polite">Pictures of Today</div>
-          <div class="caption" id="polaCounter" style="color: rgba(90, 92, 92, 0.644); font-size: 12px;">Image 1 of 5</div>
+          <img id="polaImg" src="../Photo/PaulBear.png" alt="Bear Coming" width="300" height="auto" />
+          <div class="caption" id="polaCap" aria-live="polite">Bear Coming</div>
+          <div class="caption" id="polaCounter" style="color: rgba(90, 92, 92, 0.644); font-size: 12px;">
+            Image 1 of 6
+          </div>
         </div>
 
         <div class="pola-controls">
@@ -75,244 +91,258 @@
           <button class="chip" role="tab" data-idx="2" title="Photo 3"></button>
           <button class="chip" role="tab" data-idx="3" title="Photo 4"></button>
           <button class="chip" role="tab" data-idx="4" title="Photo 5"></button>
-          <button class="chip" role="tab" data-idx="5" title="Photo 6"></button>              
+          <button class="chip" role="tab" data-idx="5" title="Photo 6"></button>
         </div>
       </section>
-      <script>
-        // ====== 基本設定（HiDPI）======
-        const canvas = document.getElementById("myCanvas4");
-        const ctx = canvas.getContext("2d");
-        const dpr = Math.max(1, Math.floor(window.devicePixelRatio || 1));
-        const CSS_W = 800, CSS_H = 500;
-        canvas.width = CSS_W * dpr; canvas.height = CSS_H * dpr; ctx.scale(dpr, dpr);
 
-        // dayFactor: 0 = 夜晚, 1 = 白天（用來做平滑插值）
-        let dayFactor = 0;           // 初始夜晚
-        let animFrom = 0, animTo = 0, animStart = 0, animDur = 900; // ms
-        let targetIsDay = false;
+      <!-- Hover Overlay -->
+      <section class="Sotohover">
+        <h2>Don't touch me</h2>
+        <figure class="overlay-img">
+          <img src="../Photo/Soto.png" alt="Night view" class="main" loading="lazy">
+          <img src="../Photo/SotoMad.png" alt="Day view" class="overlay" loading="lazy">
+          <figcaption>I said DON'T TOUCH ME</figcaption>
+        </figure>
+      </section>
+    </main>
+  </div>
 
-        // ====== 工具：顏色/數值插值 ======
-        const lerp = (a,b,t)=> a + (b - a) * t;
-        const clamp01 = (x)=> Math.max(0, Math.min(1, x));
-        function hexToRgb(hex){
-          const h = hex.replace('#','');
-          const r = parseInt(h.slice(0,2),16);
-          const g = parseInt(h.slice(2,4),16);
-          const b = parseInt(h.slice(4,6),16);
-          return {r,g,b};
+  <!-- ===== Scripts ===== -->
+  <script>
+    // ========= Canvas: Day/Night Scene =========
+    (function () {
+      'use strict';
+      const canvas = document.getElementById('myCanvas4');
+      const ctx = canvas.getContext('2d');
+      const dpr = Math.max(1, Math.floor(window.devicePixelRatio || 1));
+      const CSS_W = 800, CSS_H = 500;
+      canvas.width = CSS_W * dpr; canvas.height = CSS_H * dpr; ctx.scale(dpr, dpr);
+
+      // Animation state
+      let dayFactor = 0; // 0 night, 1 day
+      let animFrom = 0, animTo = 0, animStart = 0, animDur = 900;
+      let targetIsDay = false;
+
+      // Helpers
+      const lerp = (a, b, t) => a + (b - a) * t;
+      const clamp01 = x => Math.max(0, Math.min(1, x));
+      const easeInOutQuad = x => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
+      const hexToRgb = (hex) => {
+        const h = hex.replace('#', '');
+        return { r: parseInt(h.slice(0, 2), 16), g: parseInt(h.slice(2, 4), 16), b: parseInt(h.slice(4, 6), 16) };
+      };
+      function mixColor(c1, c2, t) {
+        const a = hexToRgb(c1), b = hexToRgb(c2);
+        return `rgb(${Math.round(lerp(a.r, b.r, t))},${Math.round(lerp(a.g, b.g, t))},${Math.round(lerp(a.b, b.b, t))})`;
+      }
+
+      // Colors
+      const SKY_TOP_N = '#065084', SKY_BOT_N = '#222831';
+      const SKY_TOP_D = '#87ceeb', SKY_BOT_D = '#fff1a1';
+      const GROUND_N = '#111111', GROUND_D = '#4caf50';
+      const B1_N = '#37353E', B1_D = '#7e7f91';
+      const B2_N = '#44444E', B2_D = '#9b9cae';
+      const TEXT_N = '#ffffff', TEXT_D = '#333333';
+
+      // Stars
+      const STAR_COUNT = 90;
+      const stars = Array.from({ length: STAR_COUNT }, () => ({
+        x: Math.random() * CSS_W,
+        y: Math.random() * 300,
+        r: Math.random() * 1.4 + 0.3,
+        base: Math.random() * 0.5 + 0.5,
+        speed: Math.random() * 0.02 + 0.005,
+        phase: Math.random() * Math.PI * 2
+      }));
+
+      // Clouds
+      const CLOUD_COUNT = 6;
+      const clouds = Array.from({ length: CLOUD_COUNT }, () => ({
+        x: Math.random() * CSS_W,
+        y: Math.random() * 120 + 30,
+        s: Math.random() * 0.5 + 0.8,
+        v: Math.random() * 0.3 + 0.2
+      }));
+      function drawCloud(cx, cy, scale) {
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(cx - 20 * scale, cy, 16 * scale, 0, Math.PI * 2);
+        ctx.arc(cx, cy - 8 * scale, 22 * scale, 0, Math.PI * 2);
+        ctx.arc(cx + 22 * scale, cy, 16 * scale, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Buildings
+      const buildings = [
+        { x: 60, y: 220, w: 80, h: 180 }, { x: 180, y: 200, w: 80, h: 200 }, { x: 300, y: 180, w: 80, h: 220 },
+        { x: 450, y: 190, w: 80, h: 210 }, { x: 600, y: 180, w: 80, h: 220 }
+      ];
+
+      // Render loop
+      function render(ts) {
+        // Animation tween
+        if (animStart) {
+          const raw = clamp01((ts - animStart) / animDur);
+          const e = easeInOutQuad(raw);
+          dayFactor = lerp(animFrom, animTo, e);
+          if (raw >= 1) animStart = 0;
         }
-        function mixColor(c1, c2, t){
-          const a = hexToRgb(c1), b = hexToRgb(c2);
-          const r = Math.round(lerp(a.r, b.r, t));
-          const g = Math.round(lerp(a.g, b.g, t));
-          const b2 = Math.round(lerp(a.b, b.b, t));
-          return `rgb(${r},${g},${b2})`;
-        }
-        // 平滑曲線（ease in out）
-        function easeInOutQuad(x){ return x < 0.5 ? 2*x*x : 1 - Math.pow(-2*x + 2, 2)/2; }
 
-        // ====== 顏色定義（夜→日）======
-        const SKY_TOP_N = "#065084", SKY_BOT_N = "#222831";
-        const SKY_TOP_D = "#87ceeb", SKY_BOT_D = "#fff1a1";
+        // Sky gradient
+        const skyTop = mixColor(SKY_TOP_N, SKY_TOP_D, dayFactor);
+        const skyBot = mixColor(SKY_BOT_N, SKY_BOT_D, dayFactor);
+        const sky = ctx.createLinearGradient(0, 0, 0, 400);
+        sky.addColorStop(0, skyTop);
+        sky.addColorStop(1, skyBot);
+        ctx.fillStyle = sky;
+        ctx.fillRect(0, 0, CSS_W, 400);
 
-        const GROUND_N = "#111111", GROUND_D = "#4caf50";
+        // Sun & Moon
+        const sunA = dayFactor, moonA = 1 - dayFactor;
 
-        const B1_N = "#37353E", B1_D = "#7e7f91";
-        const B2_N = "#44444E", B2_D = "#9b9cae";
-
-        const TEXT_N = "#ffffff", TEXT_D = "#333333";
-
-        // ====== 星星（固定位置，夜晚閃爍）======
-        const STAR_COUNT = 90;
-        const stars = Array.from({length: STAR_COUNT}, () => ({
-          x: Math.random()*CSS_W,
-          y: Math.random()*300,
-          r: Math.random()*1.4 + 0.3,
-          base: Math.random()*0.5 + 0.5,
-          speed: Math.random()*0.02 + 0.005,
-          phase: Math.random()*Math.PI*2
-        }));
-
-        // ====== 白天雲（緩慢漂移）======
-        const CLOUD_COUNT = 6;
-        const clouds = Array.from({length: CLOUD_COUNT}, () => ({
-          x: Math.random()*CSS_W,
-          y: Math.random()*120 + 30,
-          s: Math.random()*0.5 + 0.8,
-          v: Math.random()*0.3 + 0.2
-        }));
-        function drawCloud(cx, cy, scale){
-          ctx.fillStyle = "white";
-          ctx.beginPath();
-          ctx.arc(cx-20*scale, cy, 16*scale, 0, Math.PI*2);
-          ctx.arc(cx,         cy-8*scale, 22*scale, 0, Math.PI*2);
-          ctx.arc(cx+22*scale,cy, 16*scale, 0, Math.PI*2);
-          ctx.fill();
+        if (sunA > 0) {
+          ctx.globalAlpha = sunA;
+          let g = ctx.createRadialGradient(600, 120, 5, 600, 120, 90);
+          g.addColorStop(0, '#fff9c4'); g.addColorStop(1, 'rgba(255,255,255,0)');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(600, 120, 90, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(600, 120, 36, 0, Math.PI * 2); ctx.fillStyle = '#fff59d'; ctx.fill();
         }
 
-        // 建築物
-        const buildings = [
-          {x:60,y:220,w:80,h:180},{x:180,y:200,w:80,h:200},{x:300,y:180,w:80,h:220},
-          {x:450,y:190,w:80,h:210},{x:600,y:180,w:80,h:220},
-        ];
+        if (moonA > 0) {
+          ctx.globalAlpha = moonA;
+          let g2 = ctx.createRadialGradient(600, 150, 5, 600, 150, 120);
+          g2.addColorStop(0, 'rgba(255,246,204,0.35)'); g2.addColorStop(1, 'rgba(255,246,204,0)');
+          ctx.fillStyle = g2; ctx.beginPath(); ctx.arc(600, 150, 120, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(600, 150, 50, 0, Math.PI * 2); ctx.fillStyle = '#fff6cc'; ctx.fill();
+        }
+        ctx.globalAlpha = 1;
 
-        // ====== 繪圖主流程（每幀）======
-        function render(ts){
-          // 動畫內插
-          if (animStart) {
-            const raw = clamp01((ts - animStart) / animDur);
-            const e = easeInOutQuad(raw);
-            dayFactor = lerp(animFrom, animTo, e);
-            if (raw >= 1) animStart = 0; // 動畫結束
-          }
-
-          // 背景天空（兩端顏色插值）
-          const skyTop = mixColor(SKY_TOP_N, SKY_TOP_D, dayFactor);
-          const skyBot = mixColor(SKY_BOT_N, SKY_BOT_D, dayFactor);
-          const sky = ctx.createLinearGradient(0, 0, 0, 400);
-          sky.addColorStop(0, skyTop);
-          sky.addColorStop(1, skyBot);
-          ctx.fillStyle = sky;
-          ctx.fillRect(0, 0, CSS_W, 400);
-
-          // 太陽（月亮）淡入淡出：sunAlpha=dayFactor, moonAlpha=(1-dayFactor)
-          const sunA = dayFactor, moonA = 1 - dayFactor;
-
-          // 太陽
-          if (sunA > 0) {
-            ctx.globalAlpha = sunA;
-            let g = ctx.createRadialGradient(600,120,5,600,120,90);
-            g.addColorStop(0, "#fff9c4");
-            g.addColorStop(1, "rgba(255,255,255,0)");
-            ctx.fillStyle = g; ctx.beginPath(); ctx.arc(600,120,90,0,Math.PI*2); ctx.fill();
-            ctx.beginPath(); ctx.arc(600,120,36,0,Math.PI*2); ctx.fillStyle = "#fff59d"; ctx.fill();
-          }
-
-          // 月亮（含月暈）
-          if (moonA > 0) {
-            ctx.globalAlpha = moonA;
-            let g2 = ctx.createRadialGradient(600,150,5,600,150,120);
-            g2.addColorStop(0, "rgba(255,246,204,0.35)");
-            g2.addColorStop(1, "rgba(255,246,204,0)");
-            ctx.fillStyle = g2; ctx.beginPath(); ctx.arc(600,150,120,0,Math.PI*2); ctx.fill();
-            ctx.beginPath(); ctx.arc(600,150,50,0,Math.PI*2); ctx.fillStyle = "#fff6cc"; ctx.fill();
+        // Stars
+        const starGlobal = (1 - dayFactor);
+        if (starGlobal > 0) {
+          for (const s of stars) {
+            const flicker = s.base + 0.5 * Math.sin(s.phase + ts * s.speed);
+            ctx.globalAlpha = Math.max(0, Math.min(1, flicker * starGlobal));
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff'; ctx.fill();
           }
           ctx.globalAlpha = 1;
-
-          // 星星（夜越深越亮；且微微閃爍）
-          const starGlobal = (1 - dayFactor); // 夜深=1
-          if (starGlobal > 0) {
-            for (const s of stars) {
-              const flicker = s.base + 0.5*Math.sin(s.phase + ts*s.speed);
-              ctx.globalAlpha = clamp01(flicker * starGlobal);
-              ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
-              ctx.fillStyle = "#ffffff"; ctx.fill();
-            }
-            ctx.globalAlpha = 1;
-          }
-
-          // 雲（白天越多越明顯）
-          const cloudA = dayFactor;
-          if (cloudA > 0) {
-            ctx.globalAlpha = cloudA;
-            for (const c of clouds) {
-              c.x += c.v; if (c.x > CSS_W + 40) c.x = -40;
-              drawCloud(c.x, c.y, c.s*1.2);
-            }
-            ctx.globalAlpha = 1;
-          }
-
-          // 地面 & 建築（顏色插值）
-          ctx.fillStyle = mixColor(GROUND_N, GROUND_D, dayFactor);
-          ctx.fillRect(0, 400, CSS_W, 100);
-
-          buildings.forEach((b,i) => {
-            const from = i%2 ? B2_N : B1_N;
-            const to   = i%2 ? B2_D : B1_D;
-            ctx.fillStyle = mixColor(from, to, dayFactor);
-            ctx.fillRect(b.x, b.y, b.w, b.h);
-          });
-
-          // 標題
-          ctx.shadowColor="rgba(0,0,0,0.5)"; ctx.shadowBlur=8;
-          ctx.fillStyle = mixColor(TEXT_N, TEXT_D, dayFactor);
-          ctx.font = "bold 30px Arial";
-          const title = dayFactor > 0.5 ? "Sunny Day City" : "Moon Night City";
-          ctx.fillText(title, 20, 50);
-          ctx.shadowBlur=4; ctx.font="20px Arial";
-          const subtitle = dayFactor > 0.5 ? "clouds drifting ☁️" : "stars twinkling ✨";
-          ctx.fillText(subtitle, 20, 80);
-          ctx.shadowBlur=0;
-
-          requestAnimationFrame(render);
         }
 
-        // 啟動動畫 loop
-        requestAnimationFrame(render);
+        // Clouds
+        if (dayFactor > 0) {
+          ctx.globalAlpha = dayFactor;
+          for (const c of clouds) {
+            c.x += c.v; if (c.x > CSS_W + 40) c.x = -40;
+            drawCloud(c.x, c.y, c.s * 1.2);
+          }
+          ctx.globalAlpha = 1;
+        }
 
-        // 切換按鈕（平滑過渡）
-        const btn = document.getElementById("toggle");
-        btn.addEventListener("click", () => {
-          targetIsDay = !targetIsDay;
-          animFrom = dayFactor;
-          animTo = targetIsDay ? 1 : 0;
-          animStart = performance.now();
-          btn.textContent = targetIsDay ? "切換黑夜" : "切換白天";
+        // Ground & Buildings
+        ctx.fillStyle = mixColor(GROUND_N, GROUND_D, dayFactor);
+        ctx.fillRect(0, 400, CSS_W, 100);
+
+        buildings.forEach((b, i) => {
+          const from = i % 2 ? B2_N : B1_N;
+          const to = i % 2 ? B2_D : B1_D;
+          ctx.fillStyle = mixColor(from, to, dayFactor);
+          ctx.fillRect(b.x, b.y, b.w, b.h);
         });
-      </script>
 
-<script>
-  // —— Polaroid switcher —— //
-  (() => {
-    const images = [
+        // Titles
+        ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 8;
+        ctx.fillStyle = mixColor(TEXT_N, TEXT_D, dayFactor);
+        ctx.font = 'bold 30px Arial';
+        ctx.fillText(dayFactor > 0.5 ? 'Sunny Day City' : 'Moon Night City', 20, 50);
+        ctx.shadowBlur = 4; ctx.font = '20px Arial';
+        ctx.fillText(dayFactor > 0.5 ? 'clouds drifting ☁️' : 'stars twinkling ✨', 20, 80);
+        ctx.shadowBlur = 0;
+
+        requestAnimationFrame(render);
+      }
+
+      requestAnimationFrame(render);
+
+      // Toggle button
+      const btn = document.getElementById('toggle');
+      btn.addEventListener('click', () => {
+        targetIsDay = !targetIsDay;
+        animFrom = dayFactor;
+        animTo = targetIsDay ? 1 : 0;
+        animStart = performance.now();
+        btn.textContent = targetIsDay ? '切換黑夜' : '切換白天';
+        btn.setAttribute('aria-pressed', String(targetIsDay));
+      });
+    })();
+  </script>
+
+  <script>
+    // ========= Polaroid Switcher =========
+    (function () {
+      'use strict';
+      const images = [
         { src: '../Photo/PaulBear.png',    cap: 'Bear Coming' },
         { src: '../Photo/PaulBasket.png',  cap: 'Courtside Vibes' },
         { src: '../Photo/PaulOhtani.png',  cap: 'Two-Way Magic' },
         { src: '../Photo/PaulHipHop.png',  cap: 'Hip-Hop Night' },
         { src: '../Photo/PaulSoldier.png', cap: 'Battle Ready' },
         { src: '../Photo/PaulKoLiang.png', cap: 'Still Alive' }
-    ];
+      ];
 
-    let idx = 0;
-    const imgEl = document.getElementById('polaImg');
-    const capEl = document.getElementById('polaCap');
-    const chips = Array.from(document.querySelectorAll('.thumbs .chip'));
-    const counterEl = document.getElementById('polaCounter');
-    function render(i){
-      idx = (i + images.length) % images.length;
-      const cur = images[idx];
-      imgEl.src = cur.src;
-      imgEl.alt = cur.cap;
-      capEl.textContent = cur.cap;
-      counterEl.textContent = `Image ${idx + 1} of ${images.length}`;
-      chips.forEach((c, k) => {
-        const on = k === idx;
-        c.classList.toggle('active', on);
-        c.setAttribute('aria-selected', on ? 'true' : 'false');
+      let idx = 0;
+      const imgEl = document.getElementById('polaImg');
+      const capEl = document.getElementById('polaCap');
+      const counterEl = document.getElementById('polaCounter');
+      const chips = Array.from(document.querySelectorAll('.thumbs .chip'));
+
+      function render(i) {
+        idx = (i + images.length) % images.length;
+        const cur = images[idx];
+        imgEl.src = cur.src;
+        imgEl.alt = cur.cap;
+        capEl.textContent = cur.cap;
+        counterEl.textContent = `Image ${idx + 1} of ${images.length}`;
+        chips.forEach((c, k) => {
+          const on = k === idx;
+          c.classList.toggle('active', on);
+          c.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+
+      document.getElementById('prevBtn').addEventListener('click', () => render(idx - 1));
+      document.getElementById('nextBtn').addEventListener('click', () => render(idx + 1));
+      chips.forEach(ch => ch.addEventListener('click', e => render(parseInt(e.currentTarget.dataset.idx, 10) || 0)));
+
+      // Keyboard support
+      document.querySelector('.polaroid-wrap').addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft')  render(idx - 1);
+        if (e.key === 'ArrowRight') render(idx + 1);
       });
-    }
 
-    document.getElementById('prevBtn').addEventListener('click', () => render(idx - 1));
-    document.getElementById('nextBtn').addEventListener('click', () => render(idx + 1));
+      // Optional: Preload images to reduce flicker
+      images.forEach(({ src }) => { const im = new Image(); im.src = src; });
 
-    chips.forEach(ch => ch.addEventListener('click', e => {
-      const to = parseInt(e.currentTarget.dataset.idx, 10) || 0;
-      render(to);
-    }));
+      render(0);
+    })();
+  </script>
 
-    // 鍵盤左右鍵支援
-    document.querySelector('.polaroid-wrap').addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft')  render(idx - 1);
-      if (e.key === 'ArrowRight') render(idx + 1);
-    });
+  <script>
+    // ========= Meme image quick-flash then navigate =========
+    (function () {
+      'use strict';
+      const meme = document.getElementById('meme');
+      const faceArea = document.getElementById('faceArea');
 
-    render(0);
-  })();
-</script>
-
-
-    </main>
-  </div>
+      faceArea.addEventListener('click', (e) => {
+        e.preventDefault();
+        meme.src = '../Photo/MemeManProfileEyes.png'; // flash open-eye
+        setTimeout(() => {
+          meme.src = '../Photo/MemeManProfile.png';   // revert
+          window.location.href = 'my_web.html';       // navigate
+        }, 30); // ultra-short flash
+      });
+    })();
+  </script>
 </body>
 </html>
-

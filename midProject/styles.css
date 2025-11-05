@@ -114,7 +114,7 @@ header{
   background:var(--side-bg); border-right:1px solid #eeeeee00; overflow-wrap:break-word;
 }
 .left img{
-  display:block; width:70%; height:auto; margin:13px auto;
+  display:block; width:auto; height:auto; margin:13px auto;
   border-radius:50%; object-fit:cover; aspect-ratio:1/1;
 }
 .left .name{ margin:6px 0 10px; color:rgb(2,92,95); font-size:28px; font-weight:700; }
@@ -417,4 +417,47 @@ button#toggle:hover{ background:#767c83; }
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; }
   .bgvid{ opacity:0 !important; }
+}
+
+/* Hover Overlay Effect (Soto) */
+.Sotohover {
+  margin-top: 40px;
+  text-align: center;
+}
+.overlay-img {
+  position: relative;
+  display: inline-block;
+  width: 600px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.overlay-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity .3s ease;
+}
+.overlay-img .overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.overlay-img:hover .overlay {
+  opacity: 1;
+}
+/* 半透明底部文字框 */
+.overlay-img figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.521);
+  color: #e2d8d8;
+  text-align: center;
+  font-weight: 600;
+  padding: 8px 0;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.overlay-img:hover figcaption {
+  opacity: 1;
 }
