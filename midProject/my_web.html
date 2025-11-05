@@ -7,13 +7,16 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<video id="fireex-bg" class="bgvid"
+  <!-- Background videos (fixed & behind the page) -->
+  <video id="fireex-bg" class="bgvid"
          src="../Photo/FireEX.mp4"
          muted playsinline loop preload="metadata" aria-hidden="true"></video>
-<video id="darvish-bg" class="bgvid"
-       src="../Photo/Darvish.mp4"
-       muted playsinline loop preload="metadata" aria-hidden="true"></video>
 
+  <video id="darvish-bg" class="bgvid"
+         src="../Photo/Darvish.mp4"
+         muted playsinline loop preload="metadata" aria-hidden="true"></video>
+
+  <!-- Header / Navbar -->
   <header>
     <h1 class="logo">&lt;J/&gt;</h1>
     <nav aria-label="Primary">
@@ -27,6 +30,7 @@
     </nav>
   </header>
 
+  <!-- Two-column layout -->
   <div class="profile">
     <aside class="left">
       <img
@@ -50,24 +54,21 @@
     </aside>
 
     <main class="right">
+      <h1 id="intro">Personal Introduction</h1>
+      <p>
+        Hola, ¿cómo estás?<br />
+        This is my simple profile page created with basic HTML and a touch of CSS. <br />
+        I enjoy making things look clean, minimal, and functional.
+      </p>
 
-<h1 id="intro">Personal Introduction</h1>
-<p>
-  Hola, ¿cómo estás?<br />
-  This is my simple profile page created with
-  basic HTML and a touch of CSS. <br>
-  I enjoy making things look clean, minimal, and functional.
-</p>
-
-<section aria-labelledby="about">
-  <h2 id="about">About Me</h2>
-  <p>
-    Hi, I'm a student at NTUT, majoring in Computer Science and Information Engineering.<br>
-    I'm interested in web development, system design, and exploring how code can shape user experiences.
-  </p>
-
-</section>
-
+      <section aria-labelledby="about">
+        <h2 id="about">About Me</h2>
+        <p>
+          Hi, I'm a student at National Taipei University of Technology. <br />
+          I major in Computer Science and Information Engineering.<br />
+          I'm interested in web development, system design, and exploring how code can shape user experiences.
+        </p>
+      </section>
 
       <section aria-labelledby="hobbies">
         <h2 id="hobbies">My Hobbies</h2>
@@ -103,29 +104,17 @@
         <h2 id="music-title">Favorite Songs</h2>
         <ul>
           <li>
-            <a
-              href="https://www.youtube.com/watch?v=JIWuzZY_3uY"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.youtube.com/watch?v=JIWuzZY_3uY" target="_blank" rel="noopener noreferrer">
               滅火器 Fire EX. — 海上的人 (A Man on the Sea)
             </a>
           </li>
           <li>
-            <a
-              href="https://www.youtube.com/watch?v=33rdx577PxY"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.youtube.com/watch?v=33rdx577PxY" target="_blank" rel="noopener noreferrer">
               陳綺貞 Cheer Chen — 太聰明 (Too Smart)
             </a>
           </li>
           <li>
-            <a
-              href="https://www.youtube.com/watch?v=7gCtkT1A1tA"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.youtube.com/watch?v=7gCtkT1A1tA" target="_blank" rel="noopener noreferrer">
               蛋堡 Soft Lipa — 關於小熊 (About the Little Bear)
             </a>
           </li>
@@ -141,55 +130,42 @@
           <small>— Fire EX.《曾經瘋狂》</small>
         </blockquote>
       </section>
-
     </main>
+
+    <!-- Background-video hover controller (shared) -->
     <script>
-  (function () {
-    const host = document.querySelector('.FireEX-img');   // 那張 FireEX 圖片的 <figure>
-    const bg = document.getElementById('fireex-bg');      // 背景影片
-    if (!host || !bg) return;
+      (function () {
+        /**
+         * 綁定「滑到某個容器」→「顯示/播放對應背景影片」
+         * @param {string} hostSelector  觸發容器選擇器
+         * @param {string} videoId       背景 <video> 的 id
+         */
+        function bindHoverBackground(hostSelector, videoId) {
+          const host = document.querySelector(hostSelector);
+          const bg = document.getElementById(videoId);
+          if (!host || !bg) return;
 
-    function show() {
-      bg.classList.add('is-on');       // 讓影片淡入（styles.css 已經寫好 .bgvid/.is-on）
-      bg.play?.().catch(() => {});
-    }
-    function hide() {
-      bg.classList.remove('is-on');    // 讓影片淡出
-      bg.pause?.();
-      bg.currentTime = 0;              // 每次從頭播（要保留進度就拿掉這行）
-    }
+          function show() {
+            bg.classList.add('is-on');   // .bgvid.is-on → styles.css 控制淡入
+            bg.play?.().catch(() => {});
+          }
+          function hide() {
+            bg.classList.remove('is-on');
+            bg.pause?.();
+            bg.currentTime = 0;          // 想保留進度就註解這行
+          }
 
-    // 滑鼠 + 鍵盤可及性
-    host.addEventListener('mouseenter', show);
-    host.addEventListener('mouseleave', hide);
-    host.addEventListener('focusin', show);
-    host.addEventListener('focusout', hide);
-  })();
-</script>
-<script>
-(function () {
-  const host = document.querySelector('.darvish-img'); // Darvish 那張圖
-  const bg = document.getElementById('darvish-bg');    // 對應背景影片
-  if (!host || !bg) return;
+          host.addEventListener('mouseenter', show);
+          host.addEventListener('mouseleave', hide);
+          host.addEventListener('focusin', show);
+          host.addEventListener('focusout', hide);
+        }
 
-  function show() {
-    bg.classList.add('is-on');
-    bg.play?.().catch(() => {});
-  }
-  function hide() {
-    bg.classList.remove('is-on');
-    bg.pause?.();
-    bg.currentTime = 0;
-  }
-
-  host.addEventListener('mouseenter', show);
-  host.addEventListener('mouseleave', hide);
-  host.addEventListener('focusin', show);
-  host.addEventListener('focusout', hide);
-})();
-</script>
-
+        // FireEX 與 Darvish 各自綁定自己的背景影片
+        bindHoverBackground('.FireEX-img', 'fireex-bg');
+        bindHoverBackground('.darvish-img', 'darvish-bg');
+      })();
+    </script>
   </div>
-
 </body>
 </html>

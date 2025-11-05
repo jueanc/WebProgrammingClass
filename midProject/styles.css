@@ -385,7 +385,7 @@ button#toggle:hover{ background:#767c83; }
   object-fit: cover;          /* 保持比例並填滿畫面 */
   pointer-events: none;
   opacity: 0;                 /* 預設隱藏 */
-  transition: opacity .25s ease;
+  transition: opacity .2s ease;
 }
 #rr-bg {
   min-width: 135% !important;
