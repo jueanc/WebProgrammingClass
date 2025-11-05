@@ -223,7 +223,7 @@ button,input[type="color"]{ margin:4px;}
 .hobby-list figcaption{ margin-top:6px; font-weight:600; font-size:14px; }
 
 /* Darvish hover-swap */
-.darvish-img{ position:relative; display:inline-block; }
+.darvish-img{ position:relative; display:inline-block;   overflow: hidden;}
 .darvish-img img{
   display:block; width:100%; height:280px; border-radius:8px;
   transition:opacity .4s ease, filter .4s ease, transform .4s ease;
@@ -231,6 +231,34 @@ button,input[type="color"]{ margin:4px;}
 .darvish-img .overlay{ position:absolute; inset:auto auto 0 0; top:0; left:0; opacity:0; transform:scale(1.05); }
 .darvish-img:hover .overlay{ opacity:1; }
 .darvish-img:hover .main{ filter:grayscale(100%); transform:scale(1.05); }
+/* Hover overlay text for Darvish */
+
+.darvish-img .hover-text {
+  position: absolute;
+  top: 81%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: nowrap; 
+    text-shadow:
+    1px 1px 2px rgba(0,0,0,0.8),
+    -1px -1px 2px rgba(0,0,0,0.8);
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.8))
+}
+
+
+.darvish-img:hover .hover-text {
+  opacity: .7;
+}
+
 
 /* FireEX hover */
 .FireEX-img img{
