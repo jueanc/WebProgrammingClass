@@ -12,7 +12,7 @@
     <h1 class="logo">&lt;J/&gt;</h1>
     <nav aria-label="Primary">
       <ul class="theme">
-        <li><a href="my_web.html">Home</a></li>
+        <li><a href="Index.html">Home</a></li>
         <li><a class="active" aria-current="page" href="Highlights.html">Highlights</a></li>
         <li><a href="Resource.html">Resource</a></li>
         <li><a href="Table.html">Table</a></li>
@@ -88,24 +88,9 @@
           <li><b>2024</b> – Share the Surname of WBSC Premier12 MVP</li>
         </ul>
       </section>
-        <script>
-    // ========= Meme image quick-flash then navigate =========
-    (function () {
-      'use strict';
-      const meme = document.getElementById('meme');
-      const faceArea = document.getElementById('faceArea');
-
-      faceArea.addEventListener('click', (e) => {
-        e.preventDefault();
-        meme.src = '../Photo/MemeManProfileEyes.png'; // flash open-eye
-        setTimeout(() => {
-          meme.src = '../Photo/MemeManProfile.png';   // revert
-          window.location.href = 'my_web.html';       // navigate
-        }, 30); // ultra-short flash
-      });
-    })();
-  </script>
     </main>
+
   </div>
+          <script src="js/GoHome.js" defer></script>
 </body>
 </html>

@@ -21,7 +21,7 @@
     <h1 class="logo">&lt;J/&gt;</h1>
     <nav aria-label="Primary">
       <ul class="theme">
-        <li><a class="active" aria-current="page" href="my_web.html">Home</a></li>
+        <li><a class="active" aria-current="page" href="Index.html">Home</a></li>
         <li><a href="Highlights.html">Highlights</a></li>
         <li><a href="Resource.html">Resource</a></li>
         <li><a href="Table.html">Table</a></li>
@@ -132,40 +132,9 @@
       </section>
     </main>
 
-    <!-- Background-video hover controller (shared) -->
-    <script>
-      (function () {
-        /**
-         * 綁定「滑到某個容器」→「顯示/播放對應背景影片」
-         * @param {string} hostSelector  觸發容器選擇器
-         * @param {string} videoId       背景 <video> 的 id
-         */
-        function bindHoverBackground(hostSelector, videoId) {
-          const host = document.querySelector(hostSelector);
-          const bg = document.getElementById(videoId);
-          if (!host || !bg) return;
-
-          function show() {
-            bg.classList.add('is-on');   // .bgvid.is-on → styles.css 控制淡入
-            bg.play?.().catch(() => {});
-          }
-          function hide() {
-            bg.classList.remove('is-on');
-            bg.pause?.();
-            bg.currentTime = 0;          // 想保留進度就註解這行
-          }
-
-          host.addEventListener('mouseenter', show);
-          host.addEventListener('mouseleave', hide);
-          host.addEventListener('focusin', show);
-          host.addEventListener('focusout', hide);
-        }
-
-        // FireEX 與 Darvish 各自綁定自己的背景影片
-        bindHoverBackground('.FireEX-img', 'fireex-bg');
-        bindHoverBackground('.darvish-img', 'darvish-bg');
-      })();
-    </script>
+    <script src="js/GoHome.js" defer></script>
+    <script src="js/bgVideo.js" defer></script>
+    
   </div>
 </body>
 </html>

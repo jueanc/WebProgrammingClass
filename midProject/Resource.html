@@ -84,53 +84,8 @@
             <a href="https://github.com/jueanc/OOPL2024s_project_BattleCats" target="_blank">OOPL</a>
           </div>
         </section>
-
-
-
-
-        <script>
-        (function(){
-          const links = document.querySelectorAll('.rr-link');   // 想要觸發的連結都給 rr-link
-          const bg = document.getElementById('rr-bg');
-          if(!bg || !links.length) return;
-
-          function show(){
-            bg.classList.add('is-on');
-            // 某些瀏覽器需要 muted + playsinline 才能自動播放
-            bg.play?.().catch(()=>{ /* 靜靜忽略 */ });
-          }
-          function hide(){
-            bg.classList.remove('is-on');
-            bg.pause?.();
-            bg.currentTime = 0; // 想每次從頭播
-          }
-
-          links.forEach(a=>{
-            a.addEventListener('mouseenter', show);
-            a.addEventListener('mouseleave', hide);
-            // 也可加 keyboard focus 的無障礙體驗
-            a.addEventListener('focus', show);
-            a.addEventListener('blur', hide);
-          });
-        })();
-      </script>
-  <script>
-    // ========= Meme image quick-flash then navigate =========
-    (function () {
-      'use strict';
-      const meme = document.getElementById('meme');
-      const faceArea = document.getElementById('faceArea');
-
-      faceArea.addEventListener('click', (e) => {
-        e.preventDefault();
-        meme.src = '../Photo/MemeManProfileEyes.png'; // flash open-eye
-        setTimeout(() => {
-          meme.src = '../Photo/MemeManProfile.png';   // revert
-          window.location.href = 'my_web.html';       // navigate
-        }, 30); // ultra-short flash
-      });
-    })();
-  </script>
       </main>
+      <script src="js/GoHome.js" defer></script>
+<script src="js/rickroll.js" defer></script>
 </body>
 </html>
