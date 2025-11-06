@@ -232,10 +232,18 @@ button,input[type="color"]{ margin:4px;}
   list-style:none; margin:0; padding:0;
   display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px;
 }
-.hobby-list li{ background:#f5f5f5; border-radius:10px; padding:12px; }
+.hobby-list li{ background:#eeeded; border-radius:10px; padding:12px; transition: opacity 0.4s ease, background 0.4s ease;}
 .hobby-list figure{ margin:8px 0 0; }
 .hobby-list img{ width:100%; height:auto; object-fit:cover; border-radius:8px; }
 .hobby-list figcaption{ margin-top:6px; font-weight:600; font-size:14px; }
+
+.hobby-list:hover li {
+  opacity: 0;
+}
+.hobby-list li:hover {
+  opacity: 1;  
+  background: rgba(255, 255, 255, 0.027);
+}
 
 /* Darvish hover-swap */
 .darvish-img{ position:relative; display:block; }
@@ -243,10 +251,10 @@ button,input[type="color"]{ margin:4px;}
   display:block; width:100%; height:280px; border-radius:8px;
   transition:opacity .4s ease, filter .4s ease, transform .4s ease;
 }
-.darvish-img .overlay{ position:absolute; inset:auto auto 0 0; top:0; left:0; opacity:0; transform:scale(1.03); }
+.darvish-img .overlay{ position:absolute; inset:auto auto 0 0; top:0; left:0; opacity:0; transform:scale(1.02); }
 .darvish-img:hover .overlay{ opacity:1; }
-.darvish-img:hover .main{ filter:grayscale(100%); transform:scale(1.03); }
-/* Hover overlay text for Darvish */
+.darvish-img:hover .main{ filter:grayscale(100%); transform:scale(1.02); }
+
 
 .darvish-img .hover-text {
   position: absolute;
@@ -271,7 +279,7 @@ button,input[type="color"]{ margin:4px;}
 
 
 .darvish-img:hover .hover-text {
-  opacity: .7;
+  opacity: .65;
 }
 
 
@@ -280,7 +288,7 @@ button,input[type="color"]{ margin:4px;}
   display:block; width:100%; height:280px; border-radius:8px;
   transition:opacity .4s ease, filter .4s ease, transform .4s ease;
 }
-.FireEX-img:hover img{ filter:grayscale(100%); transform:scale(1.03);}
+.FireEX-img:hover img{ filter:grayscale(100%); transform:scale(1.02);}
 
 /* ========== 7) Polaroid Switcher ========== */
 .polaroid-wrap{
