@@ -1,51 +1,41 @@
-/* =========================================
-   Juan Site Styles — Cleaned & Organized
-   Sections:
-   1) CSS Variables & Base
+/* =========================
+   Juan Site Styles — trimmed & unified
+   1) Variables & Base
    2) Layout (header / nav / profile)
-   3) Typography
+   3) Type
    4) Components (cards / lists / buttons)
-   5) Tables (global + task3)
+   5) Tables (+ task3)
    6) Hobbies & Image Effects
-   7) Polaroid Switcher
+   7) Polaroid
    8) Page Scoped (journey/resource)
    9) Gallery Canvas
    10) Background Video
    11) Utilities & Responsive
-========================================= */
+========================= */
 
-/* ========== 1) CSS Variables & Base ========== */
+/* ========== 1) Variables & Base ========== */
 :root{
   /* colors */
-  --bg:#f9f9f9;
-  --text:#111;
-  --muted:#666;
-  --brand:#a53030;
-  --brand-600:#571818;
-  --line:#eaeaea;
-  --card-bg:#fff;
-  --card-shadow:0 2px 8px rgba(0,0,0,.08);
-  --link:rgb(5, 5, 107);
-  --link-hover:rgb(28, 109, 112);
+  --bg:#f9f9f9; --text:#111; --muted:#666;
+  --brand:#a53030; --brand-600:#571818; --line:#eaeaea;
+  --card-bg:#fff; --card-shadow:0 2px 8px rgba(0,0,0,.08);
+  --link:#05056b; --link-hover:#1c6d70;
 
   /* sidebar */
   --side-bg:#e5e6e796;
-  --side-bg2:#f1f1f196;
+
   /* nav */
-  --nav-text:#1111117e;
-  --nav-active:#080808;
-  --nav-underline:#080808af;
+  --nav-text:#1111117e; --nav-active:#080808; --nav-underline:#080808af;
 
   /* music */
-  --music-bar:teal;
-  --music-link:darkslateblue;
-  --music-hover:#3b1009;
+  --music-bar:teal; --music-link:darkslateblue; --music-hover:#3b1009;
 
   /* table */
-  --table-bg:#fdfdf1;
-  --table-border:#555;
-  --table-cell:#8d8d8d;
-  --table-th:#93a3a3;
+  --table-bg:#fdfdf1; --table-border:#555; --table-th:#93a3a3;
+
+  /* buttons */
+  --btn-bg:#f0f0ee; --btn-text:#0f0e0e; --btn-border:#000;
+  --btn-bg-hover:#e6e6e4; --btn-press-top:#a7a7a7; --btn-press-bot:#7c7c7c;
 
   /* radius & spacing */
   --r-sm:6px; --r-md:8px; --r-lg:10px;
@@ -57,11 +47,7 @@
 html,body{ margin:0; padding:0; }
 body{
   font-family:"Inter","Noto Sans TC","PingFang TC","Helvetica Neue","Segoe UI",sans-serif;
-  font-weight:400;
-  font-size:16px;
-  line-height:1.75;
-  color:#222;
-  background:var(--bg);
+  font-size:16px; line-height:1.75; color:#222; background:var(--bg);
 }
 a{ color:var(--link); text-decoration:none; }
 a:hover{ color:var(--link-hover); }
@@ -70,7 +56,7 @@ em{ background:yellow; }
 mark{ color:#000; background:rgba(126,126,126,.589); }
 hr{ border:none; border-top:1px solid #e5e5e5; margin:18px 0; }
 
-/* ========== 2) Layout (header / nav / profile) ========== */
+/* ========== 2) Layout ========== */
 header{
   position:sticky; top:0; z-index:10;
   display:flex; align-items:center; gap:24px;
@@ -82,14 +68,11 @@ header{
 /* Navbar */
 .theme{
   list-style:none; margin:0; padding:0 15px;
-  display:flex; gap:28px; justify-content:flex-start; align-items:center;
-  background:#fff;
+  display:flex; gap:28px; align-items:center; background:#fff;
 }
 .theme li{ position:relative; }
 .theme a{
-  display:block; padding:14px 4px;
-  font-size:16px; font-weight:600;
-  color:var(--nav-text);
+  display:block; padding:14px 4px; font-size:16px; font-weight:600; color:var(--nav-text);
   transition:color .2s ease;
 }
 .theme a::after{
@@ -97,74 +80,55 @@ header{
   background:#111; transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
 }
 .theme a:hover::after{ transform:scaleX(1); }
-.theme a.active,
-.theme a[aria-current="page"]{ color:var(--nav-active); }
-.theme a.active::after,
-.theme a[aria-current="page"]::after{ transform:scaleX(1); background:var(--nav-underline); }
+.theme a.active,.theme a[aria-current="page"]{ color:var(--nav-active); }
+.theme a.active::after,.theme a[aria-current="page"]::after{ transform:scaleX(1); background:var(--nav-underline); }
 .theme a:focus-visible{ outline:2px solid #111; outline-offset:3px; }
 
 /* Two-column profile layout */
-
-.profile {
-  display: flex;
-
-  justify-content: flex-start;
-  gap: 30px;
-  padding: 20px;
-  margin-top: 12px; 
+.profile{
+  display:flex; justify-content:flex-start; gap:30px; padding:20px; margin-top:12px;
 }
-
-.left {
-  width: 240px;
-  min-width: 240px;
-  min-height: 800px;
-  padding: 16px 12px;
-  text-align: center;
-  border-radius: 12px;  
-  background:var(--side-bg);
-  border-right: 1px solid transparent;
-  overflow: hidden;   
-  overflow-wrap: break-word;
+.left{
+  width:240px; min-width:240px; min-height:800px; padding:16px 12px; text-align:center;
+  border-radius:12px; background:var(--side-bg); border-right:1px solid transparent; overflow:hidden; overflow-wrap:anywhere;
 }
-
 .left img{
   display:block; width:auto; height:auto; margin:13px auto;
   border-radius:50%; object-fit:cover; aspect-ratio:1/1;
 }
 .left .name{ margin:6px 0 10px; color:rgb(2,92,95); font-size:28px; font-weight:700; }
 .left .meta{ line-height:1.5; }
-
 .right{ flex:1; min-width:0; max-width:960px; }
-.right > section{ margin:24px 0;}
+.right > section{ margin:24px 0; }
 
-/* ========== 3) Typography ========== */
-.right h1{
-  margin:30px 0 8px; color:#1d1d1f; font-size:25px; line-height:1.25;
-}
-.right h2{
-  margin:26px 0 8px; color:#2f3640; font-size:18px; line-height:1.2;
-}
-.right p,.right li{
-  margin:10px 0; color:#333333da; font-size:16px; line-height:1.75;
-  font-family:"Inter","Noto Sans TC",sans-serif;
-}
+/* ========== 3) Type ========== */
+.right h1{ margin:30px 0 8px; color:#1d1d1f; font-size:25px; line-height:1.25; }
+.right h2{ margin:26px 0 8px; color:#2f3640; font-size:18px; line-height:1.2; }
+.right p,.right li{ margin:10px 0; color:#333333da; font-size:16px; line-height:1.75; }
 
-/* ========== 4) Components (cards / lists / buttons) ========== */
+/* ========== 4) Components ========== */
 .card{
-  background:var(--card-bg);
-  border-radius:var(--r-lg);
-  padding:28px 50px;
-  box-shadow:var(--card-shadow);
+  background:var(--card-bg); border-radius:var(--r-lg); padding:28px 50px; box-shadow:var(--card-shadow);
 }
 .list{ list-style:none; margin:0; padding:0; }
 
-.button{
-  border:none; border-radius:10px; cursor:pointer;
-  padding:8px 14px; font-weight:600;
+/* Unified buttons: base + states */
+button{
+  font-family:inherit; cursor:pointer;
+  padding:0px 10px; border-radius:3px;
+  background:var(--btn-bg); color:var(--btn-text);
+  border:1px solid var(--btn-border);
   transition:transform .08s ease, filter .15s ease, opacity .15s ease, background .15s ease;
 }
-.button:hover{ filter:brightness(.92); }
-.button:active{ transform:translateY(2px); }
+button:hover{ transform:translateY(-1px); background:var(--btn-bg-hover); }
+button:active{
+  background:linear-gradient(var(--btn-press-top),var(--btn-press-bot));
+  box-shadow:1px 1px 0 #000 inset; transform:translateY(1px);
+}
+
+/* Legacy .button hook kept (maps to base) */
+.button{ all:unset; }
+.button{ display:inline-block; }
 
 /* Music */
 #music ul{ list-style:none; margin:0; padding:0; }
@@ -172,20 +136,16 @@ header{
 #music a{ color:var(--music-link); font-weight:750; }
 #music a:hover{ color:var(--music-hover); }
 
-/* ========== 5) Tables (global + task3) ========== */
+/* ========== 5) Tables (+ task3) ========== */
 table{
   border-collapse:separate; border-spacing:1px;
-  width:auto; background:var(--table-bg); text-align:center;
-  border:1px solid var(--table-border);
+  width:auto; background:var(--table-bg); text-align:center; border:1px solid var(--table-border);
 }
-th{
-  padding:10px; color:#fff; background:var(--table-th);
-}
+th{ padding:10px; color:#fff; background:var(--table-th); }
 td{ padding:8px; }
 table,th,td{ border:1px solid #555; }
-button,input[type="color"]{ margin:4px;}
+button,input[type="color"]{ margin:4px; }
 
-/* Table page upgrades */
 .btn-group{ display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 20px; }
 #scoreTable{ border-radius:5px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,.08); }
 #scoreTable td.editable{ outline:1px dashed #bbb; background:#fffef6; }
@@ -199,22 +159,18 @@ button,input[type="color"]{ margin:4px;}
 }
 .colorpick input[type="color"]{ width:36px; height:28px; padding:0; border:none; background:transparent; }
 
-/* Animation: 2–9 table fade-in */
+/* fade-in */
 .fadein{ animation:fadeIn .45s ease; }
-@keyframes fadeIn{
-  from{ opacity:0; transform:scale(.97); }
-  to{ opacity:1; transform:scale(1); }
-}
+@keyframes fadeIn{ from{opacity:0; transform:scale(.97);} to{opacity:1; transform:scale(1);} }
 
-/* Wide table scroll on small screens */
+/* scroll for wide */
 .table-scroll{ overflow:auto; }
 .table-scroll table{ min-width:520px; }
 
 /* Task3 (Seating) */
 .task3{ margin-top:20px; }
 .task3 table{
-  width:70%; table-layout:fixed;
-  background:var(--brand); border:2px solid #5e5454;
+  width:70%; table-layout:fixed; background:var(--brand); border:2px solid #5e5454;
   border-collapse:collapse !important; border-spacing:0 !important;
   font-family:"Poppins","Noto Sans TC",sans-serif;
 }
@@ -222,28 +178,20 @@ button,input[type="color"]{ margin:4px;}
   border:1px solid #474444; padding:5px; text-align:center; word-wrap:break-word; font-size:15px;
 }
 .task3 th.ttl{ background:#f2f2f2; font-weight:800; font-size:18px; }
-.task3 th:hover{
-  background:#7e7e7e; color:#fff; cursor:pointer;
-  transform:scale(1.04); transition:.2s ease;
-}
+.task3 th:hover{ background:#7e7e7e; color:#fff; cursor:pointer; transform:scale(1.04); transition:.2s ease; }
 
 /* ========== 6) Hobbies & Image Effects ========== */
 .hobby-list{
   list-style:none; margin:0; padding:0;
   display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px;
 }
-.hobby-list li{ background:#eeeded; border-radius:10px; padding:12px;   transition: opacity 0.6s ease, background 0.6s ease; }
+.hobby-list li{ background:#eeeded; border-radius:10px; padding:12px; transition:opacity .6s ease, background .6s ease; }
 .hobby-list figure{ margin:8px 0 0; }
 .hobby-list img{ width:100%; height:auto; object-fit:cover; border-radius:8px; }
 .hobby-list figcaption{ margin-top:6px; font-weight:600; font-size:14px; }
 
-.hobby-list:hover li {
-  opacity: 0;
-}
-.hobby-list li:hover {
-  opacity: 1;  
-  background: rgba(255, 255, 255, 0.027);
-}
+.hobby-list:hover li{ opacity:0; }
+.hobby-list li:hover{ opacity:1; background:rgba(255,255,255,0.027); }
 
 /* Darvish hover-swap */
 .darvish-img{ position:relative; display:block; }
@@ -255,45 +203,27 @@ button,input[type="color"]{ margin:4px;}
 .darvish-img:hover .overlay{ opacity:1; }
 .darvish-img:hover .main{ filter:grayscale(100%); transform:scale(1.02); }
 
-.darvish-img .hover-text {
-  position: absolute;
-  top: 81%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0);
-  color: #fff;
-  font-size: 27px;
-  font-weight: 600;
-  text-align: center;
-  padding: 8px 16px;
-  border-radius: 6px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  white-space: nowrap; 
-    text-shadow:
-    1px 1px 2px rgba(0,0,0,0.8),
-    -1px -1px 2px rgba(0,0,0,0.8);
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.8))
+.darvish-img .hover-text{
+  position:absolute; top:81%; left:70%; transform:translate(-50%,-50%);
+  background:rgba(0,0,0,0); color:#fff; font-size:27px; font-weight:600; text-align:center;
+  padding:8px 16px; border-radius:6px; opacity:0; transition:opacity .4s ease; white-space:nowrap;
+  text-shadow:1px 1px 2px rgba(0,0,0,.8), -1px -1px 2px rgba(0,0,0,.8);
+  filter:drop-shadow(0 0 6px rgba(255,255,255,.8));
 }
-
-.darvish-img:hover .hover-text {
-  opacity: .65;
-}
+.darvish-img:hover .hover-text{ opacity:.65; }
 
 /* FireEX hover */
 .FireEX-img img{
   display:block; width:100%; height:280px; border-radius:8px;
   transition:opacity .4s ease, filter .4s ease, transform .4s ease;
 }
-.FireEX-img:hover img{ filter:grayscale(100%); transform:scale(1.02);}
+.FireEX-img:hover img{ filter:grayscale(100%); transform:scale(1.02); }
 
-/* ========== 7) Polaroid Switcher ========== */
-.polaroid-wrap{
-  display:flex; flex-direction:column; align-items:center; gap:12px; margin:24px 0;
-}
+/* ========== 7) Polaroid ========== */
+.polaroid-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; margin:24px 0; }
 .polaroid{
-  width:min(90vw,320px); background:#fff;
-  padding:16px 16px 36px; border:1px solid #f0eded; border-radius:6px;
+  width:min(90vw,320px); background:#fff; padding:16px 16px 36px;
+  border:1px solid #f0eded; border-radius:6px;
   box-shadow:0 8px 24px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
   transform:rotate(-.6deg);
 }
@@ -302,12 +232,13 @@ button,input[type="color"]{ margin:4px;}
 
 .pola-controls{ display:flex; gap:8px; justify-content:center; }
 
-/* 共用按鈕樣式 + Polaroid 專用色 */
-.pbtn{ composes: button; } /* 若不支援 composes，可直接把 .button 的宣告複製到 .pbtn */
+/* 專用按鈕*/
 .pbtn{
-  background:#c5c5c3a6; color:#0f0e0e; font-weight:700; border-radius: 10%;
+  padding:0px 7px; border-radius:3px;
+  background:#c5c5c3a6; color:#0f0e0e; font-weight:600; border:2px solid #000;
+  transition:transform .08s ease, filter .15s ease, background .15s ease;
 }
-.pbtn:hover{ filter:brightness(.8); }
+.pbtn:hover{ filter:brightness(.85); }
 .pbtn:active{ transform:translateY(2px); box-shadow:0 1px 0 rgba(143,83,83,.15); }
 
 /* chips */
@@ -325,7 +256,7 @@ button,input[type="color"]{ margin:4px;}
 .chip:nth-child(5){ background:#7fb990; }
 .chip:nth-child(6){ background:#f0ccee; }
 .chip:hover{ transform:translateY(-1px); }
-.chip.active{ box-shadow:inset 0 0 0 2px #948b8b; }
+.chip.active{ box-shadow:inset 0 0 0 2px #726565; }
 
 /* ========== 8) Page Scoped ========== */
 /* Highlights: Journey timeline */
@@ -336,44 +267,31 @@ button,input[type="color"]{ margin:4px;}
   list-style:none; margin:0; padding-left:25px; border-left:2px solid var(--brand);
 }
 .journey-page .timeline-section li{
-  position:relative; margin:20px 0; line-height:1.6; color:#333; width: fit-content;
+  position:relative; margin:20px 0; line-height:1.6; color:#333; width:fit-content;
 }
 .journey-page .timeline-section li::before{
-  content:""; position:absolute; left:-10px; top:6px; width:10px; height:10px;
-  background:var(--brand); border-radius:50%;
+  content:""; position:absolute; left:-10px; top:6px; width:10px; height:10px; background:var(--brand); border-radius:50%;
 }
 .journey-page .timeline-section li b{ color:var(--brand); font-weight:600; margin-right:6px; }
 .journey-page .timeline-section li:hover{ color:#000; transform:scale(1.02); transition:.2s ease; }
 
-.journey-page .card{
-  background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0;
-  box-shadow:var(--card-shadow);
-  font-family:"Segoe UI",Arial,sans-serif;
-}
-.journey-page .card h2{
-  font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
-}
+.journey-page .card{ background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow); font-family:"Segoe UI",Arial,sans-serif; }
+.journey-page .card h2{ font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px; }
 .journey-page .list{ list-style:none; margin:0; padding:0; }
-.journey-page .list li{ padding:10px 0; line-height:1.6; width: fit-content; }
-.journey-page .list li:last-child{ border-bottom:none; }
-.journey-page .list li b{ color:var(--brand); font-weight:600; margin-right:6px; }
+.journey-page .list li{ padding:10px 0; line-height:1.6; width:fit-content; }
 .journey-page .list li:hover{ color:#000; transform:translateX(3px); transition:all .2s ease; }
 
-/* Notes: Resource “Apple-like” */
+/* Notes: Resource */
 .resource-page{
-  font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
   color:#1d1d1f;
 }
-.resource-page .card{
-  background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow);
-}
+.resource-page .card{ background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow); }
 .resource-page .card:hover{ box-shadow:0 4px 12px rgba(0,0,0,.08); }
-.resource-page h2{
-  font-size:24px; color:#637586; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
-}
+.resource-page h2{ font-size:24px; color:#637586; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px; }
 .resource-page .links a{
-  display:block;   width: fit-content; padding:6px 0; font-size:15px; font-weight:550; 
-  color:rgba(13, 8, 49, 0.651); text-decoration:none; transition:color .15s ease;
+  display:block; width:fit-content; padding:6px 0; font-size:15px; font-weight:550; color:rgba(13,8,49,.651);
+  transition:color .15s ease;
 }
 .resource-page .links a:hover{ color:#461414; }
 .resource-page .links a:active{ color:#FFF8D4; }
@@ -383,44 +301,40 @@ button,input[type="color"]{ margin:4px;}
   display:block; width:800px; height:500px; border:1px solid #d3d3d3;
 }
 button#toggle{
-  margin:12px 0; padding:8px 14px; border: 1px;; border-radius:4px; cursor:pointer;
-  background:#3b3e44bd; color:#fff; font-weight:600; transition:background .15s ease;
+  margin:12px 0; padding:5px 14px; border:none; border-radius:6px; cursor:pointer;
+  background:#c5c5c3a6; color:#0f0e0e;  transition:background .15s ease;
 }
-button#toggle:hover{ background:#767c83; }
+button#toggle:hover{ background:#afc9e2; }
+
+/* Hover Overlay Effect (Soto) */
+.Sotohover{ margin-top:40px; text-align:center; }
+.overlay-img{ position:relative; display:inline-block; width:600px; border-radius:4px; overflow:hidden; }
+.overlay-img img{ display:block; width:100%; height:auto; transition:opacity .3s ease; }
+.overlay-img .overlay{ position:absolute; inset:0; opacity:0; transition:opacity .3s ease; }
+.overlay-img:hover .overlay{ opacity:1; }
+.overlay-img figcaption{
+  position:absolute; bottom:0; width:100%;
+  background:rgba(0,0,0,.52); color:#e2d8d8; text-align:center; font-weight:600; padding:8px 0;
+  opacity:0; transition:opacity .4s ease;
+}
+.overlay-img:hover figcaption{ opacity:1; }
 
 /* ========== 10) Background Video ========== */
-/* 讓主內容永遠在影片之上 */
 .page-content{ position:relative; z-index:1; }
-
-.bgvid {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1;
-  transform: translate(-50%, -50%);
-  object-fit: cover;          /* 保持比例並填滿畫面 */
-  pointer-events: none;
-  opacity: 0;                 /* 預設隱藏 */
-  transition: opacity .2s ease;
+.bgvid{
+  position:fixed; top:50%; left:50%;
+  min-width:100%; min-height:100%; width:auto; height:auto;
+  z-index:-1; transform:translate(-50%,-50%); object-fit:cover; pointer-events:none;
+  opacity:0; transition:opacity .2s ease;
 }
-#rr-bg {
-  min-width: 135% !important;
-}
-/* 顯示時：半透明 */
+#rr-bg{ min-width:135% !important; }
 .bgvid.is-on{ opacity:.3; }
 
 /* ========== 11) Utilities & Responsive ========== */
 .u-hidden{ display:none !important; }
-
 .slow-msg{
-  font-size:20px; font-weight:600; text-align:center;
-  margin:20px auto; padding:12px 18px; width:fit-content;
-  color:#1d1d1f; background:rgba(240,240,240,.7);
-  border:1px solid rgba(0,0,0,.05); border-radius:12px;
+  font-size:20px; font-weight:600; text-align:center; margin:20px auto; padding:12px 18px; width:fit-content;
+  color:#1d1d1f; background:rgba(240,240,240,.7); border:1px solid rgba(0,0,0,.05); border-radius:12px;
   transition:transform .2s ease, box-shadow .2s ease;
 }
 .slow-msg:hover{ transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,.12); }
@@ -433,56 +347,11 @@ button#toggle:hover{ background:#767c83; }
   #myCanvas4{ width:100%; height:auto; }
 }
 
-/* 無動畫偏好 */
+/* Reduced motion */
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; }
   .bgvid{ opacity:0 !important; }
 }
 
-/* Hover Overlay Effect (Soto) */
-.Sotohover {
-  margin-top: 40px;
-  text-align: center;
-}
-.overlay-img {
-  position: relative;
-  display: inline-block;
-  width: 600px;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.overlay-img img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: opacity .3s ease;
-}
-.overlay-img .overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-.overlay-img:hover .overlay {
-  opacity: 1;
-}
-/* 半透明底部文字框 */
-.overlay-img figcaption {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.521);
-  color: #e2d8d8;
-  text-align: center;
-  font-weight: 600;
-  padding: 8px 0;
-  opacity: 0;
-  transition: opacity .4s ease;
-}
-.overlay-img:hover figcaption {
-  opacity: 1;
-}
-
-
-/* 只清掉第一個區塊的上外距，不清全部 */
-.right > *:first-child { margin-top: 0; }
-
+/* remove top margin of first block in .right only */
+.right > *:first-child{ margin-top:0; }
