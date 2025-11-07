@@ -383,8 +383,8 @@ button,input[type="color"]{ margin:4px;}
   display:block; width:800px; height:500px; border:1px solid #d3d3d3;
 }
 button#toggle{
-  margin:12px 0; padding:8px 14px; border:none; border-radius:6px; cursor:pointer;
-  background:#8596b6bd; color:#fff; font-weight:600; transition:background .15s ease;
+  margin:12px 0; padding:8px 14px; border: 1px;; border-radius:4px; cursor:pointer;
+  background:#3b3e44bd; color:#fff; font-weight:600; transition:background .15s ease;
 }
 button#toggle:hover{ background:#767c83; }
 

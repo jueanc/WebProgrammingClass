@@ -21,7 +21,7 @@
     const mixColor=(c1,c2,t)=>mix(hex2rgb(c1),hex2rgb(c2),t);
 
     // Sky / ground / buildings palette
-    const SKY_TOP_N='#065084',SKY_BOT_N='#222831',SKY_TOP_D='#87ceeb',SKY_BOT_D='#fff1a1';
+    const SKY_TOP_N='#065084',SKY_BOT_N='#0b0c0fff',SKY_TOP_D='#92dbf8ff',SKY_BOT_D='#fff1a1';
     const B1_N='#37353E',B1_D='#7e7f91',B2_N='#44444E',B2_D='#9b9cae';
     const TEXT_N='#ffffff',TEXT_D='#333333';
     const ROAD_D = '#9e9e9e', ROAD_N = '#3f3f46';
@@ -296,3 +296,5 @@ btn?.addEventListener('click',()=>{
     renderP(0);
   }
 })();
+
+

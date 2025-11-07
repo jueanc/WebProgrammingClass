@@ -10,6 +10,6 @@
     setTimeout(() => {
       meme.src = '../Photo/MemeManProfile.png';
       window.location.href = 'Index.html';
-    }, 444);
+    }, 44);
   });
 })();
