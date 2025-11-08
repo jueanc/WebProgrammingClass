@@ -16,7 +16,7 @@
 /* ========== 1) Variables & Base ========== */
 :root{
   /* colors */
-  --bg:#1a131300; --text:#111; --muted:#666;
+  --bg:#1a1313; --text:#111; --muted:#666;
   --brand:#a53030; --brand-600:#571818; --line:#eaeaea;
   --card-bg:#fff; --card-shadow:0 2px 8px rgba(0,0,0,.08);
   --link:#05056b; --link-hover:#1c6d70;
