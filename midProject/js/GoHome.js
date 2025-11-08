@@ -6,9 +6,9 @@
 
   faceArea.addEventListener('click', (e) => {
     e.preventDefault();
-    meme.src = '../../Photo/MemeManProfileEyes.png'; // flash
+    meme.src = meme.src.replace('MemeManProfile.png', 'MemeManProfileEyes.png'); // 直接替換檔名
     setTimeout(() => {
-      meme.src = '../../Photo/MemeManProfile.png';
+      meme.src = meme.src.replace('MemeManProfileEyes.png', 'MemeManProfile.png');
       window.location.href = 'Index.html';
     }, 44);
   });
