@@ -6,9 +6,9 @@
 
   faceArea.addEventListener('click', (e) => {
     e.preventDefault();
-    meme.src = '../Photo/MemeManProfileEyes.png'; // flash
+    meme.src = '../../Photo/MemeManProfileEyes.png'; // flash
     setTimeout(() => {
-      meme.src = '../Photo/MemeManProfile.png';
+      meme.src = '../../Photo/MemeManProfile.png';
       window.location.href = 'Index.html';
     }, 44);
   });

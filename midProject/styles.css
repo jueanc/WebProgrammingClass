@@ -22,7 +22,7 @@
   --link:#05056b; --link-hover:#1c6d70;
 
   /* sidebar */
-  --side-bg:#e5e6e796;
+  --side-bg:#f3f3f373;
 
   /* nav */
   --nav-text:#1111117e; --nav-active:#080808; --nav-underline:#080808af;
@@ -49,6 +49,7 @@ html,body{ margin:0; padding:0; }
 body{
   font-family:"Inter","Noto Sans TC","PingFang TC","Helvetica Neue","Segoe UI",sans-serif;
   font-size:16px; line-height:1.75; color:#222; background:var(--bg);
+
 }
 a{ color:var(--link); text-decoration:none; }
 a:hover{ color:var(--link-hover); }
@@ -69,6 +70,7 @@ header {
   padding: 12px 0;
   background: #fff;
   border-bottom: 1px solid var(--line);
+  
 }
 .logo{ margin:0; font-size:28px; font-weight:800; color:#111; cursor:default; }
 .logo img{ display:block; width:80px; height:auto; }
@@ -76,7 +78,7 @@ header {
 /* Navbar */
 .theme{
   list-style:none; margin:0; padding:0 15px;
-  display:flex; gap:28px; align-items:center; background:#fff;
+  display:flex; gap:28px; align-items:center; background:#ffffffa9;
 }
 .theme li{ position:relative; }
 .theme a{
@@ -94,7 +96,7 @@ header {
 
 /* Two-column profile layout */
 .profile{
-  display:flex; justify-content:flex-start; gap:30px; padding:20px; margin-top:12px;  justify-content: center;   /* ← 水平置中 */
+  display:flex; justify-content:flex-start; gap:60px; padding:20px; margin-top:12px;  justify-content: center;   /* ← 水平置中 */
 
 }
 .left{
