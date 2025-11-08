@@ -285,7 +285,7 @@ btn?.addEventListener('click',()=>{
       idx=(i+imgs.length)%imgs.length;
       const cur=imgs[idx];
       imgEl.src=cur.src; capEl.textContent=cur.cap;
-      counterEl.textContent=`Image ${idx+1} of ${imgs.length}`;
+      counterEl.textContent=`Record ${idx+1} / ${imgs.length}`;
       chips.forEach((c,k)=>{c.classList.toggle('active',k===idx); c.setAttribute('aria-selected',k===idx);});
     }
     document.getElementById('prevBtn')?.addEventListener('click',()=>renderP(idx-1));
