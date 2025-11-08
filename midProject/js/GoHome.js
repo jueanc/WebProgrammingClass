@@ -10,6 +10,6 @@
     setTimeout(() => {
       meme.src = meme.src.replace('MemeManProfileEyes.png', 'MemeManProfile.png');
       window.location.href = 'Index.html';
-    }, 44);
+    }, 220);
   });
 })();
