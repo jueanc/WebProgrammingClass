@@ -6,10 +6,10 @@
 
   faceArea.addEventListener('click', (e) => {
     e.preventDefault();
-    meme.src = meme.src.replace('MemeManProfile.png', 'MemeManProfileEyes.png'); // 直接替換檔名
+    meme.src = '../Photo/MemeManProfileEyes.png'; // flash
     setTimeout(() => {
-      meme.src = meme.src.replace('MemeManProfileEyes.png', 'MemeManProfile.png');
+      meme.src = '../Photo/MemeManProfile.png';
       window.location.href = 'Index.html';
-    }, 220);
+    }, 44);
   });
 })();
