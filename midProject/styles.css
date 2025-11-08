@@ -57,10 +57,17 @@ mark{ color:#000; background:rgba(126,126,126,.589); }
 hr{ border:none; border-top:1px solid #e5e5e5; margin:18px 0; }
 
 /* ========== 2) Layout ========== */
-header{
-  position:sticky; top:0; z-index:10;
-  display:flex; align-items:center; gap:24px;
-  padding:8px 16px; background:#fff; border-bottom:1px solid var(--line);
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+
+  align-items: center;       /* ← 水平置中 */
+  justify-content: center;
+  padding: 12px 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
 .logo{ margin:0; font-size:28px; font-weight:800; color:#111; cursor:default; }
 .logo img{ display:block; width:80px; height:auto; }
@@ -86,7 +93,8 @@ header{
 
 /* Two-column profile layout */
 .profile{
-  display:flex; justify-content:flex-start; gap:30px; padding:20px; margin-top:12px;
+  display:flex; justify-content:flex-start; gap:30px; padding:20px; margin-top:12px;  justify-content: center;   /* ← 水平置中 */
+
 }
 .left{
   width:240px; min-width:240px; min-height:800px; padding:16px 12px; text-align:center;
