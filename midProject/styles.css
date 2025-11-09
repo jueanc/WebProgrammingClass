@@ -18,7 +18,7 @@
   /* colors */
   --bg:#1a131300; --text:#111; --muted:#666;
   --brand:#a53030; --brand-600:#571818; --line:#eaeaea;
-  --card-bg:#fff; --card-shadow:0 2px 8px rgba(0,0,0,.08);
+  --card-bg:#ffffff57; --card-shadow:0 2px 8px rgba(0,0,0,.08);
   --link:#000000; --link-hover:#1c6d70;
 
   /* sidebar */
@@ -67,10 +67,14 @@ header {
   align-items: center;       /* ← 水平置中 */
   justify-content: center;
   padding: 12px 0;
-  background: #ffffff00;
+  background: #ffffff2c;
+  width: fit-content;             /* 關鍵：剛好包住內容 */
+  margin: 0 auto;                 /* 水平置中整個 header */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25); /* 半透明底色 */
+  backdrop-filter: blur(8px);           /* 模糊強度，可調 */
+  -webkit-backdrop-filter: blur(10px);   /* for Safari */
 }
-.logo{ margin:0; font-size:28px; font-weight:800; color:#111; cursor:default; }
-.logo img{ display:block; width:80px; height:auto; }
 
 /* Navbar */
 .theme{
@@ -90,7 +94,15 @@ header {
 .theme a.active,.theme a[aria-current="page"]{ color:var(--nav-active); }
 .theme a.active::after,.theme a[aria-current="page"]::after{ transform:scaleX(1); background:var(--nav-underline); }
 .theme a:focus-visible{ outline:2px solid #111; outline-offset:3px; }
-
+.theme a.logo{
+font-weight: 800;
+}
+.theme a.logo:hover {
+  color: #111;
+}
+.theme a.logo::after {
+  display: none;
+}
 /* Two-column profile layout */
 .profile{
   display:flex; justify-content:flex-start; gap:60px; padding:20px; margin-top:12px;  justify-content: center;   /* ← 水平置中 */
@@ -124,7 +136,7 @@ header {
   margin: 20px 0 8px;
   font-family: "Poppins", "Inter", "Noto Sans TC", sans-serif;
   color: #222831;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.3px;
   line-height: 1.25;
@@ -135,7 +147,7 @@ header {
   margin: 10px 0;
   font-family: "Inter", "Noto Sans TC", "PingFang TC", sans-serif;
   color: #2b2b2b;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.85;
   letter-spacing: 0.25px;
 }
@@ -197,17 +209,17 @@ button,input[type="color"]{ margin:4px; }
 .table-scroll table{ min-width:520px; }
 
 /* Task3 (Seating) */
-.task3{ margin-top:20px; }
+.task3{ margin-top:20px;}
 .task3 table{
-  width:70%; table-layout:fixed; background:var(--brand); border:2px solid #5e5454;
+  width:70%; table-layout:fixed; background:var(--brand); 
   border-collapse:collapse !important; border-spacing:0 !important;
-  font-family:"Poppins","Noto Sans TC",sans-serif;
+
 }
 .task3 th,.task3 td{
   border:1px solid #474444; padding:5px; text-align:center; word-wrap:break-word; font-size:15px;
 }
 .task3 th.ttl{ background:#f2f2f2; font-weight:800; font-size:18px; }
-.task3 th:hover{ background:#7e7e7e; color:#fff; cursor:pointer; transform:scale(1.04); transition:.2s ease; }
+.task3 th:hover{ background:#7e7e7e; color:#fff; cursor:pointer; transform:scale(1.02); transition:.2s ease; }
 
 /* ========== 6) Hobbies & Image Effects ========== */
 .hobby-list{
