@@ -377,7 +377,7 @@ button#toggle:hover{ background:#afc9e2; }
   font-size: 68px;
   font-weight: 900;
   color: #0f0f0f;
-  background: linear-gradient(90deg, #a53030, #032e42);
+  background: linear-gradient(90deg, #610202, #045377);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 2px;
