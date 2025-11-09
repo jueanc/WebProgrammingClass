@@ -34,7 +34,7 @@
   --table-bg:#fdfdf1; --table-border:#555; --table-th:#93a3a3;
 
   /* buttons */
-  --btn-bg:#f0f0ee; --btn-text:#0f0e0e; --btn-border:#000;
+  --btn-bg:#f0f0ee; --btn-text:#0f0e0e; --btn-border:#00000038;
   --btn-bg-hover:#e6e6e4; --btn-press-top:#a7a7a7; --btn-press-bot:#7c7c7c;
 
   /* radius & spacing */
@@ -169,7 +169,7 @@ button{
 button:hover{ transform:translateY(-1px); background:var(--btn-bg-hover); }
 button:active{
   background:linear-gradient(var(--btn-press-top),var(--btn-press-bot));
-  box-shadow:1px 1px 0 #000 inset; transform:translateY(1px);
+  
 }
 
 /* Music */
@@ -196,7 +196,7 @@ button,input[type="color"]{ margin:4px; }
 }
 .colorpick{
   display:inline-flex; align-items:center; gap:6px; padding:6px 4px;
-  border:.5px solid #615050; border-radius:5px; background:#ffffff00;
+  border:.5px solid var(--btn-border); border-radius:5px; background:#ffffff91;
 }
 .colorpick input[type="color"]{ width:36px; height:25px; padding:0; border:none; background:transparent; }
 
@@ -329,12 +329,9 @@ button,input[type="color"]{ margin:4px; }
 /* ========== 9) Gallery Canvas ========== */
 #myCanvas4{
   display:block; width:800px; height:500px;  margin: 20px auto;           /* 左右 auto → 水平置中 */
-  border-radius: 6px; 
+  border-radius: 8px; 
 }
-button#toggle{
-  margin:12px 0; padding:5px 14px; border:none; border-radius:6px; cursor:pointer;
-  background:#c5c5c3a6; color:#0f0e0e;  transition:background .15s ease;
-}
+
 button#toggle:hover{ background:#afc9e2; }
 
 /* Hover Overlay Effect (Soto) */
