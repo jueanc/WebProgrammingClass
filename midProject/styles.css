@@ -56,7 +56,7 @@ a:hover{ color:var(--link-hover); }
 strong{ color:#fff; background:darkred; padding:0 .25em; border-radius:3px; }
 em{ background:yellow; }
 mark{ color:#000; background:rgba(126,126,126,.589); }
-hr{ border:none; border-top:1px solid #e5e5e5; margin:18px 0; }
+hr{ border:none; border-top:1px solid #e5e5e5b0; margin:18px 0; }
 
 /* ========== 2) Layout ========== */
 header {
@@ -110,9 +110,35 @@ header {
 .right > section{ margin:24px 0; }
 
 /* ========== 3) Type ========== */
-.right h1{ margin:30px 0 8px; color:#1d1d1f; font-size:25px; line-height:1.25; }
-.right h2{ margin:26px 0 8px; color:#2f3640; font-size:18px; line-height:1.2; }
-.right p,.right li{ margin:10px 0; color:#333333da; font-size:16px; line-height:1.75; }
+.right h1 {
+  margin: 30px 0 8px;
+  font-family: "Poppins", "Inter", "Noto Sans TC", sans-serif;
+  color: #0f0f0f;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+.right h2 {
+  margin: 20px 0 8px;
+  font-family: "Poppins", "Inter", "Noto Sans TC", sans-serif;
+  color: #222831;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+}
+
+.right p,
+.right li {
+  margin: 10px 0;
+  font-family: "Inter", "Noto Sans TC", "PingFang TC", sans-serif;
+  color: #2b2b2b;
+  font-size: 17px;
+  line-height: 1.85;
+  letter-spacing: 0.25px;
+}
 
 /* ========== 4) Components ========== */
 .card{
@@ -158,7 +184,7 @@ button,input[type="color"]{ margin:4px; }
 }
 .colorpick{
   display:inline-flex; align-items:center; gap:6px; padding:6px 4px;
-  border:.5px solid #615050; border-radius:5px; background:#fff;
+  border:.5px solid #615050; border-radius:5px; background:#ffffff00;
 }
 .colorpick input[type="color"]{ width:36px; height:25px; padding:0; border:none; background:transparent; }
 
@@ -225,7 +251,7 @@ button,input[type="color"]{ margin:4px; }
 /* ========== 7) Polaroid ========== */
 .polaroid-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; margin:24px 0; }
 .polaroid{
-  width:min(90vw,320px); background:#fff; padding:16px 16px 36px;
+  width:min(90vw,320px); background:#ffffff; padding:16px 16px 36px;
   border:1px solid #f0eded; border-radius:6px;
   box-shadow:0 8px 24px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
   transform:rotate(-.6deg);
@@ -247,7 +273,7 @@ button,input[type="color"]{ margin:4px; }
 /* chips */
 .thumbs{ display:flex; gap:10px; justify-content:center; }
 .chip{
-  width:28px; height:22px; border:none; border-radius:6px; cursor:pointer;
+  width:28px; height:22px; border: none; border-radius:6px; cursor:pointer;
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);
   transition:transform .1s ease, box-shadow .2s ease, outline-color .2s ease;
   outline:2px solid transparent;
@@ -278,31 +304,20 @@ button,input[type="color"]{ margin:4px; }
 .journey-page .timeline-section li b{ color:var(--brand); font-weight:600; margin-right:6px; }
 .journey-page .timeline-section li:hover{ color:#000; transform:scale(1.02); transition:.2s ease; }
 
-.journey-page .card{ background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow); font-family:"Segoe UI",Arial,sans-serif; }
+.journey-page .card{ background:#ffffff85; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow); font-family:"Segoe UI",Arial,sans-serif; }
 .journey-page .card h2{ font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px; }
 .journey-page .list{ list-style:none; margin:0; padding:0; }
 .journey-page .list li{ padding:10px 0; line-height:1.6; width:fit-content; }
 .journey-page .list li:hover{ color:#000; transform:translateX(3px); transition:all .2s ease; }
 
-/* Notes: Resource */
-.resource-page{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
-  color:#1d1d1f;
+.Description-page .card{
+  background: #ffffff4f;  border-radius: 30px;
 }
-.resource-page .card{ background:#fff; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow); }
-.resource-page .card:hover{ box-shadow:0 4px 12px rgba(0,0,0,.08); }
-.resource-page h2{ font-size:24px; color:#637586; margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px; }
-.resource-page .links a{
-  display:block; width:fit-content; padding:6px 0; font-size:15px; font-weight:550; color:rgba(13,8,49,.651);
-  transition:color .15s ease;
-}
-.resource-page .links a:hover{ color:#461414; }
-.resource-page .links a:active{ color:#FFF8D4; }
 
 /* ========== 9) Gallery Canvas ========== */
 #myCanvas4{
-  display:block; width:800px; height:500px; border:1px solid #d3d3d3;  margin: 20px auto;           /* 左右 auto → 水平置中 */
-
+  display:block; width:800px; height:500px;  margin: 20px auto;           /* 左右 auto → 水平置中 */
+  border-radius: 6px; 
 }
 button#toggle{
   margin:12px 0; padding:5px 14px; border:none; border-radius:6px; cursor:pointer;
@@ -400,3 +415,18 @@ body[data-page="home"] .left{
   border: 1px solid rgba(0,0,0,0.06);
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
+
+body[data-page="Gallery"] {
+  background:
+  linear-gradient(180deg, #fdfcff 0%, #ffffff 100%);
+}
+body[data-page="Table"] {
+  background: linear-gradient(180deg, #fffaf2 0%, #fdf6ec 100%);
+}
+body[data-page="Highlight"] {
+  background: linear-gradient(180deg, #fffaf2 0%, #eee1e1 100%);
+}
+body[data-page="Description"] {
+  background: linear-gradient(180deg, #fffaf2 0%, #e9effd 100%);
+}
+
