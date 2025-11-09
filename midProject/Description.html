@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="no-profile">
   <!-- Navbar -->
   <header>
-    <h1 class="logo">&lt;J/&gt;</h1>
+    <h1 class="logo"><a href="Index.html" aria-label="Go Home">&lt;J/&gt;</a></h1>
     <nav aria-label="Primary">
       <ul class="theme">
         <li><a href="Index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
         <li><a href="Highlights.html">Highlights</a></li>
-        <li><a href="Resource.html">Resource</a></li>
         <li><a href="Table.html">Table</a></li>
         <li><a href="Gallery.html">Gallery</a></li>
         <li><a class="active" aria-current="page" href="Description.html">Description</a></li>
@@ -25,31 +25,7 @@
   </header>
 
   <div class="profile">
-    <!-- Sidebar / Profile（沿用你的左欄樣式與回首頁互動） -->
-    <aside class="left">
-      <img
-        id="meme"
-        src="../Photo/MemeManProfile.png"
-        alt="Portrait of Juan"
-        width="200" height="200"
-        usemap="#profilemap"
-      />
-      <map name="profilemap">
-        <area
-          id="faceArea"
-          shape="poly"
-          coords="10,187,24,181,49,169,59,150,62,134,56,118,48,116,43,108,41,94,40,78,34,58,45,33,58,16,74,6,88,4,103,9,117,8,128,11,140,21,156,45,159,68,153,84,151,97,149,113,143,118,140,136,132,146,132,154,137,168,169,182,196,199,0,198,0,192,-1,190"
-          href="#" alt="Back to Home" title="Back to Home"
-        />
-      </map>
 
-      <div class="name">Juan</div>
-      <p class="meta"><b>Mail</b>: <a href="mailto:jueanc@gmail.com">jueanc</a></p>
-      <p class="meta" id="MLB">
-        <b>Web</b>:
-        <a href="https://mlb.com" target="_blank" rel="noopener noreferrer">mlb.com</a>
-      </p>
-    </aside>
 
     <!-- Main -->
     <main class="right">
@@ -115,7 +91,5 @@
  
     </main>
   </div>
-
-  <script src="js/GoHome.js" defer></script>
 </body>
 </html>

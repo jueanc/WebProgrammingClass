@@ -6,24 +6,16 @@
   <title>Juan's Webpage · Home</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <!-- Background videos (fixed & behind the page) -->
-  <video id="fireex-bg" class="bgvid"
-         src="../Photo/FireEX.mp4"
-         muted playsinline loop preload="metadata" aria-hidden="true"></video>
-
-  <video id="darvish-bg" class="bgvid"
-         src="../Photo/Darvish.mp4"
-         muted playsinline loop preload="metadata" aria-hidden="true"></video>
-
+<body data-page="home" style="background-color:#d8e5ff70">
+  
   <!-- Header / Navbar -->
   <header>
-    <h1 class="logo">&lt;J/&gt;</h1>
+    <h1 class="logo"><a href="Index.html" aria-label="Go Home">&lt;J/&gt;</a></h1>
     <nav aria-label="Primary">
       <ul class="theme">
         <li><a class="active" aria-current="page" href="Index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
         <li><a href="Highlights.html">Highlights</a></li>
-        <li><a href="Resource.html">Resource</a></li>
         <li><a href="Table.html">Table</a></li>
         <li><a href="Gallery.html">Gallery</a></li>
         <li><a href="Description.html">Description</a></li>
@@ -65,88 +57,13 @@
       </p>
     </aside>
 
-    <main class="right">
-      <h1 id="intro">Personal Introduction</h1>
-      <p>
-        Hola, ¿cómo estás?<br />
-        This is my simple profile page created with basic HTML and a touch of CSS. <br />
-        I enjoy making things look clean, minimal, and functional.
-      </p>
-
-      <section aria-labelledby="about">
-        <h2 id="about">About Me</h2>
-        <p>
-          Hi, I'm a student at National Taipei University of Technology. <br />
-          I major in Computer Science and Information Engineering.<br />
-          I'm interested in web development, system design, and exploring how code can shape user experiences.
-        </p>
-      </section>
-
-      <section aria-labelledby="hobbies">
-        <h2 id="hobbies">My Hobbies</h2>
-        <ul class="hobby-list">
-          <li>
-            Baseball
-            <figure class="darvish-img">
-              <img class="main" src="../Photo/darvish1.png" alt="Yu Darvish" width="300" />
-              <img class="overlay" src="../Photo/darvish2.png" alt="Yu Darvish alternate" width="300" />
-              <figcaption> (favorite player: <mark>Darvish Yu</mark>)</figcaption>
-              <div class="hover-text">ダルビッシュ 有</div>
-            </figure>
-          </li>
-          <li>
-            Independent music
-            <figure class="FireEX-img">
-              <img
-                src="../Photo/FireEX1.jpg"
-                alt="Fire EX. band live photo"
-                width="300"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>Fire EX.</figcaption>
-            </figure>
-          </li>
-        </ul>
-      </section>
-
-      <hr />
-
-      <section id="music" aria-labelledby="music-title">
-        <h2 id="music-title">Favorite Songs</h2>
-        <ul>
-          <li>
-            <a href="https://www.youtube.com/watch?v=JIWuzZY_3uY" target="_blank" rel="noopener noreferrer">
-              滅火器 Fire EX. — 海上的人 (A Man on the Sea)
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=33rdx577PxY" target="_blank" rel="noopener noreferrer">
-              陳綺貞 Cheer Chen — 太聰明 (Too Smart)
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=7gCtkT1A1tA" target="_blank" rel="noopener noreferrer">
-              蛋堡 Soft Lipa — 關於小熊 (About the Little Bear)
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <hr />
-
-      <section aria-labelledby="quote">
-        <h2 id="quote">Quote</h2>
-        <blockquote cite="Fire EX. — 曾經瘋狂">
-          夢想不能只是想像。
-          <small>— Fire EX.《曾經瘋狂》</small>
-        </blockquote>
-      </section>
+    <main class="right hero">
+      <h1>Dream&nbsp;Space</h1>
+      <p>Personal website by Juan</p>
     </main>
 
+
     <script src="js/GoHome.js" defer></script>
-    <script src="js/bgVideo.js" defer></script>
-    
   </div>
 </body>
 </html>
