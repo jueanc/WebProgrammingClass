@@ -22,7 +22,7 @@
   --link:#000000; --link-hover:#1c6d70;
 
   /* sidebar */
-  --side-bg:#f3f3f373;
+  --side-bg:#f3f3f3;
 
   /* nav */
   --nav-text:#1111117e; --nav-active:#080808; --nav-underline:#080808af;
@@ -40,7 +40,6 @@
   /* radius & spacing */
   --r-sm:6px; --r-md:8px; --r-lg:10px;
   --space-1:6px; --space-2:10px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:28px;
-  
 }
 
 /* Base / Reset */
@@ -49,7 +48,6 @@ html,body{ margin:0; padding:0; }
 body{
   font-family:"Inter","Noto Sans TC","PingFang TC","Helvetica Neue","Segoe UI",sans-serif;
   font-size:16px; line-height:1.75; color:#222; background:var(--bg);
-
 }
 a{ color:var(--link); text-decoration:none; }
 a:hover{ color:var(--link-hover); }
@@ -66,13 +64,13 @@ header {
   display: flex;
   align-items: center;       /* ← 水平置中 */
   justify-content: center;
-  padding: 12px 0;
+  padding: 5px 0;
   background: #ffffff2c;
   width: fit-content;             /* 關鍵：剛好包住內容 */
   margin: 0 auto;                 /* 水平置中整個 header */
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.25); /* 半透明底色 */
-  backdrop-filter: blur(8px);           /* 模糊強度，可調 */
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.123); /* 半透明底色 */
+  backdrop-filter: blur(4px);           /* 模糊強度，可調 */
   -webkit-backdrop-filter: blur(10px);   /* for Safari */
 }
 
@@ -105,12 +103,11 @@ font-weight: 800;
 }
 /* Two-column profile layout */
 .profile{
-  display:flex; justify-content:flex-start; gap:60px; padding:20px; margin-top:12px;  justify-content: center;   /* ← 水平置中 */
-
+  display:flex; justify-content:flex-start; gap:60px; padding:20px; margin-top:12px;  justify-content: center;  
 }
 .left{
   width:240px; min-height:800px; padding:16px 12px; text-align:center;
-  border-radius:12px; background:var(--side-bg); border-right:1px solid transparent; overflow:hidden; overflow-wrap:anywhere;
+  border-radius:20px; background:var(--side-bg); border-right:1px solid transparent; overflow:hidden; overflow-wrap:anywhere;
 }
 .left img{
   display:block; width:auto; height:auto; margin:13px auto;
@@ -242,7 +239,7 @@ button,input[type="color"]{ margin:4px; }
 }
 .darvish-img .overlay{ position:absolute; inset:0; opacity:0; transform:scale(1.02); }
 .darvish-img:hover .overlay{ opacity:1; }
-.darvish-img:hover .main{ filter:grayscale(100%); transform:scale(1.02); }
+.darvish-img:hover .main{ filter:grayscale(100%); transform:scale(1.02); opacity:.5;}
 
 .darvish-img .hover-text{
   position:absolute; top:81%; left:70%; transform:translate(-50%,-50%);
@@ -258,7 +255,7 @@ button,input[type="color"]{ margin:4px; }
   display:block; width:100%; height:280px; border-radius:8px;
   transition:opacity .4s ease, filter .4s ease, transform .4s ease;
 }
-.FireEX-img:hover img{ filter:grayscale(100%); transform:scale(1.02); }
+.FireEX-img:hover img{ filter:grayscale(100%); transform:scale(1.02); opacity: .5;}
 
 /* ========== 7) Polaroid ========== */
 .polaroid-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; margin:24px 0; }
@@ -316,20 +313,20 @@ button,input[type="color"]{ margin:4px; }
 .journey-page .timeline-section li b{ color:var(--brand); font-weight:600; margin-right:6px; }
 .journey-page .timeline-section li:hover{ color:#000; transform:scale(1.02); transition:.2s ease; }
 
-.journey-page .card{ background:#ffffff85; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow); font-family:"Segoe UI",Arial,sans-serif; }
+.journey-page .card{ background:#ffffff52; border-radius:var(--r-lg); padding:28px 50px; margin:25px 0; box-shadow:var(--card-shadow); font-family:"Segoe UI",Arial,sans-serif; }
 .journey-page .card h2{ font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px; }
 .journey-page .list{ list-style:none; margin:0; padding:0; }
 .journey-page .list li{ padding:10px 0; line-height:1.6; width:fit-content; }
 .journey-page .list li:hover{ color:#000; transform:translateX(3px); transition:all .2s ease; }
 
 .Description-page .card{
-  background: #ffffff4f;  border-radius: 30px;
+  background: #ffffff1c;  border-radius: 30px;
 }
 
 /* ========== 9) Gallery Canvas ========== */
 #myCanvas4{
   display:block; width:800px; height:500px;  margin: 20px auto;           /* 左右 auto → 水平置中 */
-  border-radius: 8px; 
+  border-radius: 10px; 
 }
 
 button#toggle:hover{ background:#afc9e2; }
@@ -365,7 +362,7 @@ button#toggle:hover{ background:#afc9e2; }
   margin: 20px auto;           /* 左右 auto → 水平置中 */
   width: fit-content;          /* 內容多寡自動收寬 */
   font-size:15px; font-weight:600; text-align:center; padding:12px 18px;
-  color:#1d1d1f; background:rgba(240,240,240,.7); border:1px solid rgba(0,0,0,.05); border-radius:6px;
+  color:#1d1d1f; background:rgba(255, 255, 255, 0.171); border:1px solid rgba(0, 0, 0, 0.068); border-radius:6px;
   transition:transform .2s ease, box-shadow .2s ease;
 }
 
@@ -397,11 +394,18 @@ button#toggle:hover{ background:#afc9e2; }
 .hero h1 {
   font-size: 68px;
   font-weight: 900;
-  color: #0f0f0f;
-  background: linear-gradient(90deg, #610202, #045377);
+  background: linear-gradient(90deg, #610202, #037ab1, #610202);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 2px;
+  animation: waveColor 6s ease-in-out infinite;
+}
+
+@keyframes waveColor {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero p {
@@ -414,26 +418,24 @@ button#toggle:hover{ background:#afc9e2; }
 body[data-page="home"]{
   background:
     radial-gradient(1200px 600px at 70% 15%, #e6eefc88 0%, #ffffff00 60%),
-    linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+    linear-gradient(250deg, #fae4e4 0%, #eaeef8 100%);
 }
 
 body[data-page="home"] .left{
-
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.089);
+  backdrop-filter: blur(4px);
   border: 1px solid rgba(0,0,0,0.06);
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 body[data-page="Gallery"] {
-  background:
-  linear-gradient(180deg, #fdfcff 0%, #ffffff 100%);
+  background:linear-gradient(90deg, #ffffff 0%, #ece2fd 100%);
 }
 body[data-page="Table"] {
   background: linear-gradient(180deg, #fffaf2 0%, #fdf6ec 100%);
 }
 body[data-page="Highlight"] {
-  background: linear-gradient(180deg, #fffaf2 0%, #eee1e1 100%);
+  background: linear-gradient(270deg, #fffaf2 0%, #f8e6e6 100%);
 }
 body[data-page="Description"] {
   background: linear-gradient(180deg, #fffaf2 0%, #e9effd 100%);
