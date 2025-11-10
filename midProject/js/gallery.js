@@ -37,9 +37,9 @@
     const buildings=[
       {x:60,y:220,w:80,h:180},
       {x:180,y:200,w:80,h:200},
-      {x:300,y:180,w:80,h:220},
+      {x:290,y:160,w:80,h:240},
       {x:450,y:190,w:80,h:210},
-      {x:600,y:180,w:80,h:220}
+      {x:580,y:180,w:80,h:220}
     ];
     // 🌙 啟動時如果是夜晚(dayFactor=0)，預先洗一次亮燈 pattern
 if (dayFactor < 0.5) {
@@ -101,14 +101,14 @@ if (dayFactor < 0.5) {
       if (b._stamp !== shuffleStamp) {
         // 只有在夜晚才真的洗；白天切換不動
         if (animTo < animFrom) {
-          for (let i = 0; i < total; i++) b.pattern[i] = Math.random() < 0.4; // 40% 亮
+          for (let i = 0; i < total; i++) b.pattern[i] = Math.random() < 0.5; 
         }
         b._stamp = shuffleStamp;
       }
 
       // 顏色
       const winOff = mixColor('#5d6478', '#2a2f3a', t);
-      const nightIntensity = Math.pow(1 - t, 1.5); // 夜越深越亮
+      const nightIntensity = Math.pow(1 - t, 1.5); 
       const winOn  = mixColor('#3e3e3e', '#ffe9a8', nightIntensity);
 
       for (let r=0; r<rows; r++){
@@ -119,13 +119,11 @@ if (dayFactor < 0.5) {
           const wh = cellH - 6;
 
           const idx = r*cols + c;
-          // 只在夜晚顯示亮窗（t<0.9），而且按固定 pattern
           const on = (t < 0.9) && b.pattern[idx];
 
           ctx.fillStyle = on ? winOn : winOff;
           ctx.fillRect(wx, wy, ww, wh);
 
-          // 玻璃反光線
           ctx.globalAlpha = 0.25;
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(wx+1, wy+1, 2, wh-2);
@@ -136,14 +134,12 @@ if (dayFactor < 0.5) {
 
     // 地面（草地 + 馬路 + 虛線）
     function drawGround(t){
-      // 草地
       const grass = ctx.createLinearGradient(0, 400, 0, 500);
       grass.addColorStop(0, mixColor(GRASS_N, GRASS_D, t));
       grass.addColorStop(1, mixColor('#1d3a1d', '#5aa53e', t));
       ctx.fillStyle = grass;
       ctx.fillRect(0, 400, CSS_W, 100);
 
-      // 馬路
       const roadH = 42;
       const roadY = 400 + (100-roadH)/2;
       const road = ctx.createLinearGradient(0, roadY, 0, roadY+roadH);
@@ -152,7 +148,6 @@ if (dayFactor < 0.5) {
       ctx.fillStyle = road;
       ctx.fillRect(0, roadY, CSS_W, roadH);
 
-      // 虛線
       ctx.lineWidth = 4;
       ctx.setLineDash([18, 12]);
       ctx.strokeStyle = mixColor(LINE_N, LINE_D, t);
@@ -162,13 +157,70 @@ if (dayFactor < 0.5) {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // 路緣陰影
       const curb = ctx.createLinearGradient(0, roadY-6, 0, roadY);
       curb.addColorStop(0, 'rgba(0,0,0,0.18)');
       curb.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = curb;
       ctx.fillRect(0, roadY-6, CSS_W, 6);
     }
+      // ===== Mini House (tiny & harmonized) =====
+      function drawHouse(t){
+        const houseW = 32, houseH = 28;
+        const roofH  = 15;
+        const x = (CSS_W - houseW) / 2;
+        const baseY = 400;
+        const y = baseY - houseH;
+
+        // 同城市灰階色調
+        const bodyCol = mixColor('#37353E', '#7e7f91', t);
+        const roofCol = mixColor('#5c2525ff', '#b55656', t);
+        const strokeCol = 'rgba(0,0,0,0.25)';
+
+        // 主體
+        ctx.fillStyle = bodyCol;
+        ctx.fillRect(x, y, houseW, houseH);
+        ctx.strokeStyle = strokeCol;
+        ctx.lineWidth = 0.7;
+        ctx.strokeRect(x + 0.35, y + 0.35, houseW - 0.7, houseH - 0.7);
+
+        // 屋頂
+        const cx = x + houseW/2;
+        ctx.beginPath();
+        ctx.moveTo(x - 2, y);
+        ctx.lineTo(cx, y - roofH);
+        ctx.lineTo(x + houseW + 2, y);
+        ctx.closePath();
+        ctx.fillStyle = roofCol;
+        ctx.fill();
+
+        // 屋頂微高光
+        const roofGrad = ctx.createLinearGradient(x, y - roofH, x + houseW, y);
+        roofGrad.addColorStop(0, 'rgba(255,255,255,'+(0.04 + 0.05*t)+')');
+        roofGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = roofGrad;
+        ctx.fill();
+
+        // 單一窗戶（比例縮小版）
+        const night = 1 - t;
+        const winOff = mixColor('#5d6478', '#2a2f3a', t);
+        const winOn  = mixColor('#3e3e3e', '#ffe9a8', Math.pow(night, 1.3));
+        const winCol = (t < 0.95) ? winOn : winOff;
+
+        const winW = 8, winH = 9;
+        const winX = x + (houseW - winW)/2 + 3; // 略偏右
+        const winY = y + 8;
+
+        ctx.fillStyle = winCol;
+        ctx.fillRect(winX, winY, winW, winH);
+        ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+        ctx.lineWidth = 0.5;
+        ctx.strokeRect(winX + 0.25, winY + 0.25, winW - 0.5, winH - 0.5);
+
+        // 地面陰影
+        ctx.fillStyle = 'rgba(0,0,0,0.1)';
+        ctx.fillRect(x, baseY - 1, houseW, 2);
+      }
+
 
     function render(ts){
       if(animStart){
@@ -178,14 +230,12 @@ if (dayFactor < 0.5) {
         if(raw>=1)animStart=0;
       }
 
-      // Sky
       const skyTop=mixColor(SKY_TOP_N,SKY_TOP_D,dayFactor);
       const skyBot=mixColor(SKY_BOT_N,SKY_BOT_D,dayFactor);
       const sky=ctx.createLinearGradient(0,0,0,400);
       sky.addColorStop(0,skyTop); sky.addColorStop(1,skyBot);
       ctx.fillStyle=sky; ctx.fillRect(0,0,CSS_W,400);
 
-      // Sun / Moon glow
       const sunA=dayFactor, moonA=1-dayFactor;
       if(sunA>0){
         ctx.globalAlpha=sunA;
@@ -225,16 +275,10 @@ if (dayFactor < 0.5) {
       // Ground
       drawGround(dayFactor);
 
-      // 背景天際線（更高更窄）
-      const back = buildings.map(b => ({
-        x: b.x - 20, y: b.y - 40, w: b.w - 14, h: b.h + 30, pattern: b.pattern // 共享 pattern 結構避免重建
-      }));
-
-
-      // 前景建築
       buildings.forEach((b,i)=> drawBuilding(b, i, dayFactor));
 
-      // Title
+drawHouse(dayFactor);              
+
       ctx.shadowColor='rgba(0,0,0,0.4)';
       ctx.shadowBlur=6;
       ctx.fillStyle=mixColor('#ffffff','#1d1d1f',dayFactor);
@@ -253,12 +297,11 @@ if (dayFactor < 0.5) {
 btn?.addEventListener('click',()=>{
   const pressed = btn.getAttribute('aria-pressed') === 'true';
   animFrom = dayFactor;
-  animTo   = pressed ? 0 : 1;            // 0=夜, 1=日（依你原本的邏輯）
+  animTo   = pressed ? 0 : 1;       
   animStart = performance.now();
   btn.textContent = pressed ? '切換白天' : '切換黑夜';
   btn.setAttribute('aria-pressed', String(!pressed));
 
-  // ✅ 只有當「要變更暗」（目標是夜晚）才重洗
   if (animTo < animFrom) shuffleStamp++;
 });
 
