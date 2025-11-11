@@ -351,11 +351,11 @@ body[data-page="home"] .left {
   border:1px solid rgba(0,0,0,.06); box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
-body[data-page="Gallery"]    { background:linear-gradient(90deg,  #ffffff 0%, #ece2fd 100%); }
-body[data-page="Table"]      { background:linear-gradient(69deg,  #fffaf2 0%, #fad2d2af 100%); }
+body[data-page="Gallery"]    { background:linear-gradient(250deg, #e4e4f8 0%, #fbf2ff 100%); }
+body[data-page="Table"]      { background:linear-gradient(198deg,  #fffaf2 0%, #fff0f0 100%); }
 body[data-page="Highlight"]  { background:linear-gradient(270deg, #fffaf2 0%, #f8e6e6 100%); }
-body[data-page="Description"]{ background:linear-gradient(136deg, #e9effd 0%, #fffaf2 100%); }
-body[data-page="About"]      { background:linear-gradient(47deg,  #ffffff 0%, #fff6f6 100%); }
+body[data-page="Description"]{ background:linear-gradient(231deg, #d3ddf5 0%, #fdf6ea 100%); }
+body[data-page="About"]      { background:linear-gradient(250deg, #f8fae4 0%, #f8eaea 100%); }
 
 /* Page fade-in */
 .profile {
