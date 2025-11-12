@@ -361,7 +361,7 @@ body[data-page="home"] .left {
   border:1px solid rgba(0,0,0,.06); box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
-body[data-page="About"]      { background:linear-gradient(220deg, #ffe5e5 0%, #fcfbdf 100%); }
+body[data-page="About"]      { background:linear-gradient(220deg, #fce8e8 0%, #fcfbe7 100%); }
 body[data-page="Highlight"]  { background:linear-gradient(270deg, #fffaf2 0%, #f8e6e6 100%); }
 body[data-page="Table"]      { background:linear-gradient(198deg,  #ffdada 0%, #e8fcf6 100%);}
 body[data-page="Gallery"]    { background:linear-gradient(298deg, #d3d3fc 0%, #f7f2d2 100%); }
