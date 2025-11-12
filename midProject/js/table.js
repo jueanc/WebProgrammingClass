@@ -60,7 +60,6 @@
   document.getElementById('resetBtn').addEventListener('click', resetTable);
   editBtn.addEventListener('click', ()=> setEditable(editBtn.dataset.on!=='1'));
 
-  // 2–9 Multiplication
   const btn = document.getElementById("toggleTable");
   const container = document.getElementById("tableContainer");
   let shown = false;

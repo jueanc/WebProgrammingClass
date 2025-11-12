@@ -32,6 +32,7 @@ html, body { margin:0; padding:0; }
 body {
   font-family:"Inter","Noto Sans TC","PingFang TC","Helvetica Neue","Segoe UI",sans-serif;
   font-size:16px; line-height:1.75; color:#222; background:var(--bg);
+
 }
 a { color:var(--link); text-decoration:none; }
 a:hover { color:var(--link-hover); }
@@ -76,7 +77,7 @@ header {
   display:flex; gap:60px; padding:20px; margin-top:12px; justify-content:center;
 }
 .left {
-  width:240px; min-height:800px; padding:16px 12px; text-align:center;
+  width:240px; height:80vh; padding:16px 12px; text-align:center;
   border-radius:20px; background:var(--side-bg); border-right:1px solid transparent;
   overflow:hidden; overflow-wrap:anywhere;
 }
@@ -320,7 +321,6 @@ button#toggle:hover { background:#afc9e2; }
   .bgvid { opacity:0 !important; }
 }
 
-/* remove top margin of first block in .right only */
 .right > *:first-child { margin-top:0; }
 
 /* ========== Home (Index) Hero Section ========== */
@@ -341,25 +341,41 @@ button#toggle:hover { background:#afc9e2; }
 }
 .hero p { font-size:18px; color:var(--muted); letter-spacing:.8px; font-weight:500; }
 
-body[data-page="home"] {
-  background:
-    radial-gradient(1200px 600px at 70% 15%, #e6eefc88 0%, #ffffff00 60%),
-    linear-gradient(250deg, #fae4e4 0%, #eaeef8 100%);
+body[data-page]{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+
+body[data-page="home"]{
+  background-image:
+    radial-gradient(60vw 30vw at 70% 15%, #e6eefc88 0%, #ffffff00 60%),
+    linear-gradient(250deg, #fae4e4 0%, #eaeef8 100%);
+  background-repeat:no-repeat, no-repeat;
+  background-size:60vw 30vw, cover;     
+  background-position:70% 15%, center;
+}
+
 body[data-page="home"] .left {
   background:rgba(255,255,255,.089); backdrop-filter:blur(4px);
   border:1px solid rgba(0,0,0,.06); box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
 body[data-page="Gallery"]    { background:linear-gradient(250deg, #e4e4f8 0%, #fbf2ff 100%); }
-body[data-page="Table"]      { background:linear-gradient(198deg,  #fffaf2 0%, #fff0f0 100%); }
+body[data-page="Table"]      { background:linear-gradient(198deg,  #fffaf2 0%, #fff0f0 100%);}
 body[data-page="Highlight"]  { background:linear-gradient(270deg, #fffaf2 0%, #f8e6e6 100%); }
 body[data-page="Description"]{ background:linear-gradient(231deg, #d3ddf5 0%, #fdf6ea 100%); }
 body[data-page="About"]      { background:linear-gradient(250deg, #f8fae4 0%, #f8eaea 100%); }
 
-/* Page fade-in */
 .profile {
   filter:blur(10px); opacity:0; transform:scale(.985);
   transition:filter .45s ease, opacity .45s ease, transform .45s ease;
 }
 .profile.is-visible { filter:blur(0); opacity:1; transform:none; }
+
+body[data-page]{
+  min-height:100dvh;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}

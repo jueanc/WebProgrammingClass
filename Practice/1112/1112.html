@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canvas Minimal Clock</title>
+  <style>
+    html,body{height:100%;margin:0;display:grid;place-items:center;background:#111;color:#eee;font-family:system-ui,sans-serif}
+    canvas{width:min(80vmin,600px);aspect-ratio:1/1;display:block}
+  </style>
+</head>
+<body>
+  <canvas id="clock" width="800" height="800"></canvas>
+
+  <script>
+  (function(){
+    const cvs=document.getElementById('clock');
+    const ctx=cvs.getContext('2d');
+    const DPR=window.devicePixelRatio||1;
+    cvs.width*=DPR; cvs.height*=DPR; ctx.scale(DPR,DPR);
+
+    const W=cvs.width/DPR,H=cvs.height/DPR,R=W/2;
+    const C={x:W/2,y:H/2};
+
+    const SECOND_RPS=1; // 作業需求：1秒轉一圈
+
+    function drawFace(){
+      const g=ctx.createRadialGradient(C.x,C.y,R*0.05,C.x,C.y,R*0.9);
+      g.addColorStop(0,'#2a2a2a'); g.addColorStop(1,'#0a0a0a');
+      ctx.fillStyle=g;
+      ctx.beginPath(); ctx.arc(C.x,C.y,R*0.9,0,Math.PI*2); ctx.fill();
+      ctx.lineWidth=3; ctx.strokeStyle='#555'; ctx.stroke();
+    }
+
+    function drawTicks(){
+      ctx.save(); ctx.translate(C.x,C.y);
+      for(let i=0;i<60;i++){
+        const a=i*Math.PI/30;
+        const is5=i%5===0;
+        const r1=R*0.8; const r2=is5?R*0.72:R*0.76;
+        ctx.beginPath();
+        ctx.moveTo(r1*Math.cos(a),r1*Math.sin(a));
+        ctx.lineTo(r2*Math.cos(a),r2*Math.sin(a));
+        ctx.lineWidth=is5?3:1;
+        ctx.strokeStyle='#aaa'; ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawRoman(){
+      const ROMAN=['12','1','2','3','4','5','6','7','8','9','10','11'];
+      ctx.save(); ctx.translate(C.x,C.y);
+      ctx.fillStyle='#ddd'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.font=`bold ${R*0.1}px serif`;
+      for(let i=0;i<12;i++){
+        const a=i*Math.PI/6 - Math.PI/2;
+        const r=R*0.62;
+        ctx.fillText(ROMAN[i],r*Math.cos(a),r*Math.sin(a));
+      }
+      ctx.restore();
+    }
+
+    function hand(angle,len,width,color){
+      ctx.save(); ctx.translate(C.x,C.y); ctx.rotate(angle);
+      ctx.beginPath();
+      ctx.moveTo(0,0);
+      ctx.lineTo(len,0);
+      ctx.lineWidth=width;
+      ctx.lineCap='round';
+      ctx.strokeStyle=color;
+      ctx.stroke(); ctx.restore();
+    }
+
+    function centerCap(){
+      ctx.beginPath(); ctx.arc(C.x,C.y,R*0.02,0,Math.PI*2);
+      ctx.fillStyle='#eee'; ctx.fill();
+    }
+
+    function drawTimeText(time){
+      ctx.save();
+      ctx.fillStyle='#ccc'; ctx.font=`bold ${R*0.12}px monospace`;
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(time,C.x,C.y+R*0.35);
+      ctx.restore();
+    }
+
+    function formatTime(d){
+      const h=String(d.getHours()).padStart(2,'0');
+      const m=String(d.getMinutes()).padStart(2,'0');
+      const s=String(d.getSeconds()).padStart(2,'0');
+      return `${h}:${m}:${s}`;
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      drawFace(); drawTicks(); drawRoman();
+      const now=new Date(); const t=formatTime(now);
+
+      const ms=performance.now();
+      const sAng=ms/1000*SECOND_RPS*Math.PI*2 - Math.PI/2;
+      const mAng=(now.getMinutes()+now.getSeconds()/60)*Math.PI/30 - Math.PI/2;
+      const hAng=((now.getHours()%12)+now.getMinutes()/60)*Math.PI/6 - Math.PI/2;
+
+      hand(hAng,R*0.45,6,'#fff');
+      hand(mAng,R*0.65,4,'#fff');
+      hand(sAng,R*0.75,2,'#f55');
+      centerCap();
+      drawTimeText(t);
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+</body>
+</html>

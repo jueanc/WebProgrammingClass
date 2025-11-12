@@ -1,4 +1,3 @@
-// js/GoHome.js
 document.addEventListener('DOMContentLoaded', () => {
   const meme = document.getElementById('meme');
   const faceArea = document.getElementById('faceArea');
@@ -18,8 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
       await new Promise(r => setTimeout(r, 320));
     } finally {
       meme.src = NORMAL;
-      // 判斷：如果 body 有 data-page="home" → 去 About
-      // 否則回首頁
       const target = document.body.dataset.page === 'home'
         ? 'About.html'
         : 'Index.html';

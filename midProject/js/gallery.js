@@ -163,7 +163,6 @@ if (dayFactor < 0.5) {
       ctx.fillStyle = curb;
       ctx.fillRect(0, roadY-6, CSS_W, 6);
     }
-      // ===== Mini House (tiny & harmonized) =====
       function drawHouse(t){
         const houseW = 32, houseH = 28;
         const roofH  = 15;
@@ -171,19 +170,16 @@ if (dayFactor < 0.5) {
         const baseY = 400;
         const y = baseY - houseH;
 
-        // 同城市灰階色調
         const bodyCol = mixColor('#37353E', '#7e7f91', t);
         const roofCol = mixColor('#5c2525ff', '#b55656', t);
         const strokeCol = 'rgba(0,0,0,0.25)';
 
-        // 主體
         ctx.fillStyle = bodyCol;
         ctx.fillRect(x, y, houseW, houseH);
         ctx.strokeStyle = strokeCol;
         ctx.lineWidth = 0.7;
         ctx.strokeRect(x + 0.35, y + 0.35, houseW - 0.7, houseH - 0.7);
 
-        // 屋頂
         const cx = x + houseW/2;
         ctx.beginPath();
         ctx.moveTo(x - 2, y);
@@ -193,21 +189,19 @@ if (dayFactor < 0.5) {
         ctx.fillStyle = roofCol;
         ctx.fill();
 
-        // 屋頂微高光
         const roofGrad = ctx.createLinearGradient(x, y - roofH, x + houseW, y);
         roofGrad.addColorStop(0, 'rgba(255,255,255,'+(0.04 + 0.05*t)+')');
         roofGrad.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = roofGrad;
         ctx.fill();
 
-        // 單一窗戶（比例縮小版）
         const night = 1 - t;
         const winOff = mixColor('#5d6478', '#2a2f3a', t);
         const winOn  = mixColor('#3e3e3e', '#ffe9a8', Math.pow(night, 1.3));
         const winCol = (t < 0.95) ? winOn : winOff;
 
         const winW = 8, winH = 9;
-        const winX = x + (houseW - winW)/2 + 3; // 略偏右
+        const winX = x + (houseW - winW)/2 + 3; // 偏右
         const winY = y + 8;
 
         ctx.fillStyle = winCol;
@@ -265,14 +259,12 @@ if (dayFactor < 0.5) {
         ctx.globalAlpha=1;
       }
 
-      // Clouds (white-day only)
       if(dayFactor>0){
         ctx.globalAlpha=dayFactor;
         for(const c of clouds){ c.x+=c.v; if(c.x>CSS_W+40)c.x=-40; drawCloud(c.x,c.y,c.s*1.2); }
         ctx.globalAlpha=1;
       }
 
-      // Ground
       drawGround(dayFactor);
 
       buildings.forEach((b,i)=> drawBuilding(b, i, dayFactor));
@@ -307,7 +299,6 @@ btn?.addEventListener('click',()=>{
 
   }
 
-  // ===== Polaroid =====
   const wrap=document.querySelector('.polaroid-wrap');
   if(wrap){
     const imgs=[
