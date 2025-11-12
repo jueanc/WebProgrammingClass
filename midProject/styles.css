@@ -255,7 +255,7 @@ button, input[type="color"] { margin:4px; }
 .journey-page .timeline-section li:hover { color:#000; transform:scale(1.02); transition:.2s ease; }
 
 .journey-page .card {
-  background:#ffffff10; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
+  background:#ffffff42; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
 }
 .journey-page .card h2 {
   font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
@@ -265,7 +265,7 @@ button, input[type="color"] { margin:4px; }
 .journey-page .list li:hover { color:#000; transform:translateX(3px); transition:all .2s ease; }
 
 .Description-page .card {
-  background:#ffffff10; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
+  background:#ffffff42; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
 }
 
 /* ========== 9) Gallery Canvas ========== */
