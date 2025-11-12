@@ -255,7 +255,7 @@ button, input[type="color"] { margin:4px; }
 .journey-page .timeline-section li:hover { color:#000; transform:scale(1.02); transition:.2s ease; }
 
 .journey-page .card {
-  background:#ffffff52; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
+  background:#ffffff10; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
 }
 .journey-page .card h2 {
   font-size:24px; color:var(--brand); margin-bottom:15px; border-bottom:1px solid #e2e2e2; padding-bottom:5px;
@@ -265,7 +265,7 @@ button, input[type="color"] { margin:4px; }
 .journey-page .list li:hover { color:#000; transform:translateX(3px); transition:all .2s ease; }
 
 .Description-page .card {
-  background:#ffffff1c; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
+  background:#ffffff10; font-family:"Segoe UI", Arial, sans-serif; margin:25px 0;
 }
 
 /* ========== 9) Gallery Canvas ========== */
@@ -350,7 +350,7 @@ body[data-page]{
 body[data-page="home"]{
   background-image:
     radial-gradient(60vw 30vw at 70% 15%, #e6eefc88 0%, #ffffff00 60%),
-    linear-gradient(250deg, #fae4e4 0%, #eaeef8 100%);
+    linear-gradient(150deg, #fcd7d7 0%, #d6e0fa 100%);
   background-repeat:no-repeat, no-repeat;
   background-size:60vw 30vw, cover;     
   background-position:70% 15%, center;
@@ -361,11 +361,11 @@ body[data-page="home"] .left {
   border:1px solid rgba(0,0,0,.06); box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
-body[data-page="About"]      { background:linear-gradient(250deg, #f8fae4 0%, #f8eaea 100%); }
+body[data-page="About"]      { background:linear-gradient(220deg, #ffe5e5 0%, #fcfbdf 100%); }
 body[data-page="Highlight"]  { background:linear-gradient(270deg, #fffaf2 0%, #f8e6e6 100%); }
-body[data-page="Table"]      { background:linear-gradient(198deg,  #f8f1e6 0%, #f4f8f7 100%);}
-body[data-page="Gallery"]    { background:linear-gradient(298deg, #eeeefd 0%, #fdfae9 100%); }
-body[data-page="Description"]{ background:linear-gradient(258deg, #eaf0fd 0%, #fdf6ea 100%); }
+body[data-page="Table"]      { background:linear-gradient(198deg,  #ffdada 0%, #e8fcf6 100%);}
+body[data-page="Gallery"]    { background:linear-gradient(298deg, #d3d3fc 0%, #f7f2d2 100%); }
+body[data-page="Description"]{ background:linear-gradient(245deg,#fcdddd 0%, #dfe7fa 100%); }
 
 .profile {
   filter:blur(10px); opacity:0; transform:scale(.985);
