@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>L Shape Demo</title>
+  <style>
+    body {
+      background:#eee;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    canvas {
+      background:white;
+      display:block;
+      margin-top:20px;
+      border:1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>TASK – L shape</h1>
+<!-- 第一個：靜態 L -->
+<canvas id="a" width="350" height="210"></canvas>
+
+<script>
+  const canvasA = document.getElementById('a');
+  const ctxA = canvasA.getContext('2d');
+
+  function drawL_A(ctx, x, y, unit, color = 'red') {
+    ctx.save();
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, unit, 4 * unit);
+    ctx.fillRect(x, y + 3 * unit, 2 * unit, unit);
+    ctx.restore();
+  }
+
+  const unitA = 20; // 依照縮小比例可改小
+  drawL_A(ctxA, 120, 30, unitA, 'red');
+</script>
+
+
+<h1>TASK – L shape (animation)</h1>
+
+<!-- 第二個：會動的 L -->
+<canvas id="b" width="350" height="210"></canvas>
+
+<script>
+  const canvasB = document.getElementById('b');
+  const ctxB = canvasB.getContext('2d');
+
+  function drawL_B(ctx, x, y, unit, color = 'red') {
+    ctx.save();
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, unit, 4 * unit);
+    ctx.fillRect(x, y + 3 * unit, 2 * unit, unit);
+    ctx.restore();
+  }
+
+  const unitB = 20;
+
+  const L = {
+    x: 20,
+    y: 40,
+    speedX: 1,
+    update() {
+      drawL_B(ctxB, this.x, this.y, unitB, 'red');
+    }
+  };
+
+  function clearB() {
+    ctxB.clearRect(0, 0, canvasB.width, canvasB.height);
+  }
+
+  function updateGameAreaB() {
+    clearB();
+    L.x += L.speedX;
+
+    if (L.x > canvasB.width) {
+      L.x = -2 * unitB;
+    }
+
+    L.update();
+  }
+
+  setInterval(updateGameAreaB, 20);
+</script>
+
+
+<h1>TASK – L shape (down & right)</h1>
+
+<canvas id="c" width="350" height="210"></canvas>
+
+<script>
+  const canvasC = document.getElementById('c');
+  const ctxC = canvasC.getContext('2d');
+
+  const unitC = 20;
+
+  function drawL_C(ctx, x, y) {
+    ctx.save();
+    ctx.fillStyle = 'red';
+    ctx.fillRect(x, y, unitC, 4 * unitC);
+    ctx.fillRect(x, y + 3 * unitC, 2 * unitC, unitC);
+    ctx.restore();
+  }
+
+  // 往下掉的 L
+  const L2 = {
+    x: 140,
+    y: -4 * unitC,
+    speedY: 1.2,
+    update() {
+      drawL_C(ctxC, this.x, this.y);
+    }
+  };
+
+  // 往右跑的方塊
+  const square2 = {
+    x: 0,
+    y: 80,
+    size: unitC,
+    speedX: 2,
+    update() {
+      ctxC.fillStyle = 'red';
+      ctxC.fillRect(this.x, this.y, this.size, this.size);
+    }
+  };
+
+  function clearC() {
+    ctxC.clearRect(0, 0, canvasC.width, canvasC.height);
+  }
+
+  function updateGameAreaC() {
+    clearC();
+
+    // L 往下
+    L2.y += L2.speedY;
+    if (L2.y > canvasC.height) {
+      L2.y = -4 * unitC;
+    }
+
+    // 方塊往右
+    square2.x += square2.speedX;
+    if (square2.x > canvasC.width) {
+      square2.x = -square2.size;
+    }
+
+    L2.update();
+    square2.update();
+  }
+
+  setInterval(updateGameAreaC, 25);
+</script>
+
+<h1>TASK – L shape (interactive)</h1>
+
+<canvas id="d" width="350" height="210" style="background:#eee;"></canvas>
+
+<br>
+Change the SMALL SQUARE color:
+<br>
+<button onclick="square.color='red'; drawAll()">Red</button>
+<button onclick="square.color='blue'; drawAll()">Blue</button>
+<button onclick="square.color='green'; drawAll()">Green</button>
+<button onclick="square.color='yellow'; drawAll()">Yellow</button>
+
+<hr>
+
+Move the L shape:
+<br>
+<button onclick="moveL(0, -10)">UP</button><br><br>
+<button onclick="moveL(-10, 0)">LEFT</button>
+<button onclick="moveL(10, 0)">RIGHT</button><br><br>
+<button onclick="moveL(0, 10)">DOWN</button>
+
+<script>
+  const canvasD = document.getElementById('d');
+  const ctxD = canvasD.getContext('2d');
+
+  const unitD = 30;
+
+  // 小方塊
+  const square = {
+    x: 20,
+    y: 80,
+    size: 20,
+    color: "yellow"
+  };
+
+  // L shape
+  const L4 = {
+    x: 200,
+    y: 30,
+    color: "blue"
+  };
+
+  function drawSquare() {
+    ctxD.fillStyle = square.color;
+    ctxD.fillRect(square.x, square.y, square.size, square.size);
+  }
+
+  function drawL() {
+    ctxD.fillStyle = L4.color;
+    ctxD.fillRect(L4.x, L4.y, unitD, 4 * unitD);         // 直
+    ctxD.fillRect(L4.x, L4.y + 3 * unitD, 2 * unitD, unitD); // 橫
+  }
+
+  function moveL(dx, dy) {
+    L4.x += dx;
+    L4.y += dy;
+    drawAll();
+  }
+
+  function drawAll() {
+    ctxD.clearRect(0, 0, canvasD.width, canvasD.height);
+    drawSquare();
+    drawL();
+  }
+
+  drawAll();
+</script>
+
+
+</body>
+</html>

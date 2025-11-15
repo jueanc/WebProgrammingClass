@@ -24,78 +24,86 @@
   <div class="profile">
     <main class="right Description-page">
       <section class="card">
-        <h1>Website Overview 介紹</h2>
+        <h1>Website Overview 網站結構介紹</h1>
         <ul class="list">
-          <li><b>Home (Index.html)</b> — 個人首頁、雙欄版面、左側圖像可跳轉至Index.html</li>
-          <li><b>About.html</b> — 介紹學校、興趣與音樂，(FireEX. / Darvish)圖片鼠標移至上方會有背景影片</li>
-          <li><b>Highlights.html</b> — 時間軸、技能與成就展示，鼠標移至Negogiyup會有背景影片</li>
-          <li><b>Table.html</b> — 可自訂樣式表格、九九乘法表與座位表</li>
-          <li><b>Gallery.html</b> — Canvas 城市日夜切換、Polaroid 切換器、Soto Hover 特效</li>
-          <li><b>Description.html</b> — 專案說明與實作過程</li>
-        </ul>
-        <hr>
-        <h1>How to Use & Features 操作說明</h1>
-        <ul class="list">
-          <li><b>導覽列 Navigation Bar</b> — 點選上方各頁名稱可在 Home / About / Highlights / Table / Gallery / Description 間切換，當前頁面會有底線與加粗標記。</li>
-          <li><b>頭像 Image Map</b> — Home 頁面中，將滑鼠移到頭像臉部區域並點擊，可快速前往About.html（關於）。</li>
-          <li><b>背景影片互動</b> — About 頁將滑鼠移到 Darvish / Fire EX. 圖片上，會啟用對應背景影片；Highlights 頁將滑鼠移到「Negogiyup」連結上，會出現 Rickroll 背景影片。</li>
-          <li><b>表格控制 Table Styler</b> — Table 頁可以透過按鈕調整表格寬度、邊框與間距、底色，並使用「Averages」計算各科平均，「Reset」恢復原始樣式。</li>
-          <li><b>九九乘法表 Multiplication Table</b> — 點擊「Show Multiplication Table」按鈕產生乘法表，再次點擊可收合。</li>
-          <li><b>座位表 Seating Chart</b> — 下方座位表支援滑鼠 hover，部分座位有不同底色標示講桌、走道或特別座位。</li>
-          <li><b>Canvas 日夜切換</b> — Gallery 頁面按下「切換白天」按鈕，可在白天與夜晚的城市場景之間切換，包含天空顏色、星空與建築燈光變化。</li>
-          <li><b>Polaroid 圖片切換</b> — 使用「Prev / Next」按鈕或下方彩色小方塊切換照片，下方會同步更新圖片標題與「Record x / 6」計數。</li>
-          <li><b>Soto Hover 特效</b> — 將滑鼠移到 Soto 圖片上，會切換成生氣版本並顯示「I said DON'T TOUCH ME」文字。</li>
-          <li><b>頁面淡入效果</b> — 進入各頁時，主內容區會有淡入動畫，讓不同頁面切換更平滑。</li>
-        </ul>
-        <hr>
-        <h1>Lab Mapping</h2>
-        <ul class="list">
-          <li><b>Lab 2</b> — 多頁導覽、一致主題、雙欄排版</li>
-          <li><b>Lab 3</b> — Image Map（Home頁頭像）、Hover Overlay（Soto 圖）</li>
-          <li><b>Lab 4</b> — Table Styler（寬度、邊距、色彩、平均值、Reset）+ 九九乘法表</li>
-          <li><b>Bonus</b> — Canvas 畫布創作（日夜變化、星空與建築）</li>
+          <li><b>Home (Index.html)</b> — 個人首頁，為雙欄版面：左側為個人簡介與頭像（點擊頭像可前往 About.html），右側為主內容。</li>
+          <li><b>About.html</b> — 介紹學校、興趣與音樂。將滑鼠移到 Fire EX. / Darvish 圖片上時，會播放對應的背景影片。</li>
+          <li><b>Highlights.html</b> — 以時間軸呈現重要事件，搭配技能與成就展示。滑鼠移到「Negogiyup」文字時，會觸發 Rickroll 背景影片。</li>
+          <li><b>Table.html</b> — 包含可自訂樣式的成績表格、九九乘法表與座位表，並搭配互動按鈕操作。</li>
+          <li><b>Gallery.html</b> — 包含 Canvas 城市日夜切換動畫、Polaroid 照片切換器與 Soto 圖片 Hover 特效。</li>
+          <li><b>Description.html</b> — 專門用來說明本網站的整體架構、功能對應的 Lab，以及實作過程。</li>
         </ul>
 
         <hr>
-        <h1>JavaScript Files</h2>
+
+        <h1>How to Use & Features 操作說明與功能</h1>
         <ul class="list">
-          <li><code>js/GoHome.js</code> — 點擊頭像跳轉至About，並且在點擊時頭像會有小彩蛋</li>
-          <li><code>js/bgVideo.js</code> — About 背景影片播放控制</li>
-          <li><code>js/rickroll.js</code> — Highlights 背景影片 hover 播放</li>
-          <li><code>js/table.js</code> — 表格控制、平均值、九九乘法表</li>
-          <li><code>js/gallery.js</code> — Canvas 日夜動畫、Polaroid 圖片切換</li>
+          <li><b>導覽列 Navigation Bar</b> — 點選上方各頁名稱，可在 Home / About / Highlights / Table / Gallery / Description 之間切換，目前所在頁面會加粗並有底線標示。</li>
+          <li><b>頭像 Image Map</b> — Home 頁面中，將滑鼠移到頭像臉部區域並點擊，可快速前往 About.html（關於頁）。</li>
+          <li><b>背景影片互動</b> — 在 About 頁，將滑鼠移到 Darvish / Fire EX. 圖片上會啟用對應背景影片；在 Highlights 頁，將滑鼠移到「Negogiyup」連結上會出現 Rickroll 背景影片。</li>
+          <li><b>表格控制 Table Styler</b> — Table 頁可以透過按鈕調整表格寬度、邊框與間距、底色等樣式，並使用「Averages」計算各科平均成績，「Reset」可恢復原始樣式。</li>
+          <li><b>九九乘法表 Multiplication Table</b> — 點擊「Show Multiplication Table」按鈕會產生 1–9 的九九乘法表，再次點擊可收合隱藏。</li>
+          <li><b>座位表 Seating Chart</b> — 下方座位表在滑鼠移上去時會改變底色，用以標示不同座位區域與位置，方便辨識。</li>
+          <li><b>Canvas 日夜切換</b> — 在 Gallery 頁面按下「切換白天」按鈕，可在白天與夜晚的城市場景之間切換，包含天空顏色、星空與建築燈光的變化。</li>
+          <li><b>Polaroid 圖片切換</b> — 使用「Prev / Next」按鈕或下方彩色小方塊可以切換不同照片，下方文字會同步更新圖片標題與「Record x / 6」計數。</li>
+          <li><b>Soto Hover 特效</b> — 將滑鼠移到 Soto 圖片上，會切換成生氣版本並顯示「I said DON'T TOUCH ME」提示文字。</li>
+          <li><b>頁面淡入效果</b> — 進入各頁時，主內容區會有淡入動畫，讓頁面切換過程更平滑、不突兀。</li>
         </ul>
 
         <hr>
-        <h1>Requirement Checklist</h2>
+
+        <h1>Lab Mapping（與課堂 Lab 的對應）</h1>
         <ul class="list">
-          <li>5 頁以上、多頁導覽一致</li>
-          <li>至少一頁2 欄版面（Home頁左側個人資訊＋右側主內容）</li>
-          <li>Image Map（頭像）、Hover Overlay（Soto 圖）</li>
-          <li>外部 JS 檔案結構化載入</li>
-          <li>表格互動、九九乘法表、Canvas（Bonus）</li>
+          <li><b>Lab 2</b> — 多頁導覽列、一致的主題風格、Home 雙欄排版（側邊個人資訊＋主內容）。</li>
+          <li><b>Lab 3</b> — Image Map（Home 頁頭像可點擊）、Hover Overlay（Gallery 頁 Soto 圖片 Hover 效果）。</li>
+          <li><b>Lab 4</b> — Table Styler（可調整寬度、邊距、色彩、計算平均值、Reset 功能）＋ 九九乘法表的動態產生。</li>
+          <li><b>Bonus</b> — Canvas 畫布創作：城市日夜變化、星空與建築燈光效果。</li>
         </ul>
 
         <hr>
-        <h1>Notes</h2>
+
+        <h1>JavaScript Files（外部 JS 檔案功能）</h1>
         <ul class="list">
-          <li>圖片路徑：<code>../Photo/</code></li>
-          <li>部署於 GitHub Pages</li>
-          <li>首頁檔名固定為 <code>Index.html</code></li>
+          <li><code>js/GoHome.js</code> — 負責 Home 頁頭像的點擊事件：點擊後跳轉至 About 頁，並在點擊時顯示小彩蛋效果。</li>
+          <li><code>js/bgVideo.js</code> — 控制 About 頁背景影片的播放與暫停，依照滑鼠是否在圖片上決定是否播放。</li>
+          <li><code>js/rickroll.js</code> — 控制 Highlights 頁「Negogiyup」區塊的 hover 事件，觸發 Rickroll 背景影片。</li>
+          <li><code>js/table.js</code> — 負責 Table 頁的表格樣式調整、平均值計算，以及九九乘法表的動態產生與顯示／隱藏。</li>
+          <li><code>js/gallery.js</code> — 控制 Gallery 頁的 Canvas 日夜動畫切換，以及 Polaroid 圖片切換與計數顯示。</li>
         </ul>
 
         <hr>
-        <h1>實作過程</h2>
+
+        <h1>Requirement Checklist（作業需求對照）</h1>
         <ul class="list">
-          <li>從舊的個人網頁修改，保留整體結構但重新設計風格</li>
-          <li>調整顏色與字體，使主題更簡潔有一致性</li>
-          <li>整合課堂作業成果（Canvas、Polaroid、Table）</li>
-          <li>原先寫在各頁內的 JS 改為獨立外部檔案以便維護</li>
-          <li>新增 Description.html 用於專案總結與展示</li>
+          <li>至少 5 頁以上之多頁網站，並透過導覽列在各頁之間切換。</li>
+          <li>至少一頁為 2 欄版面設計（Home 頁：左側個人資訊＋右側主內容）。</li>
+          <li>至少一個 Image Map（Home 頁頭像）與一個 Hover Overlay 效果（Gallery 頁 Soto 圖）。</li>
+          <li>JavaScript 以外部檔案形式載入，依功能拆分不同檔案管理。</li>
+          <li>包含互動式表格功能、九九乘法表，以及額外的 Canvas 畫布加分項目。</li>
+        </ul>
+
+        <hr>
+
+        <h1>Notes 補充說明</h1>
+        <ul class="list">
+          <li>圖片路徑統一放在資料夾：<code>../Photo/</code></li>
+          <li>整個網站部署於 GitHub Pages 供瀏覽使用。</li>
+        </ul>
+
+        <hr>
+
+        <h1>實作過程 Process</h1>
+        <ul class="list">
+          <li>以舊版個人網頁為基礎，保留原本結構，再重新設計整體風格與版面。</li>
+          <li>調整配色與字體，讓畫面更乾淨並維持主題一致性（側欄風格、背景影片、圖片濾鏡等）。</li>
+          <li>將課堂作業成果（Canvas 城市、Polaroid 切換、Table Styler 等）整合進同一個主題網站中。</li>
+          <li>原本分散在各頁的 JavaScript 整理為獨立外部檔案，方便維護與閱讀。</li>
+          <li>新增 Description.html 作為「說明書」，讓老師與同學可以快速了解整個網站的結構與實作重點。</li>
         </ul>
       </section>
     </main>
   </div>
-<script src="js/fadeIn.js" defer></script>
+
+  <script src="js/fadeIn.js" defer></script>
 </body>
 </html>
